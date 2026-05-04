@@ -1,707 +1,308 @@
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(185, 28, 28, 0.16), transparent 32%),
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 28%),
-    #070b10;
-  color: #f2f2f2;
-  overflow-x: hidden;
-}
-
-/* Loader */
-
-.page-loader {
-  position: fixed;
-  inset: 0;
-  background: #070b10;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  transition: opacity 0.7s ease, visibility 0.7s ease;
-}
-
-body.loaded .page-loader {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loader-mark {
-  border: 1px solid #b91c1c;
-  color: #ffffff;
-  padding: 18px 20px;
-  letter-spacing: 4px;
-  font-weight: bold;
-  animation: pulseMark 1.2s ease infinite alternate;
-}
-
-@keyframes pulseMark {
-  from {
-    opacity: 0.45;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Hero */
-
-.hero {
-  position: relative;
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(7, 11, 16, 0.62), rgba(7, 11, 16, 0.94)),
-    url("assets/hero-banner");
-  background-size: cover;
-  background-position: center;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 60px 20px;
-  overflow: hidden;
-}
-
-.hero-background-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 55px 55px;
-  mask-image: linear-gradient(to bottom, black, transparent 90%);
-  animation: gridDrift 18s linear infinite;
-}
-
-@keyframes gridDrift {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(55px);
-  }
-}
-
-.hero-scanline {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -20%;
-  height: 140px;
-  background: linear-gradient(to bottom, transparent, rgba(185, 28, 28, 0.14), transparent);
-  animation: scanMove 5s ease-in-out infinite;
-}
-
-@keyframes scanMove {
-  0% {
-    top: -25%;
-    opacity: 0;
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  100% {
-    top: 105%;
-    opacity: 0;
-  }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 980px;
-}
-
-.logo {
-  width: 165px;
-  max-width: 70%;
-  margin-bottom: 22px;
-  filter: drop-shadow(0 0 22px rgba(185, 28, 28, 0.35));
-}
-
-.eyebrow {
-  color: #ef4444;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-h1 {
-  font-size: clamp(42px, 8vw, 86px);
-  margin: 0;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  line-height: 0.95;
-}
-
-.tagline {
-  font-size: clamp(18px, 3vw, 28px);
-  color: #ffffff;
-  margin-top: 22px;
-  letter-spacing: 2px;
-}
-
-.hero-description {
-  max-width: 760px;
-  margin: 22px auto 0;
-  color: #c9d1d9;
-  line-height: 1.7;
-  font-size: 17px;
-}
-
-.hero-buttons {
-  margin-top: 36px;
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Buttons */
-
-.button,
-.email-button,
-.copy-button,
-.gmail-button,
-.submit-button {
-  display: inline-block;
-  padding: 14px 22px;
-  border-radius: 9px;
-  text-decoration: none;
-  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
-  font-weight: bold;
-  letter-spacing: 1px;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  cursor: pointer;
-}
-
-.primary-button,
-.email-button,
-.submit-button {
-  background-color: #b91c1c;
-  color: #ffffff;
-  border: 1px solid #b91c1c;
-}
-
-.secondary-button,
-.copy-button,
-.gmail-button {
-  background-color: rgba(17, 24, 39, 0.72);
-  color: #ffffff;
-  border: 1px solid #4b5563;
-}
-
-.primary-button:hover,
-.email-button:hover,
-.submit-button:hover {
-  background-color: #dc2626;
-  transform: translateY(-3px);
-}
-
-.secondary-button:hover,
-.copy-button:hover,
-.gmail-button:hover {
-  border-color: #b91c1c;
-  background-color: #1f2937;
-  transform: translateY(-3px);
-}
-
-/* Main layout */
-
-main {
-  max-width: 1120px;
-  margin: auto;
-  padding: 70px 20px 40px;
-}
-
-section {
-  margin-bottom: 80px;
-}
-
-.section-label {
-  color: #ef4444;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-h2 {
-  color: #ffffff;
-  font-size: clamp(30px, 5vw, 50px);
-  line-height: 1.05;
-  margin: 0 0 22px;
-  letter-spacing: -1px;
-}
-
-.card,
-.service-card,
-.status-card {
-  background: linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
-  border: 1px solid #2d3748;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
-}
-
-.card {
-  padding: 28px;
-}
-
-.glass-card {
-  backdrop-filter: blur(10px);
-}
-
-.card p,
-.service-card p,
-.status-card p {
-  color: #c9d1d9;
-  line-height: 1.75;
-  font-size: 16px;
-}
-
-/* Banner */
-
-.banner-section {
-  margin-top: -20px;
-}
-
-.wide-graphic {
-  width: 100%;
-  border-radius: 18px;
-  border: 1px solid #2d3748;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.wide-graphic:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 38px 90px rgba(0, 0, 0, 0.55);
-}
-
-/* Services */
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.service-card {
-  position: relative;
-  display: block;
-  padding: 26px;
-  color: #ffffff;
-  text-decoration: none;
-  overflow: hidden;
-  transition: transform 0.28s ease, border-color 0.28s ease, background-color 0.28s ease;
-}
-
-.service-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(185, 28, 28, 0.2), transparent 38%);
-  opacity: 0;
-  transition: opacity 0.28s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-  border-color: #b91c1c;
-}
-
-.service-card:hover::before {
-  opacity: 1;
-}
-
-.service-card h3,
-.service-card p,
-.service-number {
-  position: relative;
-  z-index: 2;
-}
-
-.service-number {
-  display: inline-block;
-  color: #ef4444;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-bottom: 18px;
-}
-
-.service-card h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.service-card p {
-  margin: 0;
-}
-
-/* Status */
-
-.status-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.status-card {
-  padding: 24px;
-}
-
-.status-card h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.status-card p {
-  margin: 0;
-}
-
-/* Contact modal */
-
-.contact-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 22px;
-}
-
-.contact-modal.open {
-  display: flex;
-}
-
-.modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(3, 7, 12, 0.82);
-  backdrop-filter: blur(8px);
-  animation: backdropFade 0.25s ease forwards;
-}
-
-.modal-panel {
-  position: relative;
-  z-index: 2;
-  width: min(760px, 100%);
-  max-height: 92vh;
-  overflow-y: auto;
-  background:
-    radial-gradient(circle at top right, rgba(185, 28, 28, 0.18), transparent 34%),
-    linear-gradient(145deg, rgba(22, 27, 34, 0.98), rgba(7, 11, 16, 0.98));
-  border: 1px solid #2d3748;
-  border-radius: 18px;
-  padding: 30px;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65);
-  animation: modalRise 0.28s ease forwards;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  border: 1px solid #374151;
-  background: rgba(15, 20, 28, 0.9);
-  color: #ffffff;
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-
-.modal-close:hover {
-  border-color: #b91c1c;
-  background: #1f2937;
-}
-
-.modal-header {
-  padding-right: 45px;
-  margin-bottom: 24px;
-}
-
-.modal-header h2 {
-  margin-bottom: 12px;
-}
-
-.modal-header p {
-  color: #c9d1d9;
-  line-height: 1.6;
-}
-
-.contact-form {
-  margin-top: 24px;
-  display: grid;
-  gap: 18px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.form-group {
-  display: grid;
-  gap: 8px;
-}
-
-.form-group label {
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 14px 16px;
-  background-color: #0f141c;
-  color: #ffffff;
-  border: 1px solid #2d3748;
-  border-radius: 9px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  outline: none;
-  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #6b7280;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: #b91c1c;
-  background-color: #111827;
-  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.18);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 140px;
-}
-
-.form-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-body.modal-open {
-  overflow: hidden;
-}
-
-@keyframes backdropFade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes modalRise {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(0.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Footer */
-
-footer {
-  text-align: center;
-  padding: 36px 20px;
-  color: #8b949e;
-  border-top: 1px solid #2d3748;
-  background-color: #05080c;
-}
-
-footer p {
-  margin: 6px 0;
-}
-
-footer a {
-  color: #c9d1d9;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #ffffff;
-}
-
-/* Initial reveal */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  animation: revealUp 0.9s ease forwards;
-}
-
-.reveal-delay-1 {
-  animation-delay: 0.2s;
-}
-
-.reveal-delay-2 {
-  animation-delay: 0.35s;
-}
-
-.reveal-delay-3 {
-  animation-delay: 0.5s;
-}
-
-.reveal-delay-4 {
-  animation-delay: 0.65s;
-}
-
-.reveal-delay-5 {
-  animation-delay: 0.8s;
-}
-
-.reveal-delay-6 {
-  animation-delay: 0.95s;
-}
-
-@keyframes revealUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Scroll reveal */
-
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(34px);
-  transition: opacity 0.85s ease, transform 0.85s ease;
-}
-
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Service pages */
-
-.service-hero {
-  min-height: 78vh;
-}
-
-/* Accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-
-  .reveal,
-  .scroll-reveal {
-    opacity: 1;
-    transform: none;
-  }
-
-  .page-loader {
-    display: none;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 800px) {
-  .hero {
-    min-height: 92vh;
-  }
-
-  .logo {
-    width: 135px;
-  }
-
-  h1 {
-    letter-spacing: 1px;
-  }
-
-  .tagline {
-    letter-spacing: 1px;
-  }
-
-  .services-grid,
-  .status-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card,
-  .service-card,
-  .status-card {
-    padding: 22px;
-  }
-
-  .service-card:hover,
-  .wide-graphic:hover,
-  .primary-button:hover,
-  .secondary-button:hover,
-  .email-button:hover,
-  .copy-button:hover,
-  .gmail-button:hover,
-  .submit-button:hover {
-    transform: none;
-  }
-}
-
-@media (max-width: 700px) {
-  .modal-panel {
-    padding: 24px 20px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-header {
-    padding-right: 38px;
-  }
-
-  .submit-button,
-  .copy-button {
-    width: 100%;
-    text-align: center;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fromentin Industries</title>
+
+  <meta name="description" content="Fromentin Industries is a development-stage Canadian technology and systems brand focused on technical design, CAD modelling, systems planning, digital systems, and future innovation projects.">
+
+  <link rel="icon" href="assets/favicon">
+  <link rel="apple-touch-icon" href="assets/favicon">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="assets/logo" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+
+      <p class="eyebrow reveal reveal-delay-2">Canadian Technology & Systems</p>
+
+      <h1 class="reveal reveal-delay-3">Fromentin Industries</h1>
+
+      <p class="tagline reveal reveal-delay-4">Systems for a stronger Canada.</p>
+
+      <p class="hero-description reveal reveal-delay-5">
+        A development-stage Canadian technology and systems brand focused on technical design,
+        CAD modelling, systems planning, digital systems, and future innovation projects.
+      </p>
+
+      <div class="hero-buttons reveal reveal-delay-6">
+        <a href="#services" class="button primary-button">View Services</a>
+
+        <button type="button" class="button secondary-button" onclick="openContactModal()">
+          Contact
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="scroll-reveal">
+      <div class="section-label">01 / About</div>
+
+      <h2>Built Quietly. Structured Seriously.</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries is a developing Canadian technology and systems concept focused on technical design,
+          engineering research, CAD modelling, systems planning, digital systems, and future innovation projects.
+        </p>
+
+        <p>
+          The long-term mission is to develop practical technology and system-level solutions that strengthen Canadian
+          capability, resilience, and future readiness.
+        </p>
+      </div>
+    </section>
+
+    <section class="banner-section scroll-reveal">
+      <img src="assets/hero-banner" alt="Fromentin Industries systems banner" class="wide-graphic">
+    </section>
+
+    <section id="services" class="scroll-reveal">
+      <div class="section-label">02 / Services</div>
+
+      <h2>Service Areas</h2>
+
+      <div class="services-grid">
+        <a href="services/technical-design.html" class="service-card">
+          <span class="service-number">01</span>
+          <h3>Technical Design</h3>
+          <p>Early-stage design, requirements, constraints, and technical direction.</p>
+        </a>
+
+        <a href="services/cad-modelling.html" class="service-card">
+          <span class="service-number">02</span>
+          <h3>CAD Modelling</h3>
+          <p>3D parts, assemblies, layouts, and prototype visualization.</p>
+        </a>
+
+        <a href="services/concept-development.html" class="service-card">
+          <span class="service-number">03</span>
+          <h3>Concept Development</h3>
+          <p>Turning raw ideas into structured technical concepts.</p>
+        </a>
+
+        <a href="services/systems-planning.html" class="service-card">
+          <span class="service-number">04</span>
+          <h3>Systems Planning</h3>
+          <p>Planning how hardware, software, people, and processes connect.</p>
+        </a>
+
+        <a href="services/technology-research.html" class="service-card">
+          <span class="service-number">05</span>
+          <h3>Technology Research</h3>
+          <p>Researching emerging tools, systems, and future capability needs.</p>
+        </a>
+
+        <a href="services/engineering-documentation.html" class="service-card">
+          <span class="service-number">06</span>
+          <h3>Engineering Documentation</h3>
+          <p>Reports, diagrams, briefs, proposals, and technical project records.</p>
+        </a>
+
+        <a href="services/digital-systems-support.html" class="service-card">
+          <span class="service-number">07</span>
+          <h3>Digital Systems Support</h3>
+          <p>Servers, automation, information systems, and technical workflows.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">03 / Status</div>
+
+      <h2>Current Stage</h2>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Development</h3>
+          <p>Fromentin Industries is currently being built as a private development-stage brand.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Foundation</h3>
+          <p>Current work is focused on documentation, technical skill-building, systems planning, and project organization.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Launch</h3>
+          <p>Public launch is planned after high school graduation, once the foundation and portfolio are stronger.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="scroll-reveal">
+      <div class="section-label">04 / Contact</div>
+
+      <h2>Contact</h2>
+
+      <div class="card contact-card">
+        <p>
+          Fromentin Industries is currently in private development. For inquiries, project discussions, or future contact,
+          submit a request through the contact panel.
+        </p>
+
+        <button type="button" class="submit-button" onclick="openContactModal()">
+          Open Contact Panel
+        </button>
+
+        <p class="small-note">
+          Direct email: contact.fromentinindustries@gmail.com
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Fromentin Industries</p>
+    <p>Development-stage brand. Public launch planned after graduation.</p>
+  </footer>
+
+  <div id="contact-modal" class="contact-modal">
+    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+
+      <div class="modal-header">
+        <p class="eyebrow">Fromentin Industries</p>
+        <h2>Contact Request</h2>
+        <p>
+          Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.
+        </p>
+      </div>
+
+      <form
+        class="contact-form"
+        action="https://formsubmit.co/contact.fromentinindustries@gmail.com"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="Name"
+              placeholder="Full name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="Email"
+              placeholder="name@example.com"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="request-type">Request Type</label>
+          <select id="request-type" name="Request Type" required>
+            <option value="" selected disabled>Select one</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Technical Design">Technical Design</option>
+            <option value="CAD Modelling">CAD Modelling</option>
+            <option value="Concept Development">Concept Development</option>
+            <option value="Systems Planning">Systems Planning</option>
+            <option value="Technology Research">Technology Research</option>
+            <option value="Engineering Documentation">Engineering Documentation</option>
+            <option value="Digital Systems Support">Digital Systems Support</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="Message"
+            rows="6"
+            placeholder="Briefly explain what you are contacting Fromentin Industries about."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">
+            Send Request
+          </button>
+
+          <button type="button" class="copy-button" onclick="closeContactModal()">
+            Cancel
+          </button>
+        </div>
+
+        <p class="small-note">
+          Contact inbox: contact.fromentinindustries@gmail.com
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    function openContactModal() {
+      document.getElementById("contact-modal").classList.add("open");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeContactModal() {
+      document.getElementById("contact-modal").classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
