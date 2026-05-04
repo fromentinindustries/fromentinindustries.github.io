@@ -6,6 +6,28 @@
   <title>Fromentin Industries</title>
 
   <style>
+    .services-list {
+  display: grid;
+  gap: 12px;
+}
+
+.services-list a {
+  display: block;
+  padding: 14px 16px;
+  background-color: #0f141c;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  color: #f2f2f2;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.services-list a:hover {
+  background-color: #1f2937;
+  border-color: #b91c1c;
+  color: #ffffff;
+  transform: translateX(4px);
+}
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -81,21 +103,21 @@
       </p>
     </div>
 
-    <h2>Services</h2>
-    <div class="card">
-      <p>Technical Design</p>
-      <p>CAD Modelling</p>
-      <p>Concept Development</p>
-      <p>Systems Planning</p>
-      <p>Technology Research</p>
-      <p>Engineering Documentation</p>
-      <p>Digital Systems Support</p>
-    </div>
+<h2>Services</h2>
+<div class="card services-list">
+  <a href="services/technical-design.html">Technical Design</a>
+  <a href="services/cad-modelling.html">CAD Modelling</a>
+  <a href="services/concept-development.html">Concept Development</a>
+  <a href="services/systems-planning.html">Systems Planning</a>
+  <a href="services/technology-research.html">Technology Research</a>
+  <a href="services/engineering-documentation.html">Engineering Documentation</a>
+  <a href="services/digital-systems-support.html">Digital Systems Support</a>
+</div>
 
     <h2>Status</h2>
     <div class="card">
       <p>
-        Fromentin Industries is currently in development. Public launch is planned after high school graduation.
+        Fromentin Industries is currently in development.
       </p>
     </div>
 
