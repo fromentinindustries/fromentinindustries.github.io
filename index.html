@@ -44,7 +44,9 @@
 
       <div class="hero-buttons reveal reveal-delay-6">
         <a href="#services" class="button primary-button">View Services</a>
-        <a href="#contact" class="button secondary-button">Contact</a>
+        <button class="button secondary-button" onclick="openContactModal()">
+  Contact
+</button>
       </div>
     </div>
   </header>
@@ -149,65 +151,20 @@
 <section id="contact" class="scroll-reveal">
   <div class="section-label">04 / Contact</div>
 
+ <section id="contact" class="scroll-reveal">
+  <div class="section-label">04 / Contact</div>
+
   <h2>Contact</h2>
 
   <div class="card contact-card">
     <p>
-      Submit an inquiry below for project discussions, technical questions, or future contact.
+      Fromentin Industries is currently in private development. For inquiries, project discussions, or future contact,
+      submit a request through the contact panel.
     </p>
 
-    <form
-      class="contact-form"
-      action="https://formsubmit.co/contact.fromentinindustries@gmail.com"
-      method="POST"
-    >
-
-      <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
-
-      <input type="hidden" name="_template" value="table">
-
-      <input type="hidden" name="_captcha" value="true">
-
-      <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
-
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your name"
-          required
-        >
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="your.email@example.com"
-          required
-        >
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="6"
-          placeholder="Write your message here..."
-          required
-        ></textarea>
-      </div>
-
-      <button type="submit" class="submit-button">
-        Send Request
-      </button>
-
-    </form>
+    <button class="submit-button" onclick="openContactModal()">
+      Open Contact Panel
+    </button>
 
     <p class="small-note">
       Direct email: contact.fromentinindustries@gmail.com
