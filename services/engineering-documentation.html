@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Engineering Documentation | Fromentin Industries</title>
+
+  <meta name="description" content="Engineering Documentation at Fromentin Industries focuses on reports, briefs, diagrams, project plans, technical records, and structured design communication.">
+
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero service-hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="../assets/logo.png" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+
+      <p class="eyebrow reveal reveal-delay-2">Service Area 06</p>
+
+      <h1 class="reveal reveal-delay-3">Engineering Documentation</h1>
+
+      <p class="tagline reveal reveal-delay-4">Clear records. Clear direction. Better execution.</p>
+
+      <p class="hero-description reveal reveal-delay-5">
+        Engineering Documentation focuses on creating structured reports, design briefs, diagrams, planning documents,
+        and technical records that make projects easier to understand and improve.
+      </p>
+
+      <div class="hero-buttons reveal reveal-delay-6">
+        <a href="../index.html#services" class="button secondary-button">Back to Services</a>
+        <a href="../index.html#contact" class="button primary-button">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Overview</div>
+
+      <h2>Purpose</h2>
+
+      <div class="card glass-card">
+        <p>
+          Engineering Documentation turns project work into clear, organized records. Strong documentation allows designs
+          to be reviewed, explained, repeated, improved, and presented professionally.
+        </p>
+
+        <p>
+          Without documentation, a project is just scattered work. With documentation, it becomes a portfolio, a proposal,
+          a technical record, or a future build plan.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Focus</div>
+
+      <h2>What This Includes</h2>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Design Briefs</h3>
+          <p>Short structured documents explaining the goal, problem, concept, requirements, and proposed solution.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Technical Reports</h3>
+          <p>Detailed documents covering process, research, calculations, testing, results, and improvements.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Project Records</h3>
+          <p>Organized notes, diagrams, logs, screenshots, CAD images, and development history.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Applications</div>
+
+      <h2>Possible Project Uses</h2>
+
+      <div class="card">
+        <p>
+          Engineering Documentation can support school projects, CAD work, prototype records, technical portfolios,
+          operations planning, research briefs, business proposals, and future project presentations.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Fromentin Industries</p>
+    <p><a href="../index.html">Return Home</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
