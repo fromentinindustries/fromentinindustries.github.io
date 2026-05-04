@@ -55,7 +55,7 @@ body.loaded .page-loader {
   }
 }
 
-/* Hero */
+/* Main hero */
 
 .hero {
   position: relative;
@@ -183,7 +183,10 @@ h1 {
   padding: 14px 22px;
   border-radius: 9px;
   text-decoration: none;
-  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
   font-weight: bold;
   letter-spacing: 1px;
   font-size: 14px;
@@ -276,7 +279,65 @@ h2 {
   font-size: 16px;
 }
 
-/* Banner */
+/* Hero-banner About hover section */
+
+.banner-about-wrapper {
+  position: relative;
+  margin-bottom: 80px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid #2d3748;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.hero-banner-image {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.banner-about-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  opacity: 0;
+  transform: translateY(24px);
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.banner-about-panel-inner {
+  width: min(850px, 100%);
+}
+
+.banner-about-panel .card {
+  background: rgba(10, 15, 22, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.banner-about-wrapper:hover .hero-banner-image {
+  opacity: 0.18;
+  transform: scale(1.04);
+  filter: blur(2px);
+}
+
+.banner-about-wrapper:hover .banner-about-panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Old banner fallback */
 
 .banner-section {
   margin-top: -20px;
@@ -310,7 +371,10 @@ h2 {
   color: #ffffff;
   text-decoration: none;
   overflow: hidden;
-  transition: transform 0.28s ease, border-color 0.28s ease, background-color 0.28s ease;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
 }
 
 .service-card::before {
@@ -430,7 +494,9 @@ h2 {
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .modal-close:hover {
@@ -489,7 +555,10 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   outline: none;
-  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .form-group input::placeholder,
@@ -610,7 +679,9 @@ footer a:hover {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(34px);
-  transition: opacity 0.85s ease, transform 0.85s ease;
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s ease;
 }
 
 .scroll-reveal.visible {
@@ -672,6 +743,34 @@ footer a:hover {
   .service-card,
   .status-card {
     padding: 22px;
+  }
+
+  .banner-about-wrapper {
+    overflow: visible;
+    border: none;
+    box-shadow: none;
+  }
+
+  .hero-banner-image {
+    min-height: auto;
+    border-radius: 18px;
+    border: 1px solid #2d3748;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+  }
+
+  .banner-about-panel {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    padding: 24px 0 0;
+  }
+
+  .banner-about-wrapper:hover .hero-banner-image {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 
   .service-card:hover,
