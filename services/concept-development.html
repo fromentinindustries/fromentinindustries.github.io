@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Concept Development | Fromentin Industries</title>
+
+  <meta name="description" content="Concept Development at Fromentin Industries turns early ideas into structured technical concepts with objectives, constraints, use cases, and development paths.">
+
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero service-hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="../assets/logo.png" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+
+      <p class="eyebrow reveal reveal-delay-2">Service Area 03</p>
+
+      <h1 class="reveal reveal-delay-3">Concept Development</h1>
+
+      <p class="tagline reveal reveal-delay-4">From rough idea to structured plan.</p>
+
+      <p class="hero-description reveal reveal-delay-5">
+        Concept Development organizes early ideas into clear technical concepts with purpose, structure, requirements,
+        use cases, and next steps.
+      </p>
+
+      <div class="hero-buttons reveal reveal-delay-6">
+        <a href="../index.html#services" class="button secondary-button">Back to Services</a>
+        <a href="../index.html#contact" class="button primary-button">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Overview</div>
+
+      <h2>Purpose</h2>
+
+      <div class="card glass-card">
+        <p>
+          Concept Development is where raw ideas become organized. Instead of leaving a project as a loose thought,
+          this process defines the problem, solution, audience, technical direction, and possible development route.
+        </p>
+
+        <p>
+          The goal is to make ideas easier to evaluate, explain, build, improve, and eventually present.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Focus</div>
+
+      <h2>What This Includes</h2>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Problem Definition</h3>
+          <p>Clarifying what issue the concept is meant to solve and why it matters.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Use Cases</h3>
+          <p>Identifying who would use the system, where it would be used, and what it would need to do.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Development Path</h3>
+          <p>Breaking a concept into stages such as research, design, modelling, testing, and improvement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Applications</div>
+
+      <h2>Possible Project Uses</h2>
+
+      <div class="card">
+        <p>
+          Concept Development can support aerospace ideas, defence-adjacent research, mechanical systems, digital tools,
+          innovation proposals, engineering reports, and future portfolio projects.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Fromentin Industries</p>
+    <p><a href="../index.html">Return Home</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
