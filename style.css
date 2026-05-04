@@ -55,7 +55,7 @@ body.loaded .page-loader {
   }
 }
 
-/* Main hero */
+/* Hero */
 
 .hero {
   position: relative;
@@ -175,9 +175,7 @@ h1 {
 /* Buttons */
 
 .button,
-.email-button,
 .copy-button,
-.gmail-button,
 .submit-button {
   display: inline-block;
   padding: 14px 22px;
@@ -195,7 +193,6 @@ h1 {
 }
 
 .primary-button,
-.email-button,
 .submit-button {
   background-color: #b91c1c;
   color: #ffffff;
@@ -203,23 +200,20 @@ h1 {
 }
 
 .secondary-button,
-.copy-button,
-.gmail-button {
+.copy-button {
   background-color: rgba(17, 24, 39, 0.72);
   color: #ffffff;
   border: 1px solid #4b5563;
 }
 
 .primary-button:hover,
-.email-button:hover,
 .submit-button:hover {
   background-color: #dc2626;
   transform: translateY(-3px);
 }
 
 .secondary-button:hover,
-.copy-button:hover,
-.gmail-button:hover {
+.copy-button:hover {
   border-color: #b91c1c;
   background-color: #1f2937;
   transform: translateY(-3px);
@@ -254,16 +248,11 @@ h2 {
   letter-spacing: -1px;
 }
 
-.card,
-.service-card,
-.status-card {
+.card {
   background: linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
   border: 1px solid #2d3748;
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
-}
-
-.card {
   padding: 28px;
 }
 
@@ -271,15 +260,13 @@ h2 {
   backdrop-filter: blur(10px);
 }
 
-.card p,
-.service-card p,
-.status-card p {
+.card p {
   color: #c9d1d9;
   line-height: 1.75;
   font-size: 16px;
 }
 
-/* Hero-banner About hover section */
+/* Banner About */
 
 .banner-about-wrapper {
   position: relative;
@@ -337,108 +324,123 @@ h2 {
   pointer-events: auto;
 }
 
-/* Old banner fallback */
+/* Flip cards */
 
-.banner-section {
-  margin-top: -20px;
-}
-
-.wide-graphic {
-  width: 100%;
-  border-radius: 18px;
-  border: 1px solid #2d3748;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.wide-graphic:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 38px 90px rgba(0, 0, 0, 0.55);
-}
-
-/* Services */
-
-.services-grid {
+.flip-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
-.service-card {
-  position: relative;
+.flip-grid.three-column {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.flip-card {
   display: block;
-  padding: 26px;
+  height: 245px;
+  perspective: 1200px;
   color: #ffffff;
   text-decoration: none;
-  overflow: hidden;
-  transition:
-    transform 0.28s ease,
-    border-color 0.28s ease,
-    background-color 0.28s ease;
 }
 
-.service-card::before {
-  content: "";
+.flip-card.no-link {
+  cursor: default;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(185, 28, 28, 0.2), transparent 38%);
-  opacity: 0;
-  transition: opacity 0.28s ease;
+  padding: 26px;
+  border-radius: 16px;
+  border: 1px solid #2d3748;
+  background:
+    radial-gradient(circle at top right, rgba(185, 28, 28, 0.14), transparent 40%),
+    linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+  backface-visibility: hidden;
+  overflow: hidden;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
-  border-color: #b91c1c;
+.flip-card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.service-card:hover::before {
-  opacity: 1;
+.flip-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.service-card h3,
-.service-card p,
+.flip-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.flip-card p {
+  position: relative;
+  z-index: 2;
+  margin: 14px 0 0;
+  color: #c9d1d9;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
 .service-number {
   position: relative;
   z-index: 2;
-}
-
-.service-number {
   display: inline-block;
   color: #ef4444;
   font-size: 13px;
   font-weight: bold;
   letter-spacing: 2px;
-  margin-bottom: 18px;
 }
 
-.service-card h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
+.card-link-text {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: 18px;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
-.service-card p {
-  margin: 0;
-}
-
-/* Status */
-
-.status-grid {
+.social-icon {
+  position: relative;
+  z-index: 2;
+  width: 54px;
+  height: 54px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.status-card {
-  padding: 24px;
-}
-
-.status-card h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.status-card p {
-  margin: 0;
+  place-items: center;
+  border: 1px solid #4b5563;
+  border-radius: 14px;
+  background: rgba(15, 20, 28, 0.9);
+  color: #ef4444;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* Contact modal */
@@ -494,23 +496,11 @@ h2 {
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.modal-close:hover {
-  border-color: #b91c1c;
-  background: #1f2937;
 }
 
 .modal-header {
   padding-right: 45px;
   margin-bottom: 24px;
-}
-
-.modal-header h2 {
-  margin-bottom: 12px;
 }
 
 .modal-header p {
@@ -555,15 +545,6 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   outline: none;
-  transition:
-    border-color 0.25s ease,
-    background-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #6b7280;
 }
 
 .form-group input:focus,
@@ -583,7 +564,6 @@ h2 {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 body.modal-open {
@@ -635,7 +615,7 @@ footer a:hover {
   color: #ffffff;
 }
 
-/* Initial reveal */
+/* Animations */
 
 .reveal {
   opacity: 0;
@@ -674,8 +654,6 @@ footer a:hover {
   }
 }
 
-/* Scroll reveal */
-
 .scroll-reveal {
   opacity: 0;
   transform: translateY(34px);
@@ -689,30 +667,8 @@ footer a:hover {
   transform: translateY(0);
 }
 
-/* Service pages */
-
 .service-hero {
   min-height: 78vh;
-}
-
-/* Accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-
-  .reveal,
-  .scroll-reveal {
-    opacity: 1;
-    transform: none;
-  }
-
-  .page-loader {
-    display: none;
-  }
 }
 
 /* Mobile */
@@ -732,17 +688,6 @@ footer a:hover {
 
   .tagline {
     letter-spacing: 1px;
-  }
-
-  .services-grid,
-  .status-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card,
-  .service-card,
-  .status-card {
-    padding: 22px;
   }
 
   .banner-about-wrapper {
@@ -773,13 +718,34 @@ footer a:hover {
     filter: none;
   }
 
-  .service-card:hover,
-  .wide-graphic:hover,
+  .flip-grid,
+  .flip-grid.three-column {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: auto;
+    min-height: 230px;
+  }
+
+  .flip-card-inner {
+    transform: none !important;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: relative;
+    transform: none;
+    backface-visibility: visible;
+  }
+
+  .flip-card-back {
+    margin-top: 12px;
+  }
+
   .primary-button:hover,
   .secondary-button:hover,
-  .email-button:hover,
   .copy-button:hover,
-  .gmail-button:hover,
   .submit-button:hover {
     transform: none;
   }
