@@ -148,29 +148,26 @@
       </div>
     </section>
 
-<section id="contact" class="scroll-reveal">
-  <div class="section-label">04 / Contact</div>
+    <section id="contact" class="scroll-reveal">
+      <div class="section-label">04 / Contact</div>
 
- <section id="contact" class="scroll-reveal">
-  <div class="section-label">04 / Contact</div>
+      <h2>Contact</h2>
 
-  <h2>Contact</h2>
+      <div class="card contact-card">
+        <p>
+          Fromentin Industries is currently in private development. For inquiries, project discussions, or future contact,
+          submit a request through the contact panel.
+        </p>
 
-  <div class="card contact-card">
-    <p>
-      Fromentin Industries is currently in private development. For inquiries, project discussions, or future contact,
-      submit a request through the contact panel.
-    </p>
+        <button class="submit-button" onclick="openContactModal()">
+          Open Contact Panel
+        </button>
 
-    <button class="submit-button" onclick="openContactModal()">
-      Open Contact Panel
-    </button>
-
-    <p class="small-note">
-      Direct email: contact.fromentinindustries@gmail.com
-    </p>
-  </div>
-</section>
+        <p class="small-note">
+          Direct email: contact.fromentinindustries@gmail.com
+        </p>
+      </div>
+    </section>
 
   </main>
 
@@ -271,39 +268,6 @@
   </div>
 </div>
   
-  <script>
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-    });
-
-    const revealElements = document.querySelectorAll(".scroll-reveal");
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
-
-    revealElements.forEach(element => {
-      revealObserver.observe(element);
-    });
-
-    function copyEmail() {
-      const email = "contact.fromentinindustries@gmail.com";
-      const message = document.getElementById("copy-message");
-
-      navigator.clipboard.writeText(email).then(() => {
-        message.classList.add("show");
-
-        setTimeout(() => {
-          message.classList.remove("show");
-        }, 2200);
-      });
-    }
     <script>
   window.addEventListener("load", () => {
     document.body.classList.add("loaded");
