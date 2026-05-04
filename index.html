@@ -2,134 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Fromentin Industries</title>
 
-  <style>
-    .services-list {
-  display: grid;
-  gap: 12px;
-}
+  <meta name="description" content="Fromentin Industries is a development-stage Canadian technology and systems brand focused on technical design, CAD modelling, systems planning, digital systems, and future innovation projects.">
 
-.services-list a {
-  display: block;
-  padding: 14px 16px;
-  background-color: #0f141c;
-  border: 1px solid #2d3748;
-  border-radius: 8px;
-  color: #f2f2f2;
-  text-decoration: none;
-  transition: 0.2s ease;
-}
-
-.services-list a:hover {
-  background-color: #1f2937;
-  border-color: #b91c1c;
-  color: #ffffff;
-  transform: translateX(4px);
-}
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0b0f14;
-      color: #f2f2f2;
-    }
-
-    header {
-      padding: 70px 20px;
-      text-align: center;
-      background-color: #111827;
-    }
-
-    h1 {
-      font-size: 44px;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      font-size: 18px;
-      color: #c9d1d9;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    h2 {
-      color: #ffffff;
-      border-bottom: 1px solid #2d3748;
-      padding-bottom: 10px;
-    }
-
-    .card {
-      background-color: #161b22;
-      padding: 25px;
-      border-radius: 12px;
-      margin: 20px 0;
-      border: 1px solid #2d3748;
-    }
-
-    .card p {
-      color: #c9d1d9;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #8b949e;
-      background-color: #0b0f14;
-      border-top: 1px solid #2d3748;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>Fromentin Industries</h1>
-    <p>Systems for a stronger Canada.</p>
+  <header class="hero fade-in">
+    <div class="hero-overlay">
+
+      <img src="assets/logo.png" alt="Fromentin Industries Logo" class="logo fade-in delay-1">
+
+      <h1 class="fade-in delay-2">Fromentin Industries</h1>
+
+      <p class="tagline fade-in delay-3">Systems for a stronger Canada.</p>
+
+      <p class="status fade-in delay-4">Development-stage technology and systems brand.</p>
+
+      <div class="hero-buttons fade-in delay-5">
+        <a href="#services" class="button primary-button">View Services</a>
+        <a href="#contact" class="button secondary-button">Contact</a>
+      </div>
+
+    </div>
   </header>
 
-  <section>
-    <h2>About</h2>
-    <div class="card">
-      <p>
-        Fromentin Industries is a developing Canadian technology and systems concept focused on technical design,
-        engineering research, CAD modelling, systems planning, digital systems, and future innovation projects.
-      </p>
-    </div>
+  <main>
 
-<h2>Services</h2>
-<div class="card services-list">
-  <a href="services/technical-design.html">Technical Design</a>
-  <a href="services/cad-modelling.html">CAD Modelling</a>
-  <a href="services/concept-development.html">Concept Development</a>
-  <a href="services/systems-planning.html">Systems Planning</a>
-  <a href="services/technology-research.html">Technology Research</a>
-  <a href="services/engineering-documentation.html">Engineering Documentation</a>
-  <a href="services/digital-systems-support.html">Digital Systems Support</a>
-</div>
+    <section class="fade-in-scroll">
+      <h2>About</h2>
 
-    <h2>Status</h2>
-    <div class="card">
-      <p>
-        Fromentin Industries is currently in development.
-      </p>
-    </div>
+      <div class="card">
+        <p>
+          Fromentin Industries is a developing Canadian technology and systems concept focused on technical design,
+          engineering research, CAD modelling, systems planning, digital systems, and future innovation projects.
+        </p>
 
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: contact.fromentinindustries@gmail.com</p>
-    </div>
-  </section>
+        <p>
+          The long-term mission is to develop practical technology and system-level solutions that strengthen Canadian
+          capability, resilience, and future readiness.
+        </p>
+      </div>
+    </section>
+
+    <section class="banner-section fade-in-scroll">
+      <img src="assets/hero-banner.png" alt="Fromentin Industries systems banner" class="wide-graphic">
+    </section>
+
+    <section id="services" class="fade-in-scroll">
+      <h2>Services</h2>
+
+      <div class="card services-list">
+        <a href="services/technical-design.html">
+          <span>Technical Design</span>
+          <small>Early-stage design, requirements, constraints, and technical direction.</small>
+        </a>
+
+        <a href="services/cad-modelling.html">
+          <span>CAD Modelling</span>
+          <small>3D parts, assemblies, layouts, and prototype visualization.</small>
+        </a>
+
+        <a href="services/concept-development.html">
+          <span>Concept Development</span>
+          <small>Turning raw ideas into structured technical concepts.</small>
+        </a>
+
+        <a href="services/systems-planning.html">
+          <span>Systems Planning</span>
+          <small>Planning how hardware, software, people, and processes connect.</small>
+        </a>
+
+        <a href="services/technology-research.html">
+          <span>Technology Research</span>
+          <small>Researching emerging tools, systems, and future capability needs.</small>
+        </a>
+
+        <a href="services/engineering-documentation.html">
+          <span>Engineering Documentation</span>
+          <small>Reports, diagrams, briefs, proposals, and technical project records.</small>
+        </a>
+
+        <a href="services/digital-systems-support.html">
+          <span>Digital Systems Support</span>
+          <small>Servers, automation, information systems, and technical workflows.</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="fade-in-scroll">
+      <h2>Status</h2>
+
+      <div class="card">
+        <p>
+          Fromentin Industries is currently in private development. Public launch is planned after high school graduation.
+        </p>
+
+        <p>
+          Current work is focused on building the brand foundation, documenting projects, developing technical skills,
+          and organizing future service areas.
+        </p>
+      </div>
+    </section>
+
+    <section class="poster-section fade-in-scroll">
+      <img src="assets/development-poster.png" alt="Fromentin Industries in development graphic" class="poster-graphic">
+    </section>
+
+    <section id="contact" class="fade-in-scroll">
+      <h2>Contact</h2>
+
+      <div class="card">
+        <p>
+          For inquiries, project discussions, or future contact, send an email request below.
+        </p>
+
+        <a
+          class="email-button"
+          href="mailto:fromentinindustries@gmail.com?subject=Fromentin%20Industries%20Inquiry&body=Hello%20Fromentin%20Industries,%0D%0A%0D%0AI%20am%20contacting%20you%20regarding:%0D%0A%0D%0A-%20Name:%0D%0A-%20Reason%20for%20contact:%0D%0A-%20Project%20or%20inquiry:%0D%0A%0D%0AThank%20you."
+        >
+          Email Fromentin Industries
+        </a>
+
+        <p class="small-note">
+          Current email: fromentinindustries@gmail.com
+        </p>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    © 2026 Fromentin Industries
+    <p>© 2026 Fromentin Industries</p>
+    <p>Development-stage brand. Public launch planned after graduation.</p>
   </footer>
+
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-in-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    fadeElements.forEach(element => {
+      observer.observe(element);
+    });
+  </script>
 
 </body>
 </html>
