@@ -2,36 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>CAD Modelling | Fromentin Industries</title>
+
+  <meta name="description" content="CAD Modelling at Fromentin Industries focuses on 3D parts, assemblies, layouts, mechanical concepts, and prototype visualization.">
+
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+
   <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-  <header>
-    <h1>CAD Modelling</h1>
-    <p>3D design, part concepts, assemblies, and prototype visualization.</p>
+
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero service-hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="../assets/logo.png" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+
+      <p class="eyebrow reveal reveal-delay-2">Service Area 02</p>
+
+      <h1 class="reveal reveal-delay-3">CAD Modelling</h1>
+
+      <p class="tagline reveal reveal-delay-4">Digital design before physical build.</p>
+
+      <p class="hero-description reveal reveal-delay-5">
+        CAD Modelling focuses on creating digital parts, assemblies, layouts, and design visuals for early-stage
+        engineering and fabrication projects.
+      </p>
+
+      <div class="hero-buttons reveal reveal-delay-6">
+        <a href="../index.html#services" class="button secondary-button">Back to Services</a>
+        <a href="../index.html#contact" class="button primary-button">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <div class="card">
-      <h2>Overview</h2>
-      <p>CAD Modelling supports the creation of digital parts, assemblies, layouts, and technical visuals for early-stage engineering and design projects.</p>
-    </div>
+  <main>
 
-    <div class="card">
-      <h2>Focus Areas</h2>
-      <ul>
-        <li>3D part modelling</li>
-        <li>Assembly concepts</li>
-        <li>Mechanical layouts</li>
-        <li>Prototype visualization</li>
-        <li>Design-for-fabrication planning</li>
-      </ul>
-    </div>
+    <section class="scroll-reveal">
+      <div class="section-label">Overview</div>
 
-    <a class="back-link" href="../index.html">← Back to Home</a>
-  </section>
+      <h2>Purpose</h2>
 
-  <footer>© 2026 Fromentin Industries</footer>
+      <div class="card glass-card">
+        <p>
+          CAD Modelling allows a concept to be seen, measured, adjusted, and improved before anything is built.
+          It helps reduce mistakes, clarify dimensions, and support better design decisions.
+        </p>
+
+        <p>
+          This service area supports mechanical concepts, prototype planning, part design, assemblies, layouts, and
+          visual project communication.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Focus</div>
+
+      <h2>What This Includes</h2>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Part Modelling</h3>
+          <p>Creating individual 3D parts with clear shape, dimensions, and purpose.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Assemblies</h3>
+          <p>Building multi-part layouts to show how components fit and function together.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Visualization</h3>
+          <p>Creating visuals that help explain designs, prototypes, mechanisms, and build concepts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Applications</div>
+
+      <h2>Possible Project Uses</h2>
+
+      <div class="card">
+        <p>
+          CAD Modelling can support school engineering projects, mechanical builds, fabrication planning, product
+          concepts, prototype mockups, design reports, and future technical portfolios.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Fromentin Industries</p>
+    <p><a href="../index.html">Return Home</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
 </body>
 </html>
