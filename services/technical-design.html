@@ -2,119 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Technical Design | Fromentin Industries</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0b0f14;
-      color: #f2f2f2;
-    }
+  <meta name="description" content="Technical Design at Fromentin Industries focuses on early-stage engineering concepts, requirements, constraints, and practical technical direction.">
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background-color: #111827;
-    }
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      color: #c9d1d9;
-      font-size: 18px;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .card {
-      background-color: #161b22;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #2d3748;
-      margin-bottom: 20px;
-    }
-
-    p, li {
-      color: #c9d1d9;
-      line-height: 1.6;
-    }
-
-    a {
-      color: #f2f2f2;
-      text-decoration: none;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 16px;
-      border: 1px solid #2d3748;
-      border-radius: 8px;
-    }
-
-    .back-link:hover {
-      border-color: #b91c1c;
-      background-color: #1f2937;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #8b949e;
-      border-top: 1px solid #2d3748;
-    }
-  </style>
+  <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>Technical Design</h1>
-    <p>Early-stage engineering concepts, practical systems, and structured design work.</p>
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero service-hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="../assets/logo.png" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+
+      <p class="eyebrow reveal reveal-delay-2">Service Area 01</p>
+
+      <h1 class="reveal reveal-delay-3">Technical Design</h1>
+
+      <p class="tagline reveal reveal-delay-4">Turning ideas into structured technical direction.</p>
+
+      <p class="hero-description reveal reveal-delay-5">
+        Technical Design focuses on early-stage design thinking, practical engineering concepts, requirements,
+        constraints, layouts, and technical planning.
+      </p>
+
+      <div class="hero-buttons reveal reveal-delay-6">
+        <a href="../index.html#services" class="button secondary-button">Back to Services</a>
+        <a href="../index.html#contact" class="button primary-button">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <div class="card">
-      <h2>Overview</h2>
-      <p>
-        Technical Design focuses on turning ideas into structured, usable concepts. This includes defining the purpose,
-        requirements, constraints, layout, function, and future development path of a project.
-      </p>
-    </div>
+  <main>
 
-    <div class="card">
-      <h2>Focus Areas</h2>
-      <ul>
-        <li>Mechanical and technical concept design</li>
-        <li>System layouts and early design planning</li>
-        <li>Problem definition and requirements planning</li>
-        <li>Design improvement and practical solution development</li>
-        <li>Project structure, constraints, and technical direction</li>
-      </ul>
-    </div>
+    <section class="scroll-reveal">
+      <div class="section-label">Overview</div>
 
-    <div class="card">
-      <h2>Status</h2>
-      <p>
-        This service area is currently in development as part of the Fromentin Industries pre-launch foundation.
-      </p>
-    </div>
+      <h2>Purpose</h2>
 
-    <a class="back-link" href="../index.html">← Back to Home</a>
-  </section>
+      <div class="card glass-card">
+        <p>
+          Technical Design is the first stage of turning an idea into something useful. It defines what the project
+          should do, what limits it must work within, what problems it solves, and what direction the design should take.
+        </p>
+
+        <p>
+          This service area is focused on building strong project foundations before time, money, or materials are wasted.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Focus</div>
+
+      <h2>What This Includes</h2>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Requirements</h3>
+          <p>Defining what the design must accomplish, what conditions it must survive, and what standards it should meet.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Constraints</h3>
+          <p>Identifying limits such as size, weight, materials, budget, tools, timeline, safety, and manufacturing method.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Direction</h3>
+          <p>Creating a clear technical path so the project can move toward modelling, prototyping, testing, or documentation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Applications</div>
+
+      <h2>Possible Project Uses</h2>
+
+      <div class="card">
+        <p>
+          Technical Design can support mechanical projects, CAD concepts, prototype planning, digital systems, equipment
+          concepts, workflow systems, student engineering projects, and early Canadian innovation ideas.
+        </p>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    © 2026 Fromentin Industries
+    <p>© 2026 Fromentin Industries</p>
+    <p><a href="../index.html">Return Home</a></p>
   </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
 
 </body>
 </html>
