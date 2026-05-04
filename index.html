@@ -146,48 +146,74 @@
       </div>
     </section>
 
-    <section id="contact" class="scroll-reveal">
-      <div class="section-label">04 / Contact</div>
+<section id="contact" class="scroll-reveal">
+  <div class="section-label">04 / Contact</div>
 
-      <h2>Contact</h2>
+  <h2>Contact</h2>
 
-      <div class="card contact-card">
-        <p>
-          For inquiries, project discussions, or future contact, send an email request below.
-        </p>
+  <div class="card contact-card">
+    <p>
+      Submit an inquiry below for project discussions, technical questions, or future contact.
+    </p>
 
-        <div class="contact-actions">
-          <a
-            class="email-button"
-            href="mailto:contact.fromentinindustries@gmail.com?subject=Fromentin%20Industries%20Inquiry&body=Hello%20Fromentin%20Industries,%0D%0A%0D%0AI%20am%20contacting%20you%20regarding:%0D%0A%0D%0A-%20Name:%0D%0A-%20Reason%20for%20contact:%0D%0A-%20Project%20or%20inquiry:%0D%0A%0D%0AThank%20you."
-          >
-            Email Fromentin Industries
-          </a>
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/contact.fromentinindustries@gmail.com"
+      method="POST"
+    >
 
-          <button class="copy-button" onclick="copyEmail()">
-            Copy Email
-          </button>
+      <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
 
-          <a
-            class="gmail-button"
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.fromentinindustries@gmail.com&su=Fromentin%20Industries%20Inquiry&body=Hello%20Fromentin%20Industries,%0D%0A%0D%0AI%20am%20contacting%20you%20regarding:%0D%0A%0D%0A-%20Name:%0D%0A-%20Reason%20for%20contact:%0D%0A-%20Project%20or%20inquiry:%0D%0A%0D%0AThank%20you."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open in Gmail
-          </a>
-        </div>
+      <input type="hidden" name="_template" value="table">
 
-        <p class="small-note">
-          Current email:
-          <span id="company-email">contact.fromentinindustries@gmail.com</span>
-        </p>
+      <input type="hidden" name="_captcha" value="true">
 
-        <p id="copy-message" class="copy-message">
-          Email copied.
-        </p>
+      <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          required
+        >
       </div>
-    </section>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="your.email@example.com"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          placeholder="Write your message here..."
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">
+        Send Request
+      </button>
+
+    </form>
+
+    <p class="small-note">
+      Direct email: contact.fromentinindustries@gmail.com
+    </p>
+  </div>
+</section>
 
   </main>
 
