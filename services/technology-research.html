@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Technology Research | Fromentin Industries</title>
+
+  <meta name="description" content="Technology Research at Fromentin Industries focuses on emerging tools, systems, engineering trends, Canadian capability needs, and future innovation areas.">
+
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero service-hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="../assets/logo.png" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+
+      <p class="eyebrow reveal reveal-delay-2">Service Area 05</p>
+
+      <h1 class="reveal reveal-delay-3">Technology Research</h1>
+
+      <p class="tagline reveal reveal-delay-4">Understanding what matters before building what is next.</p>
+
+      <p class="hero-description reveal reveal-delay-5">
+        Technology Research focuses on learning, comparing, and documenting emerging tools, systems, trends, and
+        opportunities connected to future Canadian capability.
+      </p>
+
+      <div class="hero-buttons reveal reveal-delay-6">
+        <a href="../index.html#services" class="button secondary-button">Back to Services</a>
+        <a href="../index.html#contact" class="button primary-button">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Overview</div>
+
+      <h2>Purpose</h2>
+
+      <div class="card glass-card">
+        <p>
+          Technology Research is about building informed direction. Before a project is designed or built, it helps to
+          understand existing solutions, emerging technology, technical limits, and real-world needs.
+        </p>
+
+        <p>
+          The purpose is to avoid shallow ideas and build stronger concepts based on research, comparison, and practical analysis.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Focus</div>
+
+      <h2>What This Includes</h2>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Technology Scanning</h3>
+          <p>Researching tools, systems, engineering methods, and innovation areas that could support future projects.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Comparison</h3>
+          <p>Comparing solutions, advantages, disadvantages, costs, limitations, and possible improvements.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Capability Gaps</h3>
+          <p>Identifying areas where Canada could benefit from stronger domestic technology, infrastructure, or systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Applications</div>
+
+      <h2>Possible Project Uses</h2>
+
+      <div class="card">
+        <p>
+          Technology Research can support aerospace studies, defence-adjacent concepts, infrastructure ideas, automation
+          projects, AI-assisted systems, energy systems, digital tools, and engineering portfolios.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Fromentin Industries</p>
+    <p><a href="../index.html">Return Home</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
