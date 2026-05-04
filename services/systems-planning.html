@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Systems Planning | Fromentin Industries</title>
+
+  <meta name="description" content="Systems Planning at Fromentin Industries focuses on how hardware, software, people, logistics, and workflows connect into functional systems.">
+
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero service-hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="../assets/logo.png" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+
+      <p class="eyebrow reveal reveal-delay-2">Service Area 04</p>
+
+      <h1 class="reveal reveal-delay-3">Systems Planning</h1>
+
+      <p class="tagline reveal reveal-delay-4">Connecting parts into working systems.</p>
+
+      <p class="hero-description reveal reveal-delay-5">
+        Systems Planning focuses on how components, people, tools, workflows, software, and physical systems connect
+        together to achieve a mission or objective.
+      </p>
+
+      <div class="hero-buttons reveal reveal-delay-6">
+        <a href="../index.html#services" class="button secondary-button">Back to Services</a>
+        <a href="../index.html#contact" class="button primary-button">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Overview</div>
+
+      <h2>Purpose</h2>
+
+      <div class="card glass-card">
+        <p>
+          Systems Planning looks beyond individual parts. It focuses on how everything works together: equipment,
+          information, people, logistics, software, timing, risk, and process.
+        </p>
+
+        <p>
+          This is useful for projects that need structure, coordination, repeatability, and clear operational logic.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Focus</div>
+
+      <h2>What This Includes</h2>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>System Structure</h3>
+          <p>Mapping out major components and how they connect to each other.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Workflow Logic</h3>
+          <p>Planning the order of actions, handoffs, inputs, outputs, and decision points.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Risk and Reliability</h3>
+          <p>Identifying weak points, failure points, dependencies, and improvement areas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">Applications</div>
+
+      <h2>Possible Project Uses</h2>
+
+      <div class="card">
+        <p>
+          Systems Planning can support digital infrastructure, server projects, operations planning, automation workflows,
+          project management, technical diagrams, emergency-readiness ideas, and Canadian capability concepts.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Fromentin Industries</p>
+    <p><a href="../index.html">Return Home</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
