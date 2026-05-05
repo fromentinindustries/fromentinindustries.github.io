@@ -12,7 +12,7 @@
   <link rel="icon" href="assets/favicon">
   <link rel="apple-touch-icon" href="assets/favicon">
 
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 
 <body>
@@ -31,10 +31,10 @@
 
     <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
+      <a href="index.html#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
+      <a href="privacy.html">Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
   </nav>
 
@@ -85,9 +85,9 @@
     </section>
 
     <section class="scroll-reveal">
-      <div class="section-label">02 / Information Collected</div>
+      <div class="section-label">02 / Contact Form Data</div>
 
-      <h2>Contact Form Data</h2>
+      <h2>Information Collected</h2>
 
       <div class="flip-grid three-column">
 
@@ -100,9 +100,7 @@
 
             <div class="flip-card-back">
               <h3>Name</h3>
-              <p>
-                Used to identify who submitted the inquiry and respond professionally.
-              </p>
+              <p>Used to identify who submitted the inquiry and respond professionally.</p>
             </div>
           </div>
         </div>
@@ -116,9 +114,7 @@
 
             <div class="flip-card-back">
               <h3>Email</h3>
-              <p>
-                Used only to reply to the submitted request or continue the related conversation.
-              </p>
+              <p>Used only to reply to the submitted request or continue the related conversation.</p>
             </div>
           </div>
         </div>
@@ -132,9 +128,7 @@
 
             <div class="flip-card-back">
               <h3>Message</h3>
-              <p>
-                Used to understand the inquiry, project discussion or requested contact.
-              </p>
+              <p>Used to understand the inquiry, project discussion or requested contact.</p>
             </div>
           </div>
         </div>
@@ -183,20 +177,18 @@
         <div class="footer-brand-block">
           <p class="footer-brand">Fromentin Industries</p>
           <p class="footer-tagline">Systems for a stronger Canada.</p>
-          <p class="footer-note">
-            Development-stage Canadian technology and systems brand. Public launch planned after graduation.
-          </p>
+          <p class="footer-note">Development-stage Canadian technology and systems brand. Public launch planned after graduation.</p>
         </div>
 
         <div class="footer-column">
           <h3>Site</h3>
           <a href="index.html">Home</a>
-          <a href="index.html#services">Services</a>
+          <a href="index.html#services">Development Areas</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
 
         <div class="footer-column">
-          <h3>Services</h3>
+          <h3>Development Areas</h3>
           <a href="services/technical-design.html">Technical Design</a>
           <a href="services/cad-modelling.html">CAD Modelling</a>
           <a href="services/concept-development.html">Concept Development</a>
@@ -238,9 +230,7 @@
       <div class="modal-header">
         <p class="eyebrow">Fromentin Industries</p>
         <h2>Contact Request</h2>
-        <p>
-          Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.
-        </p>
+        <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
       </div>
 
       <form class="contact-form" action="https://formsubmit.co/contact.fromentinindustries@gmail.com" method="POST">
@@ -279,13 +269,7 @@
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="Message"
-            rows="6"
-            placeholder="Briefly explain what you are contacting Fromentin Industries about."
-            required
-          ></textarea>
+          <textarea id="message" name="Message" rows="6" placeholder="Briefly explain what you are contacting Fromentin Industries about." required></textarea>
         </div>
 
         <div class="form-actions">
@@ -301,46 +285,30 @@
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
-
       const nav = document.getElementById("site-nav");
-      if (nav) {
-        nav.classList.add("visible");
-      }
+      if (nav) nav.classList.add("visible");
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
-
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
-    }, {
-      threshold: 0.15
-    });
-
-    revealElements.forEach(element => {
-      revealObserver.observe(element);
-    });
+    }, { threshold: 0.15 });
+    revealElements.forEach(element => revealObserver.observe(element));
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
-
       modal.classList.add("open");
       document.body.classList.add("modal-open");
-
       const nav = document.getElementById("site-nav");
-      if (nav) {
-        nav.classList.remove("menu-open");
-      }
+      if (nav) nav.classList.remove("menu-open");
     }
 
     function closeContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
-
       modal.classList.remove("open");
       document.body.classList.remove("modal-open");
     }
@@ -348,29 +316,22 @@
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
       if (!nav) return;
-
       nav.classList.toggle("menu-open");
     }
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (nav) {
-        nav.classList.add("visible");
-      }
+      if (nav) nav.classList.add("visible");
     });
 
     document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        closeContactModal();
-      }
+      if (event.key === "Escape") closeContactModal();
     });
 
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
-        if (nav) {
-          nav.classList.remove("menu-open");
-        }
+        if (nav) nav.classList.remove("menu-open");
       });
     });
   </script>
