@@ -7,13 +7,36 @@
 
   <title>Privacy | Fromentin Industries</title>
 
+  <meta name="description" content="Privacy notice for Fromentin Industries. This page explains what information may be collected through the website and contact form.">
+
   <link rel="icon" href="assets/favicon">
   <link rel="apple-touch-icon" href="assets/favicon">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 <body>
+
+  <nav class="site-nav visible" id="site-nav">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo" alt="Fromentin Industries logo">
+      <span>Fromentin Industries</span>
+    </a>
+
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
+      <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </nav>
 
   <div class="page-loader">
     <div class="loader-mark">FI</div>
@@ -37,7 +60,8 @@
       </p>
 
       <div class="hero-buttons">
-        <a href="index.html" class="button primary-button">Return Home</a>
+        <a href="index.html" class="button secondary-button">Return Home</a>
+        <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
       </div>
     </div>
   </header>
@@ -51,17 +75,75 @@
 
       <div class="card glass-card">
         <p>
-          Fromentin Industries does not currently use tracking cookies, advertising cookies, or third-party analytics on this website.
+          Fromentin Industries does not currently use tracking cookies, advertising cookies or third-party analytics on this website.
         </p>
 
         <p>
-          Information is only collected if a visitor voluntarily submits the contact form. This may include a name, email address, request type, and message content.
+          Information is only collected if a visitor voluntarily submits the contact form. This may include a name, email address, request type and message content.
         </p>
       </div>
     </section>
 
     <section class="scroll-reveal">
-      <div class="section-label">02 / Use</div>
+      <div class="section-label">02 / Information Collected</div>
+
+      <h2>Contact Form Data</h2>
+
+      <div class="flip-grid three-column">
+
+        <div class="flip-card no-link">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="service-number">01</span>
+              <h3>Name</h3>
+            </div>
+
+            <div class="flip-card-back">
+              <h3>Name</h3>
+              <p>
+                Used to identify who submitted the inquiry and respond professionally.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card no-link">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="service-number">02</span>
+              <h3>Email</h3>
+            </div>
+
+            <div class="flip-card-back">
+              <h3>Email</h3>
+              <p>
+                Used only to reply to the submitted request or continue the related conversation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card no-link">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="service-number">03</span>
+              <h3>Message</h3>
+            </div>
+
+            <div class="flip-card-back">
+              <h3>Message</h3>
+              <p>
+                Used to understand the inquiry, project discussion or requested contact.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">03 / Use</div>
 
       <h2>How Information Is Used</h2>
 
@@ -71,23 +153,23 @@
         </p>
 
         <p>
-          Fromentin Industries does not sell visitor information.
+          Fromentin Industries does not sell visitor information. Submitted contact information is not used for advertising, profiling or third-party marketing.
         </p>
       </div>
     </section>
 
     <section class="scroll-reveal">
-      <div class="section-label">03 / Contact</div>
+      <div class="section-label">04 / Third Party Form Handling</div>
 
-      <h2>Questions</h2>
+      <h2>FormSubmit</h2>
 
       <div class="card glass-card">
         <p>
-          For privacy-related questions, contact:
+          The website contact form may use FormSubmit to deliver submitted messages to the Fromentin Industries contact inbox.
         </p>
 
         <p>
-          contact.fromentinindustries@gmail.com
+          Visitors who do not want to use the contact form may contact Fromentin Industries directly at contact.fromentinindustries@gmail.com.
         </p>
       </div>
     </section>
@@ -96,20 +178,134 @@
 
   <footer>
     <div class="footer-inner">
-      <p class="footer-brand">Fromentin Industries</p>
 
-      <p>© 2026 Fromentin Industries</p>
-      <p>Development-stage brand. Public launch planned after graduation.</p>
+      <div class="footer-top">
+        <div class="footer-brand-block">
+          <p class="footer-brand">Fromentin Industries</p>
+          <p class="footer-tagline">Systems for a stronger Canada.</p>
+          <p class="footer-note">
+            Development-stage Canadian technology and systems brand. Public launch planned after graduation.
+          </p>
+        </div>
 
-      <div class="footer-socials">
-        <a href="index.html">Home</a>
+        <div class="footer-column">
+          <h3>Site</h3>
+          <a href="index.html">Home</a>
+          <a href="index.html#services">Services</a>
+          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+        </div>
+
+        <div class="footer-column">
+          <h3>Services</h3>
+          <a href="services/technical-design.html">Technical Design</a>
+          <a href="services/cad-modelling.html">CAD Modelling</a>
+          <a href="services/concept-development.html">Concept Development</a>
+          <a href="services/systems-planning.html">Systems Planning</a>
+          <a href="services/technology-research.html">Technology Research</a>
+          <a href="services/engineering-documentation.html">Engineering Documentation</a>
+          <a href="services/digital-systems-support.html">Digital Systems Support</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://x.com/FromentinInd" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <a href="privacy.html">Privacy</a>
+          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+        </div>
       </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Fromentin Industries. All rights reserved.</p>
+        <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
+      </div>
+
     </div>
   </footer>
+
+  <div id="contact-modal" class="contact-modal">
+    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+
+      <div class="modal-header">
+        <p class="eyebrow">Fromentin Industries</p>
+        <h2>Contact Request</h2>
+        <p>
+          Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.
+        </p>
+      </div>
+
+      <form class="contact-form" action="https://formsubmit.co/contact.fromentinindustries@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" placeholder="Full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" placeholder="name@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="request-type">Request Type</label>
+          <select id="request-type" name="Request Type" required>
+            <option value="" selected disabled>Select one</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Technical Design">Technical Design</option>
+            <option value="CAD Modelling">CAD Modelling</option>
+            <option value="Concept Development">Concept Development</option>
+            <option value="Systems Planning">Systems Planning</option>
+            <option value="Technology Research">Technology Research</option>
+            <option value="Engineering Documentation">Engineering Documentation</option>
+            <option value="Digital Systems Support">Digital Systems Support</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="Message"
+            rows="6"
+            placeholder="Briefly explain what you are contacting Fromentin Industries about."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">Send Request</button>
+          <button type="button" class="copy-button" onclick="closeContactModal()">Cancel</button>
+        </div>
+
+        <p class="small-note">Contact inbox: contact.fromentinindustries@gmail.com</p>
+      </form>
+    </div>
+  </div>
 
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+
+      const nav = document.getElementById("site-nav");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
@@ -126,6 +322,56 @@
 
     revealElements.forEach(element => {
       revealObserver.observe(element);
+    });
+
+    function openContactModal() {
+      const modal = document.getElementById("contact-modal");
+      if (!modal) return;
+
+      modal.classList.add("open");
+      document.body.classList.add("modal-open");
+
+      const nav = document.getElementById("site-nav");
+      if (nav) {
+        nav.classList.remove("menu-open");
+      }
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById("contact-modal");
+      if (!modal) return;
+
+      modal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementById("site-nav");
+      if (!nav) return;
+
+      nav.classList.toggle("menu-open");
+    }
+
+    window.addEventListener("scroll", () => {
+      const nav = document.getElementById("site-nav");
+      if (nav) {
+        nav.classList.add("visible");
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
+    });
+
+    document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("site-nav");
+        if (nav) {
+          nav.classList.remove("menu-open");
+        }
+      });
     });
   </script>
 
