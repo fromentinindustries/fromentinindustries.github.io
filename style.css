@@ -324,7 +324,7 @@ h2 {
   pointer-events: auto;
 }
 
-/* Flip cards */
+/* Flip Cards */
 
 .flip-grid {
   display: grid;
@@ -428,6 +428,8 @@ h2 {
   text-transform: uppercase;
 }
 
+/* Social Logos */
+
 .social-icon {
   position: relative;
   z-index: 2;
@@ -438,12 +440,18 @@ h2 {
   border: 1px solid #4b5563;
   border-radius: 14px;
   background: rgba(15, 20, 28, 0.9);
-  color: #ef4444;
-  font-weight: bold;
-  letter-spacing: 1px;
+  overflow: hidden;
 }
 
-/* Contact modal */
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(185, 28, 28, 0.25));
+}
+
+/* Contact Modal */
 
 .contact-modal {
   position: fixed;
@@ -615,7 +623,7 @@ footer a:hover {
   color: #ffffff;
 }
 
-/* Animations */
+/* Animation Classes */
 
 .reveal {
   opacity: 0;
@@ -674,33 +682,73 @@ footer a:hover {
 /* Mobile */
 
 @media (max-width: 800px) {
+  main {
+    padding: 45px 16px 30px;
+  }
+
+  section {
+    margin-bottom: 56px;
+  }
+
   .hero {
     min-height: 92vh;
+    padding: 42px 18px;
   }
 
   .logo {
-    width: 135px;
+    width: 125px;
   }
 
   h1 {
+    font-size: clamp(36px, 12vw, 58px);
     letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: clamp(28px, 9vw, 40px);
+  }
+
+  .eyebrow {
+    letter-spacing: 2px;
+    font-size: 12px;
   }
 
   .tagline {
     letter-spacing: 1px;
+    font-size: 18px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .button,
+  .submit-button,
+  .copy-button {
+    width: 100%;
+    text-align: center;
   }
 
   .banner-about-wrapper {
     overflow: visible;
     border: none;
     box-shadow: none;
+    margin-bottom: 56px;
   }
 
   .hero-banner-image {
     min-height: auto;
     border-radius: 18px;
     border: 1px solid #2d3748;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
   }
 
   .banner-about-panel {
@@ -709,7 +757,11 @@ footer a:hover {
     opacity: 1;
     transform: none;
     pointer-events: auto;
-    padding: 24px 0 0;
+    padding: 22px 0 0;
+  }
+
+  .banner-about-panel .card {
+    background: linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
   }
 
   .banner-about-wrapper:hover .hero-banner-image {
@@ -721,26 +773,66 @@ footer a:hover {
   .flip-grid,
   .flip-grid.three-column {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .flip-card {
     height: auto;
-    min-height: 230px;
+    min-height: 0;
+    perspective: none;
   }
 
   .flip-card-inner {
+    height: auto;
     transform: none !important;
+    transform-style: flat;
   }
 
   .flip-card-front,
   .flip-card-back {
     position: relative;
+    inset: auto;
     transform: none;
     backface-visibility: visible;
+    box-shadow: none;
+  }
+
+  .flip-card-front {
+    min-height: 132px;
+    border-radius: 16px 16px 0 0;
+    border-bottom: none;
   }
 
   .flip-card-back {
-    margin-top: 12px;
+    min-height: auto;
+    margin-top: 0;
+    border-radius: 0 0 16px 16px;
+    background:
+      radial-gradient(circle at top right, rgba(185, 28, 28, 0.10), transparent 40%),
+      linear-gradient(145deg, rgba(15, 20, 28, 0.98), rgba(7, 11, 16, 0.98));
+  }
+
+  .flip-card h3 {
+    font-size: 22px;
+  }
+
+  .flip-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .social-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card {
+    padding: 22px;
   }
 
   .primary-button:hover,
@@ -754,6 +846,7 @@ footer a:hover {
 @media (max-width: 700px) {
   .modal-panel {
     padding: 24px 20px;
+    max-height: 88vh;
   }
 
   .form-row {
@@ -768,5 +861,30 @@ footer a:hover {
   .copy-button {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding: 36px 14px;
+  }
+
+  main {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .logo {
+    width: 112px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .flip-card-front,
+  .flip-card-back,
+  .card {
+    padding: 20px;
   }
 }
