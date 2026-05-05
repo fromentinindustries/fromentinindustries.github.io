@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Privacy | Fromentin Industries</title>
+
+  <link rel="icon" href="assets/favicon">
+  <link rel="apple-touch-icon" href="assets/favicon">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="page-loader">
+    <div class="loader-mark">FI</div>
+  </div>
+
+  <header class="hero service-hero">
+    <div class="hero-background-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <div class="hero-content">
+      <img src="assets/logo" alt="Fromentin Industries Logo" class="logo">
+
+      <p class="eyebrow">Fromentin Industries</p>
+
+      <h1>Privacy</h1>
+
+      <p class="tagline">Simple. Limited. Controlled.</p>
+
+      <p class="hero-description">
+        Fromentin Industries is currently a development-stage brand. This privacy notice explains what information may be collected through this website.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="index.html" class="button primary-button">Return Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="scroll-reveal">
+      <div class="section-label">01 / Overview</div>
+
+      <h2>Privacy Notice</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries does not currently use tracking cookies, advertising cookies, or third-party analytics on this website.
+        </p>
+
+        <p>
+          Information is only collected if a visitor voluntarily submits the contact form. This may include a name, email address, request type, and message content.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">02 / Use</div>
+
+      <h2>How Information Is Used</h2>
+
+      <div class="card glass-card">
+        <p>
+          Information submitted through the contact form is used only to review and respond to the inquiry.
+        </p>
+
+        <p>
+          Fromentin Industries does not sell visitor information.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">03 / Contact</div>
+
+      <h2>Questions</h2>
+
+      <div class="card glass-card">
+        <p>
+          For privacy-related questions, contact:
+        </p>
+
+        <p>
+          contact.fromentinindustries@gmail.com
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand">Fromentin Industries</p>
+
+      <p>© 2026 Fromentin Industries</p>
+      <p>Development-stage brand. Public launch planned after graduation.</p>
+
+      <div class="footer-socials">
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
