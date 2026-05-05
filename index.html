@@ -16,28 +16,28 @@
 </head>
 
 <body>
-  
-<nav class="site-nav" id="site-nav">
-  <a href="index.html" class="nav-brand">
-    <img src="assets/logo" alt="Fromentin Industries logo">
-    <span>Fromentin Industries</span>
-  </a>
 
-  <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo" alt="Fromentin Industries logo">
+      <span>Fromentin Industries</span>
+    </a>
 
-  <div class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
-  </div>
-</nav>
-  
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#services">Services</a>
+      <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
+      <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </nav>
+
   <div class="page-loader">
     <div class="loader-mark">FI</div>
   </div>
@@ -57,7 +57,7 @@
 
       <p class="hero-description">
         A development-stage Canadian technology and systems brand focused on technical design,
-        CAD modelling, systems planning, digital systems, and future innovation projects.
+        CAD modelling, systems planning, digital systems and future innovation projects.
       </p>
 
       <div class="hero-buttons">
@@ -84,12 +84,12 @@
           <div class="card glass-card">
             <p>
               Fromentin Industries is a developing Canadian technology and systems concept focused on technical design,
-              engineering research, CAD modelling, systems planning, digital systems, and future innovation projects.
+              engineering research, CAD modelling, systems planning, digital systems and future innovation projects.
             </p>
 
             <p>
               The long-term mission is to develop practical technology and system-level solutions that strengthen Canadian
-              capability, resilience, and future readiness.
+              capability, resilience and future readiness.
             </p>
           </div>
         </div>
@@ -282,82 +282,59 @@
 
       </div>
     </section>
-    
-    <section id="contact" class="scroll-reveal">
-      <div class="section-label">04 / Contact</div>
-
-      <h2>Contact</h2>
-
-      <div class="card contact-card">
-        <p>
-          Fromentin Industries is currently in private development. For inquiries, project discussions, or future contact,
-          submit a request through the contact panel.
-        </p>
-
-        <button type="button" class="submit-button" onclick="openContactModal()">
-          Open Contact Panel
-        </button>
-
-        <p class="small-note">
-          Direct email: contact.fromentinindustries@gmail.com
-        </p>
-      </div>
-    </section>
 
   </main>
 
-<footer>
-  <div class="footer-inner">
+  <footer>
+    <div class="footer-inner">
 
-    <div class="footer-top">
-      <div class="footer-brand-block">
-        <p class="footer-brand">Fromentin Industries</p>
-        <p class="footer-tagline">Systems for a stronger Canada.</p>
-        <p class="footer-note">
-          Development-stage Canadian technology and systems brand. Public launch planned after graduation.
-        </p>
+      <div class="footer-top">
+        <div class="footer-brand-block">
+          <p class="footer-brand">Fromentin Industries</p>
+          <p class="footer-tagline">Systems for a stronger Canada.</p>
+          <p class="footer-note">
+            Development-stage Canadian technology and systems brand. Public launch planned after graduation.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Site</h3>
+          <a href="index.html">Home</a>
+          <a href="#services">Services</a>
+          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+        </div>
+
+        <div class="footer-column">
+          <h3>Services</h3>
+          <a href="services/technical-design.html">Technical Design</a>
+          <a href="services/cad-modelling.html">CAD Modelling</a>
+          <a href="services/systems-planning.html">Systems Planning</a>
+          <a href="services/technology-research.html">Technology Research</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://x.com/FromentinInd" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <a href="privacy.html">Privacy</a>
+          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+        </div>
       </div>
 
-      <div class="footer-column">
-        <h3>Site</h3>
-        <a href="index.html">Home</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+      <div class="footer-bottom">
+        <p>© 2026 Fromentin Industries. All rights reserved.</p>
+        <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
       </div>
 
-      <div class="footer-column">
-        <h3>Services</h3>
-        <a href="services/technical-design.html">Technical Design</a>
-        <a href="services/cad-modelling.html">CAD Modelling</a>
-        <a href="services/systems-planning.html">Systems Planning</a>
-        <a href="services/technology-research.html">Technology Research</a>
-      </div>
-
-      <div class="footer-column">
-        <h3>Connect</h3>
-        <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://x.com/FromentinInd" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </div>
-
-      <div class="footer-column">
-        <h3>Legal</h3>
-        <a href="privacy.html">Privacy</a>
-      <button type="button" class="submit-button" onclick="openContactModal()">
-          Open Contact Panel
-        </button>
-      </div>
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-      <p>© 2026 Fromentin Industries. All rights reserved.</p>
-      <p>Private development-stage brand. Not publicly launched, incorporated, contracted, or operating as a defence contractor.</p>
-    </div>
-
-  </div>
-</footer>
-  
   <div id="contact-modal" class="contact-modal">
     <div class="modal-backdrop" onclick="closeContactModal()"></div>
 
@@ -456,19 +433,54 @@
     });
 
     function openContactModal() {
-      document.getElementById("contact-modal").classList.add("open");
+      const modal = document.getElementById("contact-modal");
+      if (!modal) return;
+
+      modal.classList.add("open");
       document.body.classList.add("modal-open");
+
+      const nav = document.getElementById("site-nav");
+      if (nav) nav.classList.remove("menu-open");
     }
 
     function closeContactModal() {
-      document.getElementById("contact-modal").classList.remove("open");
+      const modal = document.getElementById("contact-modal");
+      if (!modal) return;
+
+      modal.classList.remove("open");
       document.body.classList.remove("modal-open");
     }
+
+    function toggleMenu() {
+      const nav = document.getElementById("site-nav");
+      if (!nav) return;
+
+      nav.classList.toggle("menu-open");
+    }
+
+    window.addEventListener("scroll", () => {
+      const nav = document.getElementById("site-nav");
+      if (!nav) return;
+
+      if (window.scrollY > 120) {
+        nav.classList.add("visible");
+      } else {
+        nav.classList.remove("visible");
+        nav.classList.remove("menu-open");
+      }
+    });
 
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
         closeContactModal();
       }
+    });
+
+    document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("site-nav");
+        if (nav) nav.classList.remove("menu-open");
+      });
     });
   </script>
 
