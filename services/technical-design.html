@@ -5,18 +5,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title>Technical Design | Fromentin Industries</title>
-<meta name="description" content="Technical Design is a current learning and development area for Fromentin Industries, focused on early-stage design thinking, requirements, constraints and structured technical planning.
-">
+  <title>Technical Design | Fromentin Industries</title>
+
+  <meta name="description" content="Technical Design is a current learning and development area for Fromentin Industries, focused on early-stage design thinking, requirements, constraints and structured technical planning.">
+
   <link rel="icon" href="../assets/favicon">
   <link rel="apple-touch-icon" href="../assets/favicon">
 
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v=6">
 </head>
 
 <body>
 
-  <nav class="site-nav" id="site-nav">
+  <nav class="site-nav visible" id="site-nav">
     <a href="../index.html" class="nav-brand">
       <img src="../assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
@@ -30,10 +31,10 @@
 
     <div class="nav-links" id="nav-links">
       <a href="../index.html">Home</a>
-      <a href="../index.html#services">Services</a>
+      <a href="../index.html#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
+      <a href="../privacy.html">Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
   </nav>
 
@@ -48,15 +49,18 @@
     <div class="hero-content">
       <img src="../assets/logo" alt="Fromentin Industries Logo" class="logo">
 
-      <p class="eyebrow">Service Area 02</p>
-<h1>Technical Design</h1>
-<p class="tagline">Learning how ideas become structured technical direction.</p>
-<p class="hero-description">
-A current learning area focused on early-stage design thinking, requirements, constraints, practical planning and technical decision-making.
-</p>
+      <p class="eyebrow">Development Area 01</p>
+
+      <h1>Technical Design</h1>
+
+      <p class="tagline">Learning how ideas become structured technical direction.</p>
+
+      <p class="hero-description">
+        A current learning area focused on early-stage design thinking, requirements, constraints, practical planning and technical decision-making.
+      </p>
 
       <div class="hero-buttons">
-        <a href="../index.html#services" class="button secondary-button">Back to Services</a>
+        <a href="../index.html#services" class="button secondary-button">Back to Areas</a>
         <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
       </div>
     </div>
@@ -71,19 +75,19 @@ A current learning area focused on early-stage design thinking, requirements, co
 
       <div class="card glass-card">
         <p>
-  Technical Design is where I am learning how to define what a project should do, what limits it must work within, what problems it is meant to solve and what direction the design should take.
-</p>
+          Technical Design is where I am learning how to define what a project should do, what limits it must work within, what problems it is meant to solve and what direction the design should take.
+        </p>
 
-<p>
-  This area is being developed to build stronger project foundations before moving into modelling, prototyping, testing or documentation.
-</p>
+        <p>
+          This area is being developed to build stronger project foundations before moving into modelling, prototyping, testing or documentation.
+        </p>
       </div>
     </section>
 
     <section class="scroll-reveal">
       <div class="section-label">02 / Focus</div>
 
-      <h2>Core Focus</h2>
+      <h2>Current Learning Focus</h2>
 
       <div class="flip-grid three-column">
 
@@ -96,7 +100,7 @@ A current learning area focused on early-stage design thinking, requirements, co
 
             <div class="flip-card-back">
               <h3>Requirements</h3>
-              <p>Defining what the design must accomplish, what conditions it must survive and what standards it should meet.</p>
+              <p>Learning how to define what a design must accomplish, what conditions it may face and what standards or goals it should meet.</p>
             </div>
           </div>
         </div>
@@ -110,7 +114,7 @@ A current learning area focused on early-stage design thinking, requirements, co
 
             <div class="flip-card-back">
               <h3>Constraints</h3>
-              <p>Identifying limits such as size, weight, materials, budget, timeline, tools, safety and build method.</p>
+              <p>Learning how to identify limits such as size, weight, materials, budget, timeline, tools, safety and build method.</p>
             </div>
           </div>
         </div>
@@ -124,7 +128,7 @@ A current learning area focused on early-stage design thinking, requirements, co
 
             <div class="flip-card-back">
               <h3>Direction</h3>
-              <p>Creating a clear technical path toward modelling, prototyping, testing, documentation or future development.</p>
+              <p>Learning how to create a clear technical path toward modelling, prototyping, testing, documentation or future development.</p>
             </div>
           </div>
         </div>
@@ -147,16 +151,19 @@ A current learning area focused on early-stage design thinking, requirements, co
         <div class="footer-column">
           <h3>Site</h3>
           <a href="../index.html">Home</a>
-          <a href="../index.html#services">Services</a>
+          <a href="../index.html#services">Development Areas</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
 
         <div class="footer-column">
-          <h3>Services</h3>
+          <h3>Development Areas</h3>
           <a href="technical-design.html">Technical Design</a>
           <a href="cad-modelling.html">CAD Modelling</a>
+          <a href="concept-development.html">Concept Development</a>
           <a href="systems-planning.html">Systems Planning</a>
           <a href="technology-research.html">Technology Research</a>
+          <a href="engineering-documentation.html">Engineering Documentation</a>
+          <a href="digital-systems-support.html">Digital Systems Support</a>
         </div>
 
         <div class="footer-column">
@@ -246,29 +253,23 @@ A current learning area focused on early-stage design thinking, requirements, co
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+      const nav = document.getElementById("site-nav");
+      if (nav) nav.classList.add("visible");
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
-
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, { threshold: 0.15 });
-
-    revealElements.forEach(element => {
-      revealObserver.observe(element);
-    });
+    revealElements.forEach(element => revealObserver.observe(element));
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
-
       modal.classList.add("open");
       document.body.classList.add("modal-open");
-
       const nav = document.getElementById("site-nav");
       if (nav) nav.classList.remove("menu-open");
     }
@@ -276,7 +277,6 @@ A current learning area focused on early-stage design thinking, requirements, co
     function closeContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
-
       modal.classList.remove("open");
       document.body.classList.remove("modal-open");
     }
@@ -284,26 +284,16 @@ A current learning area focused on early-stage design thinking, requirements, co
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
       if (!nav) return;
-
       nav.classList.toggle("menu-open");
     }
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (!nav) return;
-
-      if (window.scrollY > 120) {
-        nav.classList.add("visible");
-      } else {
-        nav.classList.remove("visible");
-        nav.classList.remove("menu-open");
-      }
+      if (nav) nav.classList.add("visible");
     });
 
     document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        closeContactModal();
-      }
+      if (event.key === "Escape") closeContactModal();
     });
 
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
