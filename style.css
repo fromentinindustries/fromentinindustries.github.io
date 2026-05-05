@@ -602,25 +602,52 @@ body.modal-open {
 
 /* Footer */
 
+/* Footer */
+
 footer {
   text-align: center;
-  padding: 36px 20px;
+  padding: 42px 20px;
   color: #8b949e;
   border-top: 1px solid #2d3748;
   background-color: #05080c;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 footer p {
   margin: 6px 0;
 }
 
-footer a {
-  color: #c9d1d9;
-  text-decoration: none;
+.footer-socials {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
-footer a:hover {
-  color: #ffffff;
+.footer-socials a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.footer-socials a:hover {
+  color: #ef4444;
 }
 
 /* Animation Classes */
