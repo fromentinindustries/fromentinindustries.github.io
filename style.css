@@ -602,19 +602,29 @@ body.modal-open {
 
 /* Footer */
 
-/* Footer */
-
 footer {
-  text-align: center;
-  padding: 42px 20px;
+  padding: 52px 20px 34px;
   color: #8b949e;
   border-top: 1px solid #2d3748;
-  background-color: #05080c;
+  background:
+    radial-gradient(circle at top left, rgba(185, 28, 28, 0.10), transparent 28%),
+    #05080c;
 }
 
 .footer-inner {
-  max-width: 900px;
+  max-width: 1120px;
   margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.4fr 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.footer-brand-block {
+  max-width: 340px;
 }
 
 .footer-brand {
@@ -622,32 +632,90 @@ footer {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin: 0 0 10px;
 }
 
-footer p {
-  margin: 6px 0;
+.footer-tagline {
+  color: #ef4444;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0 0 12px;
 }
 
-.footer-socials {
-  margin-top: 22px;
+.footer-note {
+  color: #8b949e;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-column {
   display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 9px;
 }
 
-.footer-socials a {
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.footer-column a {
   color: #c9d1d9;
   text-decoration: none;
   font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.footer-socials a:hover {
+.footer-column a:hover {
   color: #ef4444;
+  transform: translateX(3px);
+}
+
+.footer-bottom {
+  margin-top: 38px;
+  padding-top: 22px;
+  border-top: 1px solid #1f2937;
+  display: grid;
+  gap: 8px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #8b949e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Footer mobile */
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-brand-block {
+    max-width: none;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  footer {
+    padding: 42px 16px 30px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .footer-column a:hover {
+    transform: none;
+  }
 }
 
 /* Animation Classes */
