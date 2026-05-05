@@ -5,17 +5,36 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Engineering Documentation | Fromentin Industries</title>
-
-  <meta name="description" content="Engineering Documentation at Fromentin Industries focuses on reports, briefs, diagrams, project plans, technical records, and structured design communication.">
-
-  <link rel="icon" type="image/png" href="../assets/favicon.png">
-  <link rel="apple-touch-icon" href="../assets/favicon.png">
+ <title>CAD Modelling | Fromentin Industries</title>
+<meta name="description" content="CAD Modelling at Fromentin Industries focuses on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build planning.">
+  <link rel="icon" href="../assets/favicon">
+  <link rel="apple-touch-icon" href="../assets/favicon">
 
   <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
+
+  <nav class="site-nav" id="site-nav">
+    <a href="../index.html" class="nav-brand">
+      <img src="../assets/logo" alt="Fromentin Industries logo">
+      <span>Fromentin Industries</span>
+    </a>
+
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#services">Services</a>
+      <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
+      <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </nav>
 
   <div class="page-loader">
     <div class="loader-mark">FI</div>
@@ -26,22 +45,18 @@
     <div class="hero-scanline"></div>
 
     <div class="hero-content">
-      <img src="../assets/logo.png" alt="Fromentin Industries Logo" class="logo reveal reveal-delay-1">
+      <img src="../assets/logo" alt="Fromentin Industries Logo" class="logo">
 
-      <p class="eyebrow reveal reveal-delay-2">Service Area 06</p>
+      <p class="eyebrow">Service Area 02</p>
+<h1>CAD Modelling</h1>
+<p class="tagline">Digital design before physical build.</p>
+<p class="hero-description">
+  3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build planning.
+</p>
 
-      <h1 class="reveal reveal-delay-3">Engineering Documentation</h1>
-
-      <p class="tagline reveal reveal-delay-4">Clear records. Clear direction. Better execution.</p>
-
-      <p class="hero-description reveal reveal-delay-5">
-        Engineering Documentation focuses on creating structured reports, design briefs, diagrams, planning documents,
-        and technical records that make projects easier to understand and improve.
-      </p>
-
-      <div class="hero-buttons reveal reveal-delay-6">
+      <div class="hero-buttons">
         <a href="../index.html#services" class="button secondary-button">Back to Services</a>
-        <a href="../index.html#contact" class="button primary-button">Contact</a>
+        <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
       </div>
     </div>
   </header>
@@ -49,65 +64,183 @@
   <main>
 
     <section class="scroll-reveal">
-      <div class="section-label">Overview</div>
+      <div class="section-label">01 / Overview</div>
 
       <h2>Purpose</h2>
 
       <div class="card glass-card">
         <p>
-          Engineering Documentation turns project work into clear, organized records. Strong documentation allows designs
-          to be reviewed, explained, repeated, improved, and presented professionally.
-        </p>
+  CAD Modelling allows a concept to be seen, measured, adjusted and improved before anything is built.
+</p>
 
-        <p>
-          Without documentation, a project is just scattered work. With documentation, it becomes a portfolio, a proposal,
-          a technical record, or a future build plan.
-        </p>
+<p>
+  This service area supports digital parts, assemblies, mechanical layouts, prototype planning and visual project communication.
+</p>
       </div>
     </section>
 
     <section class="scroll-reveal">
-      <div class="section-label">Focus</div>
+      <div class="section-label">02 / Focus</div>
 
-      <h2>What This Includes</h2>
+      <h2>Core Focus</h2>
 
-      <div class="status-grid">
-        <div class="status-card">
-          <h3>Design Briefs</h3>
-          <p>Short structured documents explaining the goal, problem, concept, requirements, and proposed solution.</p>
+      <div class="flip-grid three-column">
+
+        <div class="flip-card no-link">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="service-number">01</span>
+              <h3>Requirements</h3>
+            </div>
+
+            <div class="flip-card-back">
+              <h3>Requirements</h3>
+              <p>Defining what the design must accomplish, what conditions it must survive and what standards it should meet.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="status-card">
-          <h3>Technical Reports</h3>
-          <p>Detailed documents covering process, research, calculations, testing, results, and improvements.</p>
+        <div class="flip-card no-link">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="service-number">02</span>
+              <h3>Constraints</h3>
+            </div>
+
+            <div class="flip-card-back">
+              <h3>Constraints</h3>
+              <p>Identifying limits such as size, weight, materials, budget, timeline, tools, safety and build method.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="status-card">
-          <h3>Project Records</h3>
-          <p>Organized notes, diagrams, logs, screenshots, CAD images, and development history.</p>
+        <div class="flip-card no-link">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="service-number">03</span>
+              <h3>Direction</h3>
+            </div>
+
+            <div class="flip-card-back">
+              <h3>Direction</h3>
+              <p>Creating a clear technical path toward modelling, prototyping, testing, documentation or future development.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="scroll-reveal">
-      <div class="section-label">Applications</div>
-
-      <h2>Possible Project Uses</h2>
-
-      <div class="card">
-        <p>
-          Engineering Documentation can support school projects, CAD work, prototype records, technical portfolios,
-          operations planning, research briefs, business proposals, and future project presentations.
-        </p>
       </div>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2026 Fromentin Industries</p>
-    <p><a href="../index.html">Return Home</a></p>
+    <div class="footer-inner">
+
+      <div class="footer-top">
+        <div class="footer-brand-block">
+          <p class="footer-brand">Fromentin Industries</p>
+          <p class="footer-tagline">Systems for a stronger Canada.</p>
+          <p class="footer-note">Development-stage Canadian technology and systems brand. Public launch planned after graduation.</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Site</h3>
+          <a href="../index.html">Home</a>
+          <a href="../index.html#services">Services</a>
+          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+        </div>
+
+        <div class="footer-column">
+          <h3>Services</h3>
+          <a href="technical-design.html">Technical Design</a>
+          <a href="cad-modelling.html">CAD Modelling</a>
+          <a href="systems-planning.html">Systems Planning</a>
+          <a href="technology-research.html">Technology Research</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://x.com/FromentinInd" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <a href="../privacy.html">Privacy</a>
+          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Fromentin Industries. All rights reserved.</p>
+        <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
+      </div>
+
+    </div>
   </footer>
+
+  <div id="contact-modal" class="contact-modal">
+    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+
+    <div class="modal-panel">
+      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+
+      <div class="modal-header">
+        <p class="eyebrow">Fromentin Industries</p>
+        <h2>Contact Request</h2>
+        <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
+      </div>
+
+      <form class="contact-form" action="https://formsubmit.co/contact.fromentinindustries@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" placeholder="Full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" placeholder="name@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="request-type">Request Type</label>
+          <select id="request-type" name="Request Type" required>
+            <option value="" selected disabled>Select one</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Technical Design">Technical Design</option>
+            <option value="CAD Modelling">CAD Modelling</option>
+            <option value="Concept Development">Concept Development</option>
+            <option value="Systems Planning">Systems Planning</option>
+            <option value="Technology Research">Technology Research</option>
+            <option value="Engineering Documentation">Engineering Documentation</option>
+            <option value="Digital Systems Support">Digital Systems Support</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" rows="6" placeholder="Briefly explain what you are contacting Fromentin Industries about." required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">Send Request</button>
+          <button type="button" class="copy-button" onclick="closeContactModal()">Cancel</button>
+        </div>
+
+        <p class="small-note">Contact inbox: contact.fromentinindustries@gmail.com</p>
+      </form>
+    </div>
+  </div>
 
   <script>
     window.addEventListener("load", () => {
@@ -122,12 +255,61 @@
           entry.target.classList.add("visible");
         }
       });
-    }, {
-      threshold: 0.15
-    });
+    }, { threshold: 0.15 });
 
     revealElements.forEach(element => {
       revealObserver.observe(element);
+    });
+
+    function openContactModal() {
+      const modal = document.getElementById("contact-modal");
+      if (!modal) return;
+
+      modal.classList.add("open");
+      document.body.classList.add("modal-open");
+
+      const nav = document.getElementById("site-nav");
+      if (nav) nav.classList.remove("menu-open");
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById("contact-modal");
+      if (!modal) return;
+
+      modal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementById("site-nav");
+      if (!nav) return;
+
+      nav.classList.toggle("menu-open");
+    }
+
+    window.addEventListener("scroll", () => {
+      const nav = document.getElementById("site-nav");
+      if (!nav) return;
+
+      if (window.scrollY > 120) {
+        nav.classList.add("visible");
+      } else {
+        nav.classList.remove("visible");
+        nav.classList.remove("menu-open");
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
+    });
+
+    document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("site-nav");
+        if (nav) nav.classList.remove("menu-open");
+      });
     });
   </script>
 
