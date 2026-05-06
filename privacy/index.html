@@ -1,79 +1,67 @@
-<!--
-  =========================================================
-  Fromentin Industries
-  Private Development-Stage Website
-  Systems for a stronger Canada.
-
-  All site structure, written content, branding, layouts,
-  visual identity, logos, development-area wording and
-  documentation concepts are part of the Fromentin Industries
-  brand system unless otherwise stated.
-
-  Unauthorized copying, mirroring, scraping, impersonation,
-  commercial reuse or misleading use of this website content
-  is not permitted.
-  =========================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAD Modelling | Fromentin Industries</title>
-  <meta name="description" content="A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.">
 
-  <link rel="icon" href="../../assets/favicon">
-  <link rel="apple-touch-icon" href="../../assets/favicon">
-  <link rel="stylesheet" href="../../style.css?v=7">
+  <title>Legal and Privacy | Fromentin Industries</title>
 
-  <script>
-    (function () {
-      const TERMS_KEY = "fi_terms_accepted";
-      const TERMS_MAX_AGE_DAYS = 30;
-      const MAIN_INDEX_URL = "../../index.html";
+  <meta name="description" content="Legal disclaimer, website terms and privacy notice for Fromentin Industries. This page explains the development-stage status of the brand, website use terms, contact form handling, privacy practices and legal limitations.">
 
-      try {
-        const raw = localStorage.getItem(TERMS_KEY);
-        const accepted = raw ? JSON.parse(raw) : null;
-        const acceptedAt = accepted && accepted.acceptedAt ? Number(accepted.acceptedAt) : 0;
-        const maxAge = TERMS_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
-        const valid = accepted && accepted.version && acceptedAt && Date.now() - acceptedAt < maxAge;
+  <link rel="icon" href="../assets/favicon">
+  <link rel="apple-touch-icon" href="../assets/favicon">
 
-        if (!valid) {
-          const returnPath = window.location.pathname + window.location.search + window.location.hash;
-          window.location.replace(TERMS_URL + "?return=" + encodeURIComponent(returnPath));
-        }
-      } catch (error) {
-        window.location.replace(TERMS_URL);
-      }
-    })();
-  </script>
+  <link rel="stylesheet" href="../style.css?v=10">
 </head>
 
 <body>
 
+  <!--
+    =========================================================
+    Fromentin Industries
+    Private Development-Stage Website
+    Systems for a Stronger Canada
+
+    Copyright Notice / Code Watermark
+
+    All site structure, written content, branding, layouts,
+    visual identity, logos, development-area wording, page
+    organization, documentation concepts and related materials
+    are part of the Fromentin Industries brand system unless
+    otherwise stated.
+
+    Unauthorized copying, mirroring, scraping, impersonation,
+    commercial reuse, redistribution, misleading reference or
+    misuse of this website content is not permitted.
+
+    This website is provided for development, documentation,
+    portfolio and brand-building purposes only.
+    =========================================================
+  -->
+
   <nav class="site-nav visible" id="site-nav">
-    <a href="../../index.html" class="nav-brand">
-      <img src="../../assets/logo" alt="Fromentin Industries logo">
+    <a href="../" class="nav-brand protected-link">
+      <img src="../assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
     </a>
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-controls="nav-links" aria-expanded="false">
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <div class="nav-links" id="nav-links">
-      <a href="../../index.html">Home</a>
-      <a href="../index.html#services">Development Areas</a>
-      <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="../../privacy/">Privacy</a>
+      <a href="../" class="protected-link">Home</a>
+      <a href="../#services" class="protected-link">Development Areas</a>
+      <button type="button" class="nav-link-button" onclick="requireTermsBeforeContact()">Contact</button>
+      <a href="./">Legal and Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
 
-  <div class="page-loader" aria-hidden="true">
+  <div class="page-loader">
     <div class="loader-mark">FI</div>
   </div>
 
@@ -82,80 +70,482 @@
     <div class="hero-scanline"></div>
 
     <div class="hero-content">
-      <img src="../../assets/logo" alt="Fromentin Industries Logo" class="logo">
-      <p class="eyebrow">Development Area 02</p>
-      <h1>CAD Modelling</h1>
-      <p class="tagline">Learning digital design before physical build.</p>
-      <p class="hero-description">A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.</p>
+      <div class="terms-watermark">Fromentin Industries</div>
+
+      <img src="../assets/logo" alt="Fromentin Industries Logo" class="logo">
+
+      <p class="eyebrow">Fromentin Industries</p>
+
+      <h1>Legal and Privacy</h1>
+
+      <p class="tagline">Full disclosure for a development-stage brand.</p>
+
+      <p class="hero-description">
+        This page explains the current status of Fromentin Industries, the limits of this website, how submitted information is handled and the terms that apply when using this site.
+      </p>
 
       <div class="hero-buttons">
-        <a href="../index.html#services" class="button secondary-button">Back to Areas</a>
-        <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
+        <a href="../" class="button secondary-button protected-link">Return to Terms Gate</a>
+        <button type="button" class="button primary-button" onclick="requireTermsBeforeContact()">Contact</button>
       </div>
     </div>
   </header>
 
   <main>
+
     <section class="scroll-reveal">
-      <div class="section-label">01 / Overview</div>
-      <h2>Purpose</h2>
+      <div class="section-label">01 / Status</div>
+
+      <h2>Development-Stage Notice</h2>
+
       <div class="card glass-card">
         <p>
-          CAD Modelling is where I am learning how to turn ideas into digital parts, assemblies and layouts that can be viewed, measured, adjusted and improved before anything is built.
+          Fromentin Industries is currently a private development-stage Canadian technology and systems brand. It is being built as a learning, research, documentation, design and future innovation project.
         </p>
 
         <p>
-          This area is being developed to support future mechanical projects, prototype planning, visual communication and technical portfolio work.
+          Fromentin Industries is not currently publicly launched, incorporated, contracted, certified, licensed as an engineering firm or operating as a defence contractor. Any wording on this website referring to technical design, CAD modelling, concept development, systems planning, technology research, engineering documentation or digital systems support refers to current learning and development areas unless clearly stated otherwise.
+        </p>
+
+        <p>
+          Nothing on this website should be interpreted as an offer to provide regulated engineering services, professional engineering advice, government contracting services, defence products, military equipment, investment opportunities or formal commercial services.
         </p>
       </div>
     </section>
 
     <section class="scroll-reveal">
-      <div class="section-label">02 / Focus</div>
-      <h2>Current Learning Focus</h2>
+      <div class="section-label">02 / Website Use</div>
+
+      <h2>Website Terms of Use</h2>
+
+      <div class="card glass-card">
+        <p>
+          This website is provided for general information, documentation, portfolio development and brand-building purposes. By accessing or using this website, you agree to use it responsibly and only for lawful purposes.
+        </p>
+
+        <p>
+          Website content may include ideas, project descriptions, development notes, branding material, design concepts, technical learning areas, research summaries, images, graphics, documents, logos, layouts, written content and other materials.
+        </p>
+
+        <p>
+          You may view this website for personal, informational and non-commercial use. You may not copy, reproduce, republish, modify, upload, mirror, distribute, frame, scrape or reuse website content, branding, graphics, logos, written materials or design elements without written permission from Fromentin Industries.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">03 / No Warranty</div>
+
+      <h2>Information Provided As-Is</h2>
+
+      <div class="card glass-card">
+        <p>
+          This website and its content are provided as-is and as-available. Fromentin Industries does not guarantee that the website will be uninterrupted, error-free, fully current, complete, secure, free of technical issues or free from typographical mistakes.
+        </p>
+
+        <p>
+          Information on this website may change at any time without notice. Fromentin Industries may update, remove, reorganize or replace website content as the project develops.
+        </p>
+
+        <p>
+          You use this website at your own risk. Fromentin Industries is not responsible for losses, damage, technical issues, data loss, device issues or decisions made based on website content.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">04 / No Advice</div>
+
+      <h2>No Professional, Engineering, Defence or Investment Advice</h2>
+
+      <div class="card glass-card">
+        <p>
+          Nothing on this website is professional engineering advice, legal advice, financial advice, procurement advice, investment advice, defence advice or official technical instruction.
+        </p>
+
+        <p>
+          Any technical, engineering, CAD, systems, research or project material shown on this website is for learning, documentation, concept development and portfolio-building purposes unless clearly stated otherwise.
+        </p>
+
+        <p>
+          Visitors should not rely on this website as a substitute for qualified professional advice, certified engineering review, legal review, regulatory review, safety review or official government information.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">05 / Intellectual Property</div>
+
+      <h2>Brand, Logo and Content Rights</h2>
+
+      <div class="card glass-card">
+        <p>
+          The name Fromentin Industries, the FI branding, logos, graphics, website layout, written content, design language, visual identity, slogans, project names, document structures and related materials are intended to represent the Fromentin Industries brand.
+        </p>
+
+        <p>
+          You may not use the Fromentin Industries name, logo, emblem, brand assets, website design, written content or related materials in a way that suggests endorsement, partnership, sponsorship, affiliation, approval or authorization without written permission.
+        </p>
+
+        <p>
+          You may not use Fromentin Industries branding as a hyperlink, profile image, business identity, project identity or promotional element without permission.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">06 / External Links</div>
+
+      <h2>Third-Party Links and Platforms</h2>
+
+      <div class="card glass-card">
+        <p>
+          This website may link to third-party websites or platforms, including GitHub, Instagram, X, YouTube, FormSubmit or other external services.
+        </p>
+
+        <p>
+          These links are provided for convenience, contact, hosting, communication or reference purposes. Fromentin Industries does not control third-party websites and is not responsible for their content, privacy practices, security, availability, accuracy or terms.
+        </p>
+
+        <p>
+          Accessing third-party links is done at your own risk. You should review the privacy policies and terms of any third-party platform before using it.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">07 / Submissions</div>
+
+      <h2>Messages and Submitted Information</h2>
+
+      <div class="card glass-card">
+        <p>
+          If you submit information through the contact form, email or any other communication method, you should not send confidential, classified, controlled, proprietary, sensitive, restricted, export-controlled, security-related or private third-party information.
+        </p>
+
+        <p>
+          Contact form submissions are treated as general inquiries. Submitting a message does not create a contract, partnership, client relationship, employment relationship, supplier relationship, legal obligation or professional service relationship.
+        </p>
+
+        <p>
+          You are responsible for ensuring that anything you submit is lawful, appropriate and yours to share.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">08 / Prohibited Use</div>
+
+      <h2>Restricted Conduct</h2>
+
+      <div class="card glass-card">
+        <p>
+          You may not use this website to submit unlawful, threatening, abusive, defamatory, obscene, hateful, harassing, misleading, fraudulent, malicious, infringing or harmful material.
+        </p>
+
+        <p>
+          You may not attempt to interfere with the website, bypass security, scrape content, impersonate Fromentin Industries, misrepresent your relationship with Fromentin Industries, upload malicious content or use the website for spam, phishing, fraud or unauthorized data collection.
+        </p>
+
+        <p>
+          Fromentin Industries reserves the right to ignore, block, delete or report inappropriate communications or misuse.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">09 / Privacy Overview</div>
+
+      <h2>Privacy Notice</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries currently collects minimal personal information. Information is collected only when a visitor voluntarily submits it through the contact form or sends a direct email.
+        </p>
+
+        <p>
+          The website does not currently use advertising cookies, behavioural advertising cookies, third-party analytics or tracking pixels.
+        </p>
+
+        <p>
+          If analytics, cookies, newsletters, mailing lists, account systems or other tracking tools are added in the future, this page should be updated before or at the time those tools are introduced.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">10 / Information Collected</div>
+
+      <h2>What Information May Be Collected</h2>
+
       <div class="flip-grid three-column">
+
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">01</span>
-              <h3>Part Modelling</h3>
+              <h3>Name</h3>
             </div>
+
             <div class="flip-card-back">
-              <h3>Part Modelling</h3>
-              <p>Learning how to create individual 3D parts with clear shape, dimensions and purpose.</p>
+              <h3>Name</h3>
+              <p>Used to identify who submitted an inquiry and respond in a clear, professional way.</p>
             </div>
           </div>
         </div>
+
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">02</span>
-              <h3>Assemblies</h3>
+              <h3>Email</h3>
             </div>
+
             <div class="flip-card-back">
-              <h3>Assemblies</h3>
-              <p>Learning how to build multi-part layouts that show how components fit and function together.</p>
+              <h3>Email</h3>
+              <p>Used to reply to the inquiry, continue the relevant conversation or clarify the request.</p>
             </div>
           </div>
         </div>
+
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">03</span>
-              <h3>Visualization</h3>
+              <h3>Message</h3>
             </div>
+
             <div class="flip-card-back">
-              <h3>Visualization</h3>
-              <p>Learning how to create visuals that explain designs, prototypes, mechanisms and build concepts.</p>
+              <h3>Message</h3>
+              <p>Used to understand the inquiry, question, project discussion or contact request.</p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">11 / Use of Information</div>
+
+      <h2>How Submitted Information Is Used</h2>
+
+      <div class="card glass-card">
+        <p>
+          Submitted information may be used to review the inquiry, respond to the sender, organize project-related communication, maintain basic records, improve website clarity and protect the security or integrity of the website and associated accounts.
+        </p>
+
+        <p>
+          Fromentin Industries does not sell visitor information. Submitted contact information is not used for behavioural advertising, profiling, third-party marketing or unrelated promotional use.
+        </p>
+
+        <p>
+          Fromentin Industries does not currently operate a newsletter, mailing list or automated marketing system. If one is added later, consent and unsubscribe controls should be added before launch.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">12 / Contact Form Provider</div>
+
+      <h2>FormSubmit and Email Delivery</h2>
+
+      <div class="card glass-card">
+        <p>
+          The contact form may use FormSubmit to deliver submitted messages to the Fromentin Industries contact inbox.
+        </p>
+
+        <p>
+          When you submit the form, the information entered into the form may pass through FormSubmit before reaching the Fromentin Industries contact email address.
+        </p>
+
+        <p>
+          Visitors who do not want to use the contact form may contact Fromentin Industries directly at contact.fromentinindustries@gmail.com.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">13 / Cookies</div>
+
+      <h2>Cookies and Tracking</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries does not currently use tracking cookies, advertising cookies, behavioural advertising tools or third-party analytics on this website.
+        </p>
+
+        <p>
+          GitHub Pages, browsers, security services, embedded content or third-party platforms may process limited technical information as part of normal website delivery or platform operation.
+        </p>
+
+        <p>
+          If Fromentin Industries later adds analytics, cookies, embedded media, ad tools, newsletter tracking or similar technologies, this page should be updated to explain what is collected, why it is collected, how long it is retained and what choices visitors have.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">14 / Retention</div>
+
+      <h2>How Long Information Is Kept</h2>
+
+      <div class="card glass-card">
+        <p>
+          Contact form and email inquiries may be kept for as long as reasonably needed to review, respond to, document or manage the inquiry.
+        </p>
+
+        <p>
+          Information may be deleted when it is no longer useful, when the inquiry is no longer relevant or when continued retention is unnecessary.
+        </p>
+
+        <p>
+          Some records may be retained longer if needed for security, account protection, dispute prevention, legal compliance, project continuity or administrative recordkeeping.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">15 / Security</div>
+
+      <h2>Security Measures</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries uses basic account and website security practices such as controlled account access, strong passwords, careful storage of project documents and limited collection of personal information.
+        </p>
+
+        <p>
+          No website, form provider, email service or online system can be guaranteed completely secure. Visitors should avoid sending sensitive information through the website or email.
+        </p>
+
+        <p>
+          If you believe you submitted information by mistake or have a concern about a message you sent, contact Fromentin Industries as soon as possible.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">16 / Visitor Choices</div>
+
+      <h2>Access, Correction and Deletion Requests</h2>
+
+      <div class="card glass-card">
+        <p>
+          Visitors may contact Fromentin Industries to ask about personal information they submitted, request correction of inaccurate information or request deletion of contact information where reasonable and possible.
+        </p>
+
+        <p>
+          Requests can be sent to contact.fromentinindustries@gmail.com. Fromentin Industries may need to verify the request before taking action.
+        </p>
+
+        <p>
+          Some information may not be deleted immediately if retention is reasonably necessary for security, recordkeeping, legal compliance, dispute prevention or administrative purposes.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">17 / Minors</div>
+
+      <h2>Children and Youth</h2>
+
+      <div class="card glass-card">
+        <p>
+          This website is not intended to collect personal information from children. Visitors should not submit personal information unless they understand what they are sending and have permission where required.
+        </p>
+
+        <p>
+          If a parent or guardian believes that a child submitted personal information through the website, they may contact Fromentin Industries to request review or deletion where reasonable.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">18 / Email and CASL</div>
+
+      <h2>Electronic Messages</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries does not currently operate a marketing newsletter or mass commercial email list.
+        </p>
+
+        <p>
+          If Fromentin Industries sends commercial electronic messages in the future, the goal will be to use consent-based communication, identify the sender clearly and provide an unsubscribe option where required.
+        </p>
+
+        <p>
+          Direct replies to inquiries are not intended to function as newsletter enrollment or automatic marketing consent.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">19 / Jurisdiction</div>
+
+      <h2>Applicable Law and Access</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries is being developed in Ontario, Canada. Visitors who access the website from outside Ontario or Canada are responsible for complying with their local laws.
+        </p>
+
+        <p>
+          Fromentin Industries makes no claim that website content is appropriate, available or lawful in every jurisdiction.
+        </p>
+
+        <p>
+          If any part of these terms is found unenforceable, the remaining parts should continue to apply as much as possible.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">20 / Updates</div>
+
+      <h2>Changes to This Page</h2>
+
+      <div class="card glass-card">
+        <p>
+          Fromentin Industries may update this Legal and Privacy page as the website, brand, tools, contact methods, cookies, services, documents or public launch status change.
+        </p>
+
+        <p>
+          Visitors should review this page periodically. Continued use of the website after changes are posted means the updated version applies.
+        </p>
+
+        <p>
+          Effective date: May 6, 2026.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-reveal">
+      <div class="section-label">21 / Contact</div>
+
+      <h2>Contact for Legal or Privacy Questions</h2>
+
+      <div class="card glass-card">
+        <p>
+          Questions, correction requests, deletion requests, privacy concerns or website-related concerns can be sent to:
+        </p>
+
+        <p>
+          contact.fromentinindustries@gmail.com
+        </p>
+
+        <p>
+          Please include enough detail to identify the issue, the page involved and the information you are asking about.
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     <div class="footer-inner">
+
       <div class="footer-top">
         <div class="footer-brand-block">
           <p class="footer-brand">Fromentin Industries</p>
@@ -164,21 +554,15 @@
         </div>
 
         <div class="footer-column">
-          <h3>Site</h3>
-          <a href="../../index.html">Home</a>
-          <a href="../index.html#services">Development Areas</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+          <h3>Access</h3>
+          <a href="../" class="protected-link">Return to Terms Gate</a>
+          <button type="button" class="footer-link-button" onclick="requireTermsBeforeContact()">Contact</button>
         </div>
 
         <div class="footer-column">
-          <h3>Development Areas</h3>
-          <a href="technical-design.html">Technical Design</a>
-          <a href="cad-modelling.html">CAD Modelling</a>
-          <a href="concept-development.html">Concept Development</a>
-          <a href="systems-planning.html">Systems Planning</a>
-          <a href="technology-research.html">Technology Research</a>
-          <a href="engineering-documentation.html">Engineering Documentation</a>
-          <a href="digital-systems-support.html">Digital Systems Support</a>
+          <h3>Legal</h3>
+          <a href="./">Legal and Privacy</a>
+          <a href="../" class="protected-link">Home</a>
         </div>
 
         <div class="footer-column">
@@ -189,30 +573,25 @@
           <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
 
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <a href="../../privacy/">Privacy</a>
-          <a href="../../terms/">Terms</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
-        </div>
       </div>
 
       <div class="footer-bottom">
         <p>© 2026 Fromentin Industries. All rights reserved.</p>
         <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
       </div>
+
     </div>
   </footer>
 
-  <div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+  <div id="contact-modal" class="contact-modal">
     <div class="modal-backdrop" onclick="closeContactModal()"></div>
 
     <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close contact form">×</button>
+      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
 
       <div class="modal-header">
         <p class="eyebrow">Fromentin Industries</p>
-        <h2 id="contact-modal-title">Contact Request</h2>
+        <h2>Contact Request</h2>
         <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
       </div>
 
@@ -220,17 +599,17 @@
         <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks/">
 
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="Name" placeholder="Full name" autocomplete="name" required>
+            <input type="text" id="name" name="Name" placeholder="Full legal name and/or company" required>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="Email" placeholder="name@example.com" autocomplete="email" required>
+            <input type="email" id="email" name="Email" placeholder="name@example.com" required>
           </div>
         </div>
 
@@ -239,6 +618,7 @@
           <select id="request-type" name="Request Type" required>
             <option value="" selected disabled>Select one</option>
             <option value="General Inquiry">General Inquiry</option>
+            <option value="Legal or Privacy Question">Legal or Privacy Question</option>
             <option value="Technical Design">Technical Design</option>
             <option value="CAD Modelling">CAD Modelling</option>
             <option value="Concept Development">Concept Development</option>
@@ -266,35 +646,82 @@
   </div>
 
   <script>
+    const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
+    const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
+
+    function hasAcceptedTerms() {
+      const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
+      const expiryTime = localStorage.getItem(TERMS_EXPIRY_KEY);
+      const now = Date.now();
+
+      return (
+        acceptedTerms === "accepted" &&
+        expiryTime &&
+        now < Number(expiryTime)
+      );
+    }
+
+    function redirectToTermsGate() {
+      window.location.href = "../";
+    }
+
+    function requireTermsBeforeContact() {
+      if (hasAcceptedTerms()) {
+        openContactModal();
+      } else {
+        redirectToTermsGate();
+      }
+    }
+
+    function blockProtectedNavigationUntilAccepted() {
+      if (hasAcceptedTerms()) return;
+
+      const protectedLinks = document.querySelectorAll(".protected-link");
+
+      protectedLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          redirectToTermsGate();
+        });
+      });
+    }
+
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
+
+      blockProtectedNavigationUntilAccepted();
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
 
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      }, { threshold: 0.15 });
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
 
-      revealElements.forEach(element => revealObserver.observe(element));
-    } else {
-      revealElements.forEach(element => element.classList.add("visible"));
-    }
+    revealElements.forEach(element => revealObserver.observe(element));
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
-      const nav = document.getElementById("site-nav");
       if (!modal) return;
 
       modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
-      if (nav) nav.classList.remove("menu-open");
+
+      const nav = document.getElementById("site-nav");
+      if (nav) {
+        nav.classList.remove("menu-open");
+      }
     }
 
     function closeContactModal() {
@@ -302,34 +729,35 @@
       if (!modal) return;
 
       modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
-      const toggle = document.querySelector(".nav-toggle");
       if (!nav) return;
 
       nav.classList.toggle("menu-open");
-      if (toggle) toggle.setAttribute("aria-expanded", nav.classList.contains("menu-open") ? "true" : "false");
     }
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") closeContactModal();
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
     });
 
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
-        const toggle = document.querySelector(".nav-toggle");
-        if (nav) nav.classList.remove("menu-open");
-        if (toggle) toggle.setAttribute("aria-expanded", "false");
+        if (nav) {
+          nav.classList.remove("menu-open");
+        }
       });
     });
   </script>
