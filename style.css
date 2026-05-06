@@ -1,223 +1,1121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+* {
+  box-sizing: border-box;
+}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+html {
+  scroll-behavior: smooth;
+}
 
-  <title>Message Sent | Fromentin Industries</title>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(185, 28, 28, 0.16), transparent 32%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 28%),
+    #070b10;
+  color: #f2f2f2;
+  overflow-x: hidden;
+}
 
-  <meta name="description" content="Message sent confirmation page for Fromentin Industries.">
+/* Navigation */
 
-  <link rel="icon" href="assets/favicon">
-  <link rel="apple-touch-icon" href="assets/favicon">
+.site-nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  z-index: 9000;
+  width: min(1120px, calc(100% - 32px));
+  transform: translateX(-50%) translateY(-18px);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(75, 85, 99, 0.75);
+  border-radius: 18px;
+  background: rgba(7, 11, 16, 0.72);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
 
-  <link rel="stylesheet" href="style.css?v=6">
-</head>
+.site-nav.visible,
+.site-nav.menu-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
 
-<body>
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  min-width: 0;
+}
 
-  <nav class="site-nav visible" id="site-nav">
-    <a href="index.html" class="nav-brand">
-      <img src="assets/logo" alt="Fromentin Industries logo">
-      <span>Fromentin Industries</span>
-    </a>
+.nav-brand img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+.nav-brand span {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 
-    <div class="nav-links" id="nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#services">Development Areas</a>
-      <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-  </nav>
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-  <div class="page-loader">
-    <div class="loader-mark">FI</div>
-  </div>
+.nav-links a,
+.nav-link-button {
+  color: #c9d1d9;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
 
-  <header class="hero service-hero">
-    <div class="hero-background-grid"></div>
-    <div class="hero-scanline"></div>
+.nav-links a:hover,
+.nav-link-button:hover {
+  color: #ffffff;
+  background-color: rgba(185, 28, 28, 0.22);
+}
 
-    <div class="hero-content">
-      <img src="assets/logo" alt="Fromentin Industries Logo" class="logo">
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 38px;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  background: rgba(15, 20, 28, 0.9);
+  cursor: pointer;
+  padding: 8px;
+}
 
-      <p class="eyebrow">Message Received</p>
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 5px 0;
+  background: #ffffff;
+  border-radius: 999px;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
 
-      <h1>Request Sent</h1>
+.site-nav.menu-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
 
-      <p class="tagline">Your message has been submitted.</p>
+.site-nav.menu-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
 
-      <p class="hero-description">
-        The contact request has been sent to the Fromentin Industries contact inbox.
-      </p>
+.site-nav.menu-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
-      <div class="hero-buttons">
-        <a href="index.html" class="button primary-button">Return Home</a>
-        <button type="button" class="button secondary-button" onclick="openContactModal()">Send Another</button>
-      </div>
-    </div>
-  </header>
+/* Loader */
 
-  <footer>
-    <div class="footer-inner">
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: #070b10;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
 
-      <div class="footer-top">
-        <div class="footer-brand-block">
-          <p class="footer-brand">Fromentin Industries</p>
-          <p class="footer-tagline">Systems for a stronger Canada.</p>
-          <p class="footer-note">Development-stage Canadian technology and systems brand. Public launch planned after graduation.</p>
-        </div>
+body.loaded .page-loader {
+  opacity: 0;
+  visibility: hidden;
+}
 
-        <div class="footer-column">
-          <h3>Site</h3>
-          <a href="index.html">Home</a>
-          <a href="index.html#services">Development Areas</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
-        </div>
+.loader-mark {
+  border: 1px solid #b91c1c;
+  color: #ffffff;
+  padding: 18px 20px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  animation: pulseMark 1.2s ease infinite alternate;
+}
 
-        <div class="footer-column">
-          <h3>Development Areas</h3>
-          <a href="services/technical-design.html">Technical Design</a>
-          <a href="services/cad-modelling.html">CAD Modelling</a>
-          <a href="services/concept-development.html">Concept Development</a>
-          <a href="services/systems-planning.html">Systems Planning</a>
-          <a href="services/technology-research.html">Technology Research</a>
-          <a href="services/engineering-documentation.html">Engineering Documentation</a>
-          <a href="services/digital-systems-support.html">Digital Systems Support</a>
-        </div>
+@keyframes pulseMark {
+  from {
+    opacity: 0.45;
+    transform: scale(0.96);
+  }
 
-        <div class="footer-column">
-          <h3>Connect</h3>
-          <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://x.com/FromentinInd" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <a href="privacy.html">Privacy</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
-        </div>
-      </div>
+/* Hero */
 
-      <div class="footer-bottom">
-        <p>© 2026 Fromentin Industries. All rights reserved.</p>
-        <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
-      </div>
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(7, 11, 16, 0.62), rgba(7, 11, 16, 0.94)),
+    url("assets/hero-banner");
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
 
-    </div>
-  </footer>
+.hero-background-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+  animation: gridDrift 18s linear infinite;
+}
 
-  <div id="contact-modal" class="contact-modal">
-    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+@keyframes gridDrift {
+  from {
+    transform: translateY(0);
+  }
 
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+  to {
+    transform: translateY(55px);
+  }
+}
 
-      <div class="modal-header">
-        <p class="eyebrow">Fromentin Industries</p>
-        <h2>Contact Request</h2>
-        <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
-      </div>
+.hero-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20%;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent, rgba(185, 28, 28, 0.14), transparent);
+  animation: scanMove 5s ease-in-out infinite;
+}
 
-      <form class="contact-form" action="https://formsubmit.co/contact.fromentinindustries@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+@keyframes scanMove {
+  0% {
+    top: -25%;
+    opacity: 0;
+  }
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="Name" placeholder="Full name" required>
-          </div>
+  25% {
+    opacity: 1;
+  }
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="Email" placeholder="name@example.com" required>
-          </div>
-        </div>
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
 
-        <div class="form-group">
-          <label for="request-type">Request Type</label>
-          <select id="request-type" name="Request Type" required>
-            <option value="" selected disabled>Select one</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Technical Design">Technical Design</option>
-            <option value="CAD Modelling">CAD Modelling</option>
-            <option value="Concept Development">Concept Development</option>
-            <option value="Systems Planning">Systems Planning</option>
-            <option value="Technology Research">Technology Research</option>
-            <option value="Engineering Documentation">Engineering Documentation</option>
-            <option value="Digital Systems Support">Digital Systems Support</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+}
 
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="Message" rows="6" placeholder="Briefly explain what you are contacting Fromentin Industries about." required></textarea>
-        </div>
+.logo {
+  width: 165px;
+  max-width: 70%;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 0 22px rgba(185, 28, 28, 0.35));
+}
 
-        <div class="form-actions">
-          <button type="submit" class="submit-button">Send Request</button>
-          <button type="button" class="copy-button" onclick="closeContactModal()">Cancel</button>
-        </div>
+.eyebrow {
+  color: #ef4444;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
 
-        <p class="small-note">Contact inbox: contact.fromentinindustries@gmail.com</p>
-      </form>
-    </div>
-  </div>
+h1 {
+  font-size: clamp(42px, 8vw, 86px);
+  margin: 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
 
-  <script>
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-      const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
-    });
+.tagline {
+  font-size: clamp(18px, 3vw, 28px);
+  color: #ffffff;
+  margin-top: 22px;
+  letter-spacing: 2px;
+}
 
-    function openContactModal() {
-      const modal = document.getElementById("contact-modal");
-      if (!modal) return;
-      modal.classList.add("open");
-      document.body.classList.add("modal-open");
-      const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.remove("menu-open");
-    }
+.hero-description {
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: #c9d1d9;
+  line-height: 1.7;
+  font-size: 17px;
+}
 
-    function closeContactModal() {
-      const modal = document.getElementById("contact-modal");
-      if (!modal) return;
-      modal.classList.remove("open");
-      document.body.classList.remove("modal-open");
-    }
+.hero-buttons {
+  margin-top: 36px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-    function toggleMenu() {
-      const nav = document.getElementById("site-nav");
-      if (!nav) return;
-      nav.classList.toggle("menu-open");
-    }
+/* Buttons */
 
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") closeContactModal();
-    });
+.button,
+.copy-button,
+.submit-button {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 9px;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
 
-    document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
-      link.addEventListener("click", () => {
-        const nav = document.getElementById("site-nav");
-        if (nav) nav.classList.remove("menu-open");
-      });
-    });
-  </script>
+.primary-button,
+.submit-button {
+  background-color: #b91c1c;
+  color: #ffffff;
+  border: 1px solid #b91c1c;
+}
 
-</body>
-</html>
+.secondary-button,
+.copy-button {
+  background-color: rgba(17, 24, 39, 0.72);
+  color: #ffffff;
+  border: 1px solid #4b5563;
+}
+
+.primary-button:hover,
+.submit-button:hover {
+  background-color: #dc2626;
+  transform: translateY(-3px);
+}
+
+.secondary-button:hover,
+.copy-button:hover {
+  border-color: #b91c1c;
+  background-color: #1f2937;
+  transform: translateY(-3px);
+}
+
+/* Main layout */
+
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 70px 20px 40px;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+.section-label {
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: clamp(30px, 5vw, 50px);
+  line-height: 1.05;
+  margin: 0 0 22px;
+  letter-spacing: -1px;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
+  border: 1px solid #2d3748;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+  padding: 28px;
+}
+
+.glass-card {
+  backdrop-filter: blur(10px);
+}
+
+.card p {
+  color: #c9d1d9;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+/* Banner About */
+
+.banner-about-wrapper {
+  position: relative;
+  margin-bottom: 80px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid #2d3748;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.hero-banner-image {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.banner-about-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  opacity: 0;
+  transform: translateY(24px);
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.banner-about-panel-inner {
+  width: min(850px, 100%);
+}
+
+.banner-about-panel .card {
+  background: rgba(10, 15, 22, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.banner-about-wrapper:hover .hero-banner-image {
+  opacity: 0.18;
+  transform: scale(1.04);
+  filter: blur(2px);
+}
+
+.banner-about-wrapper:hover .banner-about-panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Flip Cards */
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.flip-grid.three-column {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.flip-card {
+  display: block;
+  height: 245px;
+  perspective: 1200px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.flip-card.no-link {
+  cursor: default;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  padding: 26px;
+  border-radius: 16px;
+  border: 1px solid #2d3748;
+  background:
+    radial-gradient(circle at top right, rgba(185, 28, 28, 0.14), transparent 40%),
+    linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flip-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.flip-card p {
+  position: relative;
+  z-index: 2;
+  margin: 14px 0 0;
+  color: #c9d1d9;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+.service-number {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.card-link-text {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: 18px;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Contact Modal */
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+}
+
+.contact-modal.open {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 12, 0.82);
+  backdrop-filter: blur(8px);
+  animation: backdropFade 0.25s ease forwards;
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at top right, rgba(185, 28, 28, 0.18), transparent 34%),
+    linear-gradient(145deg, rgba(22, 27, 34, 0.98), rgba(7, 11, 16, 0.98));
+  border: 1px solid #2d3748;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65);
+  animation: modalRise 0.28s ease forwards;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background: rgba(15, 20, 28, 0.9);
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding-right: 45px;
+  margin-bottom: 24px;
+}
+
+.modal-header p {
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+.contact-form {
+  margin-top: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #0f141c;
+  color: #ffffff;
+  border: 1px solid #2d3748;
+  border-radius: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #b91c1c;
+  background-color: #111827;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.18);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Footer */
+
+footer {
+  padding: 52px 20px 34px;
+  color: #8b949e;
+  border-top: 1px solid #2d3748;
+  background:
+    radial-gradient(circle at top left, rgba(185, 28, 28, 0.10), transparent 28%),
+    #05080c;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.4fr 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.footer-brand-block {
+  max-width: 340px;
+}
+
+.footer-brand {
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.footer-tagline {
+  color: #ef4444;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0 0 12px;
+}
+
+.footer-note {
+  color: #8b949e;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.footer-column a,
+.footer-link-button {
+  color: #c9d1d9;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-column a:hover,
+.footer-link-button:hover {
+  color: #ef4444;
+  transform: translateX(3px);
+}
+
+.footer-bottom {
+  margin-top: 38px;
+  padding-top: 22px;
+  border-top: 1px solid #1f2937;
+  display: grid;
+  gap: 8px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #8b949e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Animation Classes */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: revealUp 0.9s ease forwards;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.35s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.5s;
+}
+
+.reveal-delay-4 {
+  animation-delay: 0.65s;
+}
+
+.reveal-delay-5 {
+  animation-delay: 0.8s;
+}
+
+.reveal-delay-6 {
+  animation-delay: 0.95s;
+}
+
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s ease;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-hero {
+  min-height: 78vh;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-brand-block {
+    max-width: none;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 800px) {
+  .site-nav {
+    top: 12px;
+    width: calc(100% - 24px);
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav-brand span {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 12px;
+  }
+
+  .site-nav.menu-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links a,
+  .nav-link-button {
+    width: 100%;
+    text-align: left;
+    padding: 14px 12px;
+    background: rgba(15, 20, 28, 0.8);
+    border: 1px solid rgba(75, 85, 99, 0.5);
+  }
+
+  main {
+    padding: 45px 16px 30px;
+  }
+
+  section {
+    margin-bottom: 56px;
+  }
+
+  .hero {
+    min-height: 92vh;
+    padding: 42px 18px;
+  }
+
+  .logo {
+    width: 125px;
+  }
+
+  h1 {
+    font-size: clamp(36px, 12vw, 58px);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: clamp(28px, 9vw, 40px);
+  }
+
+  .eyebrow {
+    letter-spacing: 2px;
+    font-size: 12px;
+  }
+
+  .tagline {
+    letter-spacing: 1px;
+    font-size: 18px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .button,
+  .submit-button,
+  .copy-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .banner-about-wrapper {
+    overflow: visible;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 56px;
+  }
+
+  .hero-banner-image {
+    min-height: auto;
+    border-radius: 18px;
+    border: 1px solid #2d3748;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
+  }
+
+  .banner-about-panel {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    padding: 22px 0 0;
+  }
+
+  .banner-about-panel .card {
+    background: linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
+  }
+
+  .banner-about-wrapper:hover .hero-banner-image {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .flip-grid,
+  .flip-grid.three-column {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .flip-card {
+    height: auto;
+    min-height: 0;
+    perspective: none;
+  }
+
+  .flip-card-inner {
+    height: auto;
+    transform: none !important;
+    transform-style: flat;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: relative;
+    inset: auto;
+    transform: none;
+    backface-visibility: visible;
+    box-shadow: none;
+  }
+
+  .flip-card-front {
+    min-height: 132px;
+    border-radius: 16px 16px 0 0;
+    border-bottom: none;
+  }
+
+  .flip-card-back {
+    min-height: auto;
+    margin-top: 0;
+    border-radius: 0 0 16px 16px;
+    background:
+      radial-gradient(circle at top right, rgba(185, 28, 28, 0.10), transparent 40%),
+      linear-gradient(145deg, rgba(15, 20, 28, 0.98), rgba(7, 11, 16, 0.98));
+  }
+
+  .flip-card h3 {
+    font-size: 22px;
+  }
+
+  .flip-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .primary-button:hover,
+  .secondary-button:hover,
+  .copy-button:hover,
+  .submit-button:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .modal-panel {
+    padding: 24px 20px;
+    max-height: 88vh;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-header {
+    padding-right: 38px;
+  }
+
+  .submit-button,
+  .copy-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  footer {
+    padding: 42px 16px 30px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .footer-column a:hover,
+  .footer-link-button:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding: 36px 14px;
+  }
+
+  main {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .logo {
+    width: 112px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .flip-card-front,
+  .flip-card-back,
+  .card {
+    padding: 20px;
+  }
+}
