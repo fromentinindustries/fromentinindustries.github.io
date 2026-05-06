@@ -12,13 +12,36 @@
   <link rel="icon" href="../assets/favicon">
   <link rel="apple-touch-icon" href="../assets/favicon">
 
-  <link rel="stylesheet" href="../style.css?v=9">
+  <link rel="stylesheet" href="../style.css?v=10">
 </head>
 
 <body>
 
+  <!--
+    =========================================================
+    Fromentin Industries
+    Private Development-Stage Website
+    Systems for a Stronger Canada
+
+    Copyright Notice / Code Watermark
+
+    All site structure, written content, branding, layouts,
+    visual identity, logos, development-area wording, page
+    organization, documentation concepts and related materials
+    are part of the Fromentin Industries brand system unless
+    otherwise stated.
+
+    Unauthorized copying, mirroring, scraping, impersonation,
+    commercial reuse, redistribution, misleading reference or
+    misuse of this website content is not permitted.
+
+    This website is provided for development, documentation,
+    portfolio and brand-building purposes only.
+    =========================================================
+  -->
+
   <nav class="site-nav visible" id="site-nav">
-    <a href="../" class="nav-brand">
+    <a href="../" class="nav-brand protected-link">
       <img src="../assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
     </a>
@@ -30,10 +53,10 @@
     </button>
 
     <div class="nav-links" id="nav-links">
-      <a href="../">Home</a>
-      <a href="../#services">Development Areas</a>
-      <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="./">Legal</a>
+      <a href="../" class="protected-link">Home</a>
+      <a href="../#services" class="protected-link">Development Areas</a>
+      <button type="button" class="nav-link-button" onclick="requireTermsBeforeContact()">Contact</button>
+      <a href="./">Legal and Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
@@ -47,6 +70,8 @@
     <div class="hero-scanline"></div>
 
     <div class="hero-content">
+      <div class="terms-watermark">Fromentin Industries</div>
+
       <img src="../assets/logo" alt="Fromentin Industries Logo" class="logo">
 
       <p class="eyebrow">Fromentin Industries</p>
@@ -56,12 +81,12 @@
       <p class="tagline">Full disclosure for a development-stage brand.</p>
 
       <p class="hero-description">
-        This page explains the current status of Fromentin Industries, the limits of this website, how submitted information is handled, and the terms that apply when using this site.
+        This page explains the current status of Fromentin Industries, the limits of this website, how submitted information is handled and the terms that apply when using this site.
       </p>
 
       <div class="hero-buttons">
-        <a href="../" class="button secondary-button">Return Home</a>
-        <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
+        <a href="../" class="button secondary-button protected-link">Return to Terms Gate</a>
+        <button type="button" class="button primary-button" onclick="requireTermsBeforeContact()">Contact</button>
       </div>
     </div>
   </header>
@@ -529,21 +554,15 @@
         </div>
 
         <div class="footer-column">
-          <h3>Site</h3>
-          <a href="../">Home</a>
-          <a href="../#services">Development Areas</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
+          <h3>Access</h3>
+          <a href="../" class="protected-link">Return to Terms Gate</a>
+          <button type="button" class="footer-link-button" onclick="requireTermsBeforeContact()">Contact</button>
         </div>
 
         <div class="footer-column">
-          <h3>Development Areas</h3>
-          <a href="../services/technical-design/">Technical Design</a>
-          <a href="../services/cad-modelling/">CAD Modelling</a>
-          <a href="../services/concept-development/">Concept Development</a>
-          <a href="../services/systems-planning/">Systems Planning</a>
-          <a href="../services/technology-research/">Technology Research</a>
-          <a href="../services/engineering-documentation/">Engineering Documentation</a>
-          <a href="../services/digital-systems-support/">Digital Systems Support</a>
+          <h3>Legal</h3>
+          <a href="./">Legal and Privacy</a>
+          <a href="../" class="protected-link">Home</a>
         </div>
 
         <div class="footer-column">
@@ -554,11 +573,6 @@
           <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
 
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <a href="./">Legal and Privacy</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
-        </div>
       </div>
 
       <div class="footer-bottom">
@@ -632,11 +646,55 @@
   </div>
 
   <script>
+    const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
+    const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
+
+    function hasAcceptedTerms() {
+      const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
+      const expiryTime = localStorage.getItem(TERMS_EXPIRY_KEY);
+      const now = Date.now();
+
+      return (
+        acceptedTerms === "accepted" &&
+        expiryTime &&
+        now < Number(expiryTime)
+      );
+    }
+
+    function redirectToTermsGate() {
+      window.location.href = "../";
+    }
+
+    function requireTermsBeforeContact() {
+      if (hasAcceptedTerms()) {
+        openContactModal();
+      } else {
+        redirectToTermsGate();
+      }
+    }
+
+    function blockProtectedNavigationUntilAccepted() {
+      if (hasAcceptedTerms()) return;
+
+      const protectedLinks = document.querySelectorAll(".protected-link");
+
+      protectedLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          redirectToTermsGate();
+        });
+      });
+    }
+
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
 
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
+
+      blockProtectedNavigationUntilAccepted();
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
@@ -647,7 +705,9 @@
           entry.target.classList.add("visible");
         }
       });
-    }, { threshold: 0.15 });
+    }, {
+      threshold: 0.15
+    });
 
     revealElements.forEach(element => revealObserver.observe(element));
 
@@ -659,7 +719,9 @@
       document.body.classList.add("modal-open");
 
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.remove("menu-open");
+      if (nav) {
+        nav.classList.remove("menu-open");
+      }
     }
 
     function closeContactModal() {
@@ -679,7 +741,9 @@
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     document.addEventListener("keydown", function(event) {
@@ -691,7 +755,9 @@
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
-        if (nav) nav.classList.remove("menu-open");
+        if (nav) {
+          nav.classList.remove("menu-open");
+        }
       });
     });
   </script>
