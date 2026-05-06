@@ -1,18 +1,53 @@
+<!--
+  =========================================================
+  Fromentin Industries
+  Private Development-Stage Website
+  Systems for a stronger Canada.
+
+  All site structure, written content, branding, layouts,
+  visual identity, logos, development-area wording and
+  documentation concepts are part of the Fromentin Industries
+  brand system unless otherwise stated.
+
+  Unauthorized copying, mirroring, scraping, impersonation,
+  commercial reuse or misleading use of this website content
+  is not permitted.
+  =========================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>CAD Modelling | Fromentin Industries</title>
-
-  <meta name="description" content="CAD Modelling is a current learning and development area for Fromentin Industries, focused on 3D parts, assemblies, layouts, prototype visualization and mechanical concepts.">
+  <meta name="description" content="A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.">
 
   <link rel="icon" href="../../assets/favicon">
   <link rel="apple-touch-icon" href="../../assets/favicon">
+  <link rel="stylesheet" href="../../style.css?v=7">
 
-  <link rel="stylesheet" href="../../style.css?v=6">
+  <script>
+    (function () {
+      const TERMS_KEY = "fi_terms_accepted";
+      const TERMS_MAX_AGE_DAYS = 30;
+      const TERMS_URL = "../../terms/";
+
+      try {
+        const raw = localStorage.getItem(TERMS_KEY);
+        const accepted = raw ? JSON.parse(raw) : null;
+        const acceptedAt = accepted && accepted.acceptedAt ? Number(accepted.acceptedAt) : 0;
+        const maxAge = TERMS_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+        const valid = accepted && accepted.version && acceptedAt && Date.now() - acceptedAt < maxAge;
+
+        if (!valid) {
+          const returnPath = window.location.pathname + window.location.search + window.location.hash;
+          window.location.replace(TERMS_URL + "?return=" + encodeURIComponent(returnPath));
+        }
+      } catch (error) {
+        window.location.replace(TERMS_URL);
+      }
+    })();
+  </script>
 </head>
 
 <body>
@@ -23,7 +58,7 @@
       <span>Fromentin Industries</span>
     </a>
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-controls="nav-links" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -38,7 +73,7 @@
     </div>
   </nav>
 
-  <div class="page-loader">
+  <div class="page-loader" aria-hidden="true">
     <div class="loader-mark">FI</div>
   </div>
 
@@ -48,16 +83,10 @@
 
     <div class="hero-content">
       <img src="../../assets/logo" alt="Fromentin Industries Logo" class="logo">
-
       <p class="eyebrow">Development Area 02</p>
-
       <h1>CAD Modelling</h1>
-
       <p class="tagline">Learning digital design before physical build.</p>
-
-      <p class="hero-description">
-        A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.
-      </p>
+      <p class="hero-description">A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.</p>
 
       <div class="hero-buttons">
         <a href="../index.html#services" class="button secondary-button">Back to Areas</a>
@@ -67,12 +96,9 @@
   </header>
 
   <main>
-
     <section class="scroll-reveal">
       <div class="section-label">01 / Overview</div>
-
       <h2>Purpose</h2>
-
       <div class="card glass-card">
         <p>
           CAD Modelling is where I am learning how to turn ideas into digital parts, assemblies and layouts that can be viewed, measured, adjusted and improved before anything is built.
@@ -86,61 +112,50 @@
 
     <section class="scroll-reveal">
       <div class="section-label">02 / Focus</div>
-
       <h2>Current Learning Focus</h2>
-
       <div class="flip-grid three-column">
-
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">01</span>
               <h3>Part Modelling</h3>
             </div>
-
             <div class="flip-card-back">
               <h3>Part Modelling</h3>
               <p>Learning how to create individual 3D parts with clear shape, dimensions and purpose.</p>
             </div>
           </div>
         </div>
-
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">02</span>
               <h3>Assemblies</h3>
             </div>
-
             <div class="flip-card-back">
               <h3>Assemblies</h3>
               <p>Learning how to build multi-part layouts that show how components fit and function together.</p>
             </div>
           </div>
         </div>
-
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">03</span>
               <h3>Visualization</h3>
             </div>
-
             <div class="flip-card-back">
               <h3>Visualization</h3>
               <p>Learning how to create visuals that explain designs, prototypes, mechanisms and build concepts.</p>
             </div>
           </div>
         </div>
-
       </div>
     </section>
-
   </main>
 
   <footer>
     <div class="footer-inner">
-
       <div class="footer-top">
         <div class="footer-brand-block">
           <p class="footer-brand">Fromentin Industries</p>
@@ -177,6 +192,7 @@
         <div class="footer-column">
           <h3>Legal</h3>
           <a href="../../privacy/">Privacy</a>
+          <a href="../../terms/">Terms</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -185,19 +201,18 @@
         <p>© 2026 Fromentin Industries. All rights reserved.</p>
         <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
       </div>
-
     </div>
   </footer>
 
-  <div id="contact-modal" class="contact-modal">
+  <div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
     <div class="modal-backdrop" onclick="closeContactModal()"></div>
 
     <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+      <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close contact form">×</button>
 
       <div class="modal-header">
         <p class="eyebrow">Fromentin Industries</p>
-        <h2>Contact Request</h2>
+        <h2 id="contact-modal-title">Contact Request</h2>
         <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
       </div>
 
@@ -210,12 +225,12 @@
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="Name" placeholder="Full name" required>
+            <input type="text" id="name" name="Name" placeholder="Full name" autocomplete="name" required>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="Email" placeholder="name@example.com" required>
+            <input type="email" id="email" name="Email" placeholder="name@example.com" autocomplete="email" required>
           </div>
         </div>
 
@@ -258,33 +273,46 @@
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.15 });
-    revealElements.forEach(element => revealObserver.observe(element));
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.15 });
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
-      if (!modal) return;
-      modal.classList.add("open");
-      document.body.classList.add("modal-open");
       const nav = document.getElementById("site-nav");
+      if (!modal) return;
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
       if (nav) nav.classList.remove("menu-open");
     }
 
     function closeContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
+
       modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
+      const toggle = document.querySelector(".nav-toggle");
       if (!nav) return;
+
       nav.classList.toggle("menu-open");
+      if (toggle) toggle.setAttribute("aria-expanded", nav.classList.contains("menu-open") ? "true" : "false");
     }
 
     window.addEventListener("scroll", () => {
@@ -299,7 +327,9 @@
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
+        const toggle = document.querySelector(".nav-toggle");
         if (nav) nav.classList.remove("menu-open");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
       });
     });
   </script>
