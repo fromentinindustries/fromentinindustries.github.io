@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-
+  
 <body>
 
   <div class="background">
@@ -41,7 +41,7 @@
 </div>
 
   <nav class="site-nav visible" id="site-nav">
-    <a href="." class="nav-brand">
+    <a href="./" class="nav-brand">
       <img src="assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
     </a>
@@ -53,10 +53,10 @@
     </button>
 
     <div class="nav-links" id="nav-links">
-      <a href=".">Home</a>
+      <a href="./">Home</a>
       <a href="#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="privacy/.">Privacy</a>
+      <a href="privacy/">Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
@@ -123,7 +123,7 @@
 
       <div class="flip-grid">
 
-        <a href="services/technical-design/." class="flip-card">
+        <a href="services/technical-design/" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">01</span>
@@ -138,7 +138,7 @@
           </div>
         </a>
 
-        <a href="services/cad-modelling/." class="flip-card">
+        <a href="services/cad-modelling/" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">02</span>
@@ -153,7 +153,7 @@
           </div>
         </a>
 
-        <a href="services/concept-development/." class="flip-card">
+        <a href="services/concept-development/" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">03</span>
@@ -168,7 +168,7 @@
           </div>
         </a>
 
-        <a href="services/systems-planning/." class="flip-card">
+        <a href="services/systems-planning/" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">04</span>
@@ -183,7 +183,7 @@
           </div>
         </a>
 
-        <a href="services/technology-research/." class="flip-card">
+        <a href="services/technology-research/" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">05</span>
@@ -198,7 +198,7 @@
           </div>
         </a>
 
-        <a href="services/engineering-documentation/." class="flip-card">
+        <a href="services/engineering-documentation/" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">06</span>
@@ -213,7 +213,7 @@
           </div>
         </a>
 
-        <a href="services/digital-systems-support/." class="flip-card">
+        <a href="services/digital-systems-support/" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">07</span>
@@ -297,20 +297,20 @@
 
         <div class="footer-column">
           <h3>Site</h3>
-          <a href=".">Home</a>
+          <a href="./">Home</a>
           <a href="#services">Development Areas</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
 
         <div class="footer-column">
           <h3>Development Areas</h3>
-          <a href="services/technical-design/.">Technical Design</a>
-          <a href="services/cad-modelling/.">CAD Modelling</a>
-          <a href="services/concept-development/.">Concept Development</a>
-          <a href="services/systems-planning/.">Systems Planning</a>
-          <a href="services/technology-research/.">Technology Research</a>
-          <a href="services/engineering-documentation/.">Engineering Documentation</a>
-          <a href="services/digital-systems-support/.">Digital Systems Support</a>
+          <a href="services/technical-design/">Technical Design</a>
+          <a href="services/cad-modelling/">CAD Modelling</a>
+          <a href="services/concept-development/">Concept Development</a>
+          <a href="services/systems-planning/">Systems Planning</a>
+          <a href="services/technology-research/">Technology Research</a>
+          <a href="services/engineering-documentation/">Engineering Documentation</a>
+          <a href="services/digital-systems-support/">Digital Systems Support</a>
         </div>
 
         <div class="footer-column">
@@ -323,7 +323,7 @@
 
         <div class="footer-column">
           <h3>Legal</h3>
-          <a href="privacy/.">Privacy</a>
+          <a href="privacy/">Privacy</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -352,7 +352,7 @@
         <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks/.">
+        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks/">
 
         <div class="form-row">
           <div class="form-group">
@@ -397,66 +397,101 @@
     </div>
   </div>
 
-  <script>
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
+  
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
 
-      const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+    const nav = document.getElementById("site-nav");
+    if (nav) nav.classList.add("visible");
+  });
+
+  const revealElements = document.querySelectorAll(".scroll-reveal");
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
     });
+  }, { threshold: 0.15 });
 
-    const revealElements = document.querySelectorAll(".scroll-reveal");
+  revealElements.forEach(element => revealObserver.observe(element));
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.15 });
+  function openContactModal() {
+    const modal = document.getElementById("contact-modal");
+    if (!modal) return;
 
-    revealElements.forEach(element => revealObserver.observe(element));
+    modal.classList.add("open");
+    document.body.classList.add("modal-open");
 
-    function openContactModal() {
-      const modal = document.getElementById("contact-modal");
-      if (!modal) return;
+    const nav = document.getElementById("site-nav");
+    if (nav) nav.classList.remove("menu-open");
+  }
 
-      modal.classList.add("open");
-      document.body.classList.add("modal-open");
+  function closeContactModal() {
+    const modal = document.getElementById("contact-modal");
+    if (!modal) return;
 
+    modal.classList.remove("open");
+    document.body.classList.remove("modal-open");
+  }
+
+  function toggleMenu() {
+    const nav = document.getElementById("site-nav");
+    if (!nav) return;
+
+    nav.classList.toggle("menu-open");
+  }
+
+  window.addEventListener("scroll", () => {
+    const nav = document.getElementById("site-nav");
+    if (nav) nav.classList.add("visible");
+  });
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closeContactModal();
+    }
+  });
+
+  document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
+    link.addEventListener("click", () => {
       const nav = document.getElementById("site-nav");
       if (nav) nav.classList.remove("menu-open");
+    });
+  });
+
+  const root = document.documentElement;
+  const background = document.querySelector(".background");
+
+  let mouseTimeout;
+
+  function updateBackgroundMouse(event) {
+    const x = (event.clientX / window.innerWidth) * 100;
+    const y = (event.clientY / window.innerHeight) * 100;
+
+    root.style.setProperty("--mouse-x", x + "%");
+    root.style.setProperty("--mouse-y", y + "%");
+    root.style.setProperty("--mouse-strength", "1");
+
+    if (background) {
+      background.classList.add("is-active");
     }
 
-    function closeContactModal() {
-      const modal = document.getElementById("contact-modal");
-      if (!modal) return;
+    clearTimeout(mouseTimeout);
 
-      modal.classList.remove("open");
-      document.body.classList.remove("modal-open");
-    }
+    mouseTimeout = setTimeout(() => {
+      root.style.setProperty("--mouse-strength", "0");
 
-    function toggleMenu() {
-      const nav = document.getElementById("site-nav");
-      if (!nav) return;
+      if (background) {
+        background.classList.remove("is-active");
+      }
+    }, 450);
+  }
 
-      nav.classList.toggle("menu-open");
-    }
-
-    window.addEventListener("scroll", () => {
-      const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
-    });
-
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") closeContactModal();
-    });
-
-    document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
-      link.addEventListener("click", () => {
-        const nav = document.getElementById("site-nav");
-        if (nav) nav.classList.remove("menu-open");
-      });
-    });
-  </script>
-
+  window.addEventListener("mousemove", updateBackgroundMouse);
+</script>
+  
 </body>
 </html>
