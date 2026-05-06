@@ -26,28 +26,6 @@
   <link rel="apple-touch-icon" href="../../assets/favicon">
   <link rel="stylesheet" href="../../style.css?v=7">
 
-  <script>
-    (function () {
-      const TERMS_KEY = "fi_terms_accepted";
-      const TERMS_MAX_AGE_DAYS = 30;
-      const TERMS_URL = "../../terms/";
-
-      try {
-        const raw = localStorage.getItem(TERMS_KEY);
-        const accepted = raw ? JSON.parse(raw) : null;
-        const acceptedAt = accepted && accepted.acceptedAt ? Number(accepted.acceptedAt) : 0;
-        const maxAge = TERMS_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
-        const valid = accepted && accepted.version && acceptedAt && Date.now() - acceptedAt < maxAge;
-
-        if (!valid) {
-          const returnPath = window.location.pathname + window.location.search + window.location.hash;
-          window.location.replace(TERMS_URL + "?return=" + encodeURIComponent(returnPath));
-        }
-      } catch (error) {
-        window.location.replace(TERMS_URL);
-      }
-    })();
-  </script>
 </head>
 
 <body>
