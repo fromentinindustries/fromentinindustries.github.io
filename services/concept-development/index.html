@@ -1,39 +1,80 @@
+<!--
+  =========================================================
+  Fromentin Industries
+  Private Development-Stage Website
+  Systems for a stronger Canada.
+
+  All site structure, written content, branding, layouts,
+  visual identity, logos, development-area wording and
+  documentation concepts are part of the Fromentin Industries
+  brand system unless otherwise stated.
+
+  Unauthorized copying, mirroring, scraping, impersonation,
+  commercial reuse or misleading use of this website content
+  is not permitted.
+  =========================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Concept Development | Fromentin Industries</title>
+  <meta name="description" content="A current development area focused on exploring early concepts, defining purpose, organizing requirements and shaping project direction before technical execution.">
 
-  <meta name="description" content="Concept Development is a current learning and development area for Fromentin Industries, focused on turning early ideas into structured concepts with purpose, use cases, constraints and development paths.">
+  <script>
+    const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
+    const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
+    const TERMS_DATE_KEY = "fi_terms_accepted_date";
+    const MAIN_INDEX_URL = "../../";
+
+    function servicePageTermsAreValid() {
+      const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
+      const expiryTime = localStorage.getItem(TERMS_EXPIRY_KEY);
+      const now = Date.now();
+
+      return (
+        acceptedTerms === "accepted" &&
+        expiryTime &&
+        now < Number(expiryTime)
+      );
+    }
+
+    if (!servicePageTermsAreValid()) {
+      localStorage.removeItem(TERMS_STORAGE_KEY);
+      localStorage.removeItem(TERMS_EXPIRY_KEY);
+      localStorage.removeItem(TERMS_DATE_KEY);
+
+      const currentPath = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(MAIN_INDEX_URL + "?return=" + encodeURIComponent(currentPath));
+    }
+  </script>
 
   <link rel="icon" href="../../assets/favicon">
   <link rel="apple-touch-icon" href="../../assets/favicon">
-
-  <link rel="stylesheet" href="../../style.css?v=6">
+  <link rel="stylesheet" href="../../style.css?v=7">
 </head>
 
 <body>
 
   <nav class="site-nav visible" id="site-nav">
-    <a href="../." class="nav-brand">
+    <a href="../../" class="nav-brand">
       <img src="../../assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
     </a>
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <div class="nav-links" id="nav-links">
-      <a href="../../.">Home</a>
-      <a href="../../.#services">Development Areas</a>
+      <a href="../../">Home</a>
+      <a href="../../#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="../../privacy.html">Privacy</a>
+      <a href="../../privacy/">Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
@@ -50,17 +91,15 @@
       <img src="../../assets/logo" alt="Fromentin Industries Logo" class="logo">
 
       <p class="eyebrow">Development Area 03</p>
-
       <h1>Concept Development</h1>
-
-      <p class="tagline">Learning how rough ideas become structured plans.</p>
+      <p class="tagline">Building the idea before building the system.</p>
 
       <p class="hero-description">
-        A current learning area focused on turning raw ideas into structured concepts with purpose, use cases, constraints, objectives and development paths.
+        A current development area focused on exploring early concepts, defining purpose, organizing requirements and shaping project direction before technical execution.
       </p>
 
       <div class="hero-buttons">
-        <a href="../..//#services" class="button secondary-button">Back to Areas</a>
+        <a href="../../#services" class="button secondary-button">Back to Areas</a>
         <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
       </div>
     </div>
@@ -70,23 +109,21 @@
 
     <section class="scroll-reveal">
       <div class="section-label">01 / Overview</div>
-
       <h2>Purpose</h2>
 
       <div class="card glass-card">
         <p>
-          Concept Development is where I am learning how to organize early ideas into clearer project direction by defining the problem, solution, intended user, technical path and possible next steps.
+          Concept Development is where rough ideas are tested, clarified and turned into stronger project directions.
         </p>
 
         <p>
-          This area is being developed to make future ideas easier to evaluate, explain, build, improve and present.
+          This area supports early research, mission purpose, system intent, use cases and the first layer of serious planning before deeper design work begins.
         </p>
       </div>
     </section>
 
     <section class="scroll-reveal">
       <div class="section-label">02 / Focus</div>
-
       <h2>Current Learning Focus</h2>
 
       <div class="flip-grid three-column">
@@ -95,12 +132,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">01</span>
-              <h3>Problem Definition</h3>
+              <h3>Idea Formation</h3>
             </div>
 
             <div class="flip-card-back">
-              <h3>Problem Definition</h3>
-              <p>Learning how to clarify what issue a concept is meant to solve and why it matters.</p>
+              <h3>Idea Formation</h3>
+              <p>Developing rough ideas into clearer project concepts with purpose and direction.</p>
             </div>
           </div>
         </div>
@@ -114,7 +151,7 @@
 
             <div class="flip-card-back">
               <h3>Use Cases</h3>
-              <p>Learning how to identify who would use the system, where it would be used and what it would need to do.</p>
+              <p>Thinking through who the concept serves, what problem it solves and where it could apply.</p>
             </div>
           </div>
         </div>
@@ -123,12 +160,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">03</span>
-              <h3>Development Path</h3>
+              <h3>Requirements</h3>
             </div>
 
             <div class="flip-card-back">
-              <h3>Development Path</h3>
-              <p>Learning how to break a concept into research, design, modelling, testing and improvement stages.</p>
+              <h3>Requirements</h3>
+              <p>Learning how to define constraints, goals and key features before technical design begins.</p>
             </div>
           </div>
         </div>
@@ -150,20 +187,20 @@
 
         <div class="footer-column">
           <h3>Site</h3>
-          <a href="../../">Home</a>
+          <a href="../../index.html">Home</a>
           <a href="../../#services">Development Areas</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
 
         <div class="footer-column">
           <h3>Development Areas</h3>
-          <a href="services/technical-design/">Technical Design</a>
-          <a href="services/cad-modelling/">CAD Modelling</a>
-          <a href="concept-development.html">Concept Development</a>
-          <a href="systems-planning.html">Systems Planning</a>
-          <a href="technology-research.html">Technology Research</a>
-          <a href="engineering-documentation.html">Engineering Documentation</a>
-          <a href="digital-systems-support.html">Digital Systems Support</a>
+          <a href="../technical-design/">Technical Design</a>
+          <a href="../cad-modelling/">CAD Modelling</a>
+          <a href="../concept-development/">Concept Development</a>
+          <a href="../systems-planning/">Systems Planning</a>
+          <a href="../technology-research/">Technology Research</a>
+          <a href="../engineering-documentation/">Engineering Documentation</a>
+          <a href="../digital-systems-support/">Digital Systems Support</a>
         </div>
 
         <div class="footer-column">
@@ -176,7 +213,8 @@
 
         <div class="footer-column">
           <h3>Legal</h3>
-          <a href="../privacy.html">Privacy</a>
+          <a href="../../privacy/">Privacy</a>
+          <a href="../../">Terms Gate</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -189,15 +227,15 @@
     </div>
   </footer>
 
-  <div id="contact-modal" class="contact-modal">
+  <div id="contact-modal" class="contact-modal" aria-hidden="true">
     <div class="modal-backdrop" onclick="closeContactModal()"></div>
 
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close contact form">×</button>
 
       <div class="modal-header">
         <p class="eyebrow">Fromentin Industries</p>
-        <h2>Contact Request</h2>
+        <h2 id="contact-modal-title">Contact Request</h2>
         <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
       </div>
 
@@ -253,53 +291,98 @@
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.15
       });
-    }, { threshold: 0.15 });
-    revealElements.forEach(element => revealObserver.observe(element));
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
+
       modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.remove("menu-open");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      if (nav) {
+        nav.classList.remove("menu-open");
+      }
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+      }
     }
 
     function closeContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
+
       modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
+      const navToggle = document.querySelector(".nav-toggle");
+
       if (!nav) return;
+
       nav.classList.toggle("menu-open");
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", String(nav.classList.contains("menu-open")));
+      }
     }
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") closeContactModal();
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
     });
 
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
-        if (nav) nav.classList.remove("menu-open");
+        const navToggle = document.querySelector(".nav-toggle");
+
+        if (nav) {
+          nav.classList.remove("menu-open");
+        }
+
+        if (navToggle) {
+          navToggle.setAttribute("aria-expanded", "false");
+        }
       });
     });
   </script>
