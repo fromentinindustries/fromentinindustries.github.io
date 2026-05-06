@@ -1,3 +1,10 @@
+/* =========================================================
+   Fromentin Industries - Main Stylesheet
+   Version: v9
+   ========================================================= */
+
+/* Base */
+
 * {
   box-sizing: border-box;
 }
@@ -10,14 +17,21 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(185, 28, 28, 0.16), transparent 32%),
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 28%),
-    #070b10;
+    radial-gradient(circle at top left, rgba(185, 28, 28, 0.18), transparent 34%),
+    radial-gradient(circle at top right, rgba(201, 209, 217, 0.08), transparent 28%),
+    linear-gradient(135deg, #070b10 0%, #0b111a 48%, #05080c 100%);
   color: #f2f2f2;
   overflow-x: hidden;
 }
 
-/* Navigation */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   Navigation
+   ========================================================= */
 
 .site-nav {
   position: fixed;
@@ -25,9 +39,9 @@ body {
   left: 50%;
   z-index: 9000;
   width: min(1120px, calc(100% - 32px));
-  transform: translateX(-50%) translateY(-18px);
-  opacity: 0;
-  pointer-events: none;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +49,7 @@ body {
   padding: 12px 14px;
   border: 1px solid rgba(75, 85, 99, 0.75);
   border-radius: 18px;
-  background: rgba(7, 11, 16, 0.72);
+  background: rgba(7, 11, 16, 0.78);
   backdrop-filter: blur(14px);
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
   transition:
@@ -141,7 +155,9 @@ body {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Loader */
+/* =========================================================
+   Loader
+   ========================================================= */
 
 .page-loader {
   position: fixed;
@@ -179,21 +195,31 @@ body.loaded .page-loader {
   }
 }
 
-/* Hero */
+/* =========================================================
+   Hero
+   ========================================================= */
 
 .hero {
   position: relative;
   min-height: 100vh;
   background:
-    linear-gradient(rgba(7, 11, 16, 0.62), rgba(7, 11, 16, 0.94)),
+    linear-gradient(rgba(7, 11, 16, 0.58), rgba(7, 11, 16, 0.92)),
     url("assets/hero-banner");
   background-size: cover;
   background-position: center;
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 60px 20px;
+  padding: 90px 20px 60px;
   overflow: hidden;
+}
+
+.service-hero {
+  min-height: 78vh;
+  background:
+    radial-gradient(circle at top left, rgba(185, 28, 28, 0.18), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(201, 209, 217, 0.08), transparent 32%),
+    linear-gradient(135deg, #070b10 0%, #0b111a 48%, #05080c 100%);
 }
 
 .hero-background-grid {
@@ -204,17 +230,7 @@ body.loaded .page-loader {
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 55px 55px;
   mask-image: linear-gradient(to bottom, black, transparent 90%);
-  animation: gridDrift 18s linear infinite;
-}
-
-@keyframes gridDrift {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(55px);
-  }
+  opacity: 0.75;
 }
 
 .hero-scanline {
@@ -296,7 +312,9 @@ h1 {
   flex-wrap: wrap;
 }
 
-/* Buttons */
+/* =========================================================
+   Buttons
+   ========================================================= */
 
 .button,
 .copy-button,
@@ -343,7 +361,9 @@ h1 {
   transform: translateY(-3px);
 }
 
-/* Main layout */
+/* =========================================================
+   Main Layout
+   ========================================================= */
 
 main {
   max-width: 1120px;
@@ -373,7 +393,9 @@ h2 {
 }
 
 .card {
-  background: linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
+  background:
+    radial-gradient(circle at top right, rgba(185, 28, 28, 0.10), transparent 38%),
+    linear-gradient(145deg, rgba(22, 27, 34, 0.96), rgba(10, 15, 22, 0.96));
   border: 1px solid #2d3748;
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
@@ -390,7 +412,9 @@ h2 {
   font-size: 16px;
 }
 
-/* Banner About */
+/* =========================================================
+   Banner About Section
+   ========================================================= */
 
 .banner-about-wrapper {
   position: relative;
@@ -448,7 +472,9 @@ h2 {
   pointer-events: auto;
 }
 
-/* Flip Cards */
+/* =========================================================
+   Flip Cards
+   ========================================================= */
 
 .flip-grid {
   display: grid;
@@ -552,7 +578,9 @@ h2 {
   text-transform: uppercase;
 }
 
-/* Contact Modal */
+/* =========================================================
+   Contact Modal
+   ========================================================= */
 
 .contact-modal {
   position: fixed;
@@ -607,9 +635,18 @@ h2 {
   cursor: pointer;
 }
 
+.modal-close:hover {
+  border-color: #b91c1c;
+  background: #1f2937;
+}
+
 .modal-header {
   padding-right: 45px;
   margin-bottom: 24px;
+}
+
+.modal-header h2 {
+  margin-bottom: 12px;
 }
 
 .modal-header p {
@@ -654,6 +691,10 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   outline: none;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .form-group input:focus,
@@ -673,6 +714,13 @@ h2 {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.small-note {
+  color: #8b949e;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
 }
 
 body.modal-open {
@@ -701,7 +749,9 @@ body.modal-open {
   }
 }
 
-/* Footer */
+/* =========================================================
+   Footer
+   ========================================================= */
 
 footer {
   padding: 52px 20px 34px;
@@ -799,7 +849,9 @@ footer {
   line-height: 1.6;
 }
 
-/* Animation Classes */
+/* =========================================================
+   Reveal Animations
+   ========================================================= */
 
 .reveal {
   opacity: 0;
@@ -851,11 +903,9 @@ footer {
   transform: translateY(0);
 }
 
-.service-hero {
-  min-height: 78vh;
-}
-
-/* Mobile */
+/* =========================================================
+   Mobile
+   ========================================================= */
 
 @media (max-width: 900px) {
   .footer-top {
@@ -917,7 +967,11 @@ footer {
 
   .hero {
     min-height: 92vh;
-    padding: 42px 18px;
+    padding: 90px 18px 42px;
+  }
+
+  .service-hero {
+    min-height: 78vh;
   }
 
   .logo {
@@ -1097,7 +1151,7 @@ footer {
 
 @media (max-width: 420px) {
   .hero {
-    padding: 36px 14px;
+    padding: 90px 14px 36px;
   }
 
   main {
@@ -1117,5 +1171,20 @@ footer {
   .flip-card-back,
   .card {
     padding: 20px;
+  }
+}
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
