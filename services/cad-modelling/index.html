@@ -19,13 +19,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>CAD Modelling | Fromentin Industries</title>
   <meta name="description" content="A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.">
+
+  <script>
+    const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
+    const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
+    const TERMS_DATE_KEY = "fi_terms_accepted_date";
+    const MAIN_INDEX_URL = "../../index.html";
+
+    function servicePageTermsAreValid() {
+      const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
+      const expiryTime = localStorage.getItem(TERMS_EXPIRY_KEY);
+      const now = Date.now();
+
+      return (
+        acceptedTerms === "accepted" &&
+        expiryTime &&
+        now < Number(expiryTime)
+      );
+    }
+
+    if (!servicePageTermsAreValid()) {
+      localStorage.removeItem(TERMS_STORAGE_KEY);
+      localStorage.removeItem(TERMS_EXPIRY_KEY);
+      localStorage.removeItem(TERMS_DATE_KEY);
+
+      const currentPath = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(MAIN_INDEX_URL + "?return=" + encodeURIComponent(currentPath));
+    }
+  </script>
 
   <link rel="icon" href="../../assets/favicon">
   <link rel="apple-touch-icon" href="../../assets/favicon">
   <link rel="stylesheet" href="../../style.css?v=7">
-
 </head>
 
 <body>
@@ -36,7 +64,7 @@
       <span>Fromentin Industries</span>
     </a>
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-controls="nav-links" aria-expanded="false">
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
       <span></span>
       <span></span>
       <span></span>
@@ -51,7 +79,7 @@
     </div>
   </nav>
 
-  <div class="page-loader" aria-hidden="true">
+  <div class="page-loader">
     <div class="loader-mark">FI</div>
   </div>
 
@@ -61,10 +89,14 @@
 
     <div class="hero-content">
       <img src="../../assets/logo" alt="Fromentin Industries Logo" class="logo">
+
       <p class="eyebrow">Development Area 02</p>
       <h1>CAD Modelling</h1>
       <p class="tagline">Learning digital design before physical build.</p>
-      <p class="hero-description">A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.</p>
+
+      <p class="hero-description">
+        A current learning area focused on 3D parts, assemblies, layouts, prototype visualization, mechanical concepts and design-for-build thinking.
+      </p>
 
       <div class="hero-buttons">
         <a href="../index.html#services" class="button secondary-button">Back to Areas</a>
@@ -74,9 +106,11 @@
   </header>
 
   <main>
+
     <section class="scroll-reveal">
       <div class="section-label">01 / Overview</div>
       <h2>Purpose</h2>
+
       <div class="card glass-card">
         <p>
           CAD Modelling is where I am learning how to turn ideas into digital parts, assemblies and layouts that can be viewed, measured, adjusted and improved before anything is built.
@@ -91,49 +125,59 @@
     <section class="scroll-reveal">
       <div class="section-label">02 / Focus</div>
       <h2>Current Learning Focus</h2>
+
       <div class="flip-grid three-column">
+
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">01</span>
               <h3>Part Modelling</h3>
             </div>
+
             <div class="flip-card-back">
               <h3>Part Modelling</h3>
               <p>Learning how to create individual 3D parts with clear shape, dimensions and purpose.</p>
             </div>
           </div>
         </div>
+
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">02</span>
               <h3>Assemblies</h3>
             </div>
+
             <div class="flip-card-back">
               <h3>Assemblies</h3>
               <p>Learning how to build multi-part layouts that show how components fit and function together.</p>
             </div>
           </div>
         </div>
+
         <div class="flip-card no-link">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">03</span>
               <h3>Visualization</h3>
             </div>
+
             <div class="flip-card-back">
               <h3>Visualization</h3>
               <p>Learning how to create visuals that explain designs, prototypes, mechanisms and build concepts.</p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="footer-inner">
+
       <div class="footer-top">
         <div class="footer-brand-block">
           <p class="footer-brand">Fromentin Industries</p>
@@ -170,7 +214,7 @@
         <div class="footer-column">
           <h3>Legal</h3>
           <a href="../../privacy/">Privacy</a>
-          <a href="../.././">Terms</a>
+          <a href="../../index.html">Terms Gate</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -179,13 +223,14 @@
         <p>© 2026 Fromentin Industries. All rights reserved.</p>
         <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
       </div>
+
     </div>
   </footer>
 
-  <div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+  <div id="contact-modal" class="contact-modal" aria-hidden="true">
     <div class="modal-backdrop" onclick="closeContactModal()"></div>
 
-    <div class="modal-panel">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
       <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close contact form">×</button>
 
       <div class="modal-header">
@@ -203,12 +248,12 @@
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="Name" placeholder="Full name" autocomplete="name" required>
+            <input type="text" id="name" name="Name" placeholder="Full name" required>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="Email" placeholder="name@example.com" autocomplete="email" required>
+            <input type="email" id="email" name="Email" placeholder="name@example.com" required>
           </div>
         </div>
 
@@ -246,8 +291,11 @@
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
@@ -255,9 +303,13 @@
     if ("IntersectionObserver" in window) {
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
         });
-      }, { threshold: 0.15 });
+      }, {
+        threshold: 0.15
+      });
 
       revealElements.forEach(element => revealObserver.observe(element));
     } else {
@@ -266,13 +318,22 @@
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
-      const nav = document.getElementById("site-nav");
       if (!modal) return;
 
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
-      if (nav) nav.classList.remove("menu-open");
+
+      const nav = document.getElementById("site-nav");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      if (nav) {
+        nav.classList.remove("menu-open");
+      }
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+      }
     }
 
     function closeContactModal() {
@@ -286,28 +347,42 @@
 
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
-      const toggle = document.querySelector(".nav-toggle");
+      const navToggle = document.querySelector(".nav-toggle");
+
       if (!nav) return;
 
       nav.classList.toggle("menu-open");
-      if (toggle) toggle.setAttribute("aria-expanded", nav.classList.contains("menu-open") ? "true" : "false");
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", String(nav.classList.contains("menu-open")));
+      }
     }
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") closeContactModal();
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
     });
 
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
-        const toggle = document.querySelector(".nav-toggle");
-        if (nav) nav.classList.remove("menu-open");
-        if (toggle) toggle.setAttribute("aria-expanded", "false");
+        const navToggle = document.querySelector(".nav-toggle");
+
+        if (nav) {
+          nav.classList.remove("menu-open");
+        }
+
+        if (navToggle) {
+          navToggle.setAttribute("aria-expanded", "false");
+        }
       });
     });
   </script>
