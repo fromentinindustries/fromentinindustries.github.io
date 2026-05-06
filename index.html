@@ -16,7 +16,67 @@
 </head>
   
 <body>
+<!--
+  =========================================================
+  Fromentin Industries
+  Private Development-Stage Website
+  Systems for a stronger Canada.
 
+  All site structure, written content, branding, layouts,
+  visual identity, logos, development-area wording and
+  documentation concepts are part of the Fromentin Industries
+  brand system unless otherwise stated.
+
+  Unauthorized copying, mirroring, scraping, impersonation,
+  commercial reuse or misleading use of this website content
+  is not permitted.
+  =========================================================
+-->
+
+<div id="terms-gate" class="terms-gate">
+  <div class="terms-gate-panel">
+    <div class="terms-watermark">Fromentin Industries</div>
+
+    <p class="eyebrow">Access Notice</p>
+
+    <h2>Terms and Conditions</h2>
+
+    <p>
+      Fromentin Industries is a private development-stage Canadian technology and systems brand.
+      This website is provided for information, documentation, portfolio development and brand-building purposes.
+    </p>
+
+    <p>
+      By entering this website, you acknowledge that you have been given access to the Legal and Privacy page,
+      including the development-stage notice, website-use terms, intellectual property notice, privacy notice,
+      no-warranty statement and contact form disclosure.
+    </p>
+
+    <p>
+      You agree not to copy, mirror, scrape, impersonate, misuse or misrepresent Fromentin Industries branding,
+      written content, logos, layouts, project concepts or website materials.
+    </p>
+
+    <div class="terms-check-row">
+      <input type="checkbox" id="terms-checkbox">
+      <label for="terms-checkbox">
+        I have read and accept the website terms, Legal and Privacy notice.
+      </label>
+    </div>
+
+    <div class="terms-actions">
+      <a href="privacy/" class="button secondary-button">Read Legal and Privacy</a>
+      <button type="button" class="button primary-button" id="accept-terms-button" disabled>
+        Accept and Enter
+      </button>
+    </div>
+
+    <p class="small-note">
+      If you do not agree, do not use this website.
+    </p>
+  </div>
+</div>
+  
   <nav class="site-nav visible" id="site-nav">
     <a href="./" class="nav-brand">
       <img src="assets/logo" alt="Fromentin Industries logo">
@@ -33,7 +93,7 @@
       <a href="./">Home</a>
       <a href="#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="privacy/">Privacy</a>
+      <a href="privacy/">Legal and Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
@@ -295,7 +355,7 @@
 
         <div class="footer-column">
           <h3>Legal</h3>
-          <a href="privacy/">Privacy</a>
+          <a href="privacy/">Legal and Privacy</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -463,6 +523,39 @@
   }
 
   window.addEventListener("mousemove", updateBackgroundMouse);
+  const termsGate = document.getElementById("terms-gate");
+const termsCheckbox = document.getElementById("terms-checkbox");
+const acceptTermsButton = document.getElementById("accept-terms-button");
+
+function openTermsGateIfNeeded() {
+  const acceptedTerms = localStorage.getItem("fi_terms_accepted_v1");
+
+  if (!acceptedTerms && termsGate) {
+    termsGate.classList.add("open");
+    document.body.classList.add("terms-locked");
+  }
+}
+
+if (termsCheckbox && acceptTermsButton) {
+  termsCheckbox.addEventListener("change", () => {
+    acceptTermsButton.disabled = !termsCheckbox.checked;
+  });
+}
+
+if (acceptTermsButton) {
+  acceptTermsButton.addEventListener("click", () => {
+    localStorage.setItem("fi_terms_accepted_v1", "accepted");
+    localStorage.setItem("fi_terms_accepted_date", new Date().toISOString());
+
+    if (termsGate) {
+      termsGate.classList.remove("open");
+    }
+
+    document.body.classList.remove("terms-locked");
+  });
+}
+
+openTermsGateIfNeeded();
 </script>
   
 </body>
