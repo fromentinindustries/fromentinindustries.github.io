@@ -2,19 +2,21 @@
 
 **Systems for a stronger Canada.**
 
-Fromentin Industries is a development-stage Canadian technology and systems brand focused on technical design, engineering research, CAD modelling, systems planning, digital systems, and future innovation projects.
+Fromentin Industries is a development-stage Canadian technology, engineering, and systems brand focused on technical design, CAD modelling, engineering research, systems planning, digital infrastructure, automation concepts, and future innovation projects.
 
 The long-term mission is to develop practical technology and system-level solutions that strengthen Canadian capability, resilience, and future readiness.
 
 ---
 
-## Status
+## Current Status
 
-**Current Stage:** Development  
+**Stage:** Private development  
 **Public Launch:** Planned after high school graduation  
-**Current Focus:** Research, design, documentation, project development, and technical skill-building
+**Primary Focus:** Research, design, documentation, technical skill-building, and early project development  
 
-Fromentin Industries is currently being built as a private development-stage brand. The focus is on creating a strong foundation before public launch, including internal systems, project documentation, technical research, digital infrastructure, and early design work.
+Fromentin Industries is currently being built as a private development-stage brand. The purpose of this repository is to support the public website and organize the early digital foundation of the brand.
+
+This project is not yet publicly launched, incorporated, contracted, or operating as a defence contractor, manufacturer, or formal engineering firm.
 
 ---
 
@@ -28,7 +30,7 @@ To develop Canadian technology, engineering concepts, and system-level solutions
 
 To become a serious Canadian innovation and systems company focused on practical engineering, advanced technology, national resilience, and future-ready design.
 
-Fromentin Industries is built around the belief that Canada needs stronger domestic capability in technology, engineering, defence-adjacent systems, infrastructure, and applied innovation.
+Fromentin Industries is built around the belief that Canada needs stronger domestic capability in technology, engineering, infrastructure, defence-adjacent systems, applied research, and practical innovation.
 
 ---
 
@@ -41,13 +43,15 @@ Fromentin Industries is built around the belief that Canada needs stronger domes
 - Engineering research
 - Digital systems
 - Automation planning
-- Prototyping support
 - Project documentation
-- Canadian innovation projects
+- Prototype planning
+- Canadian innovation research
 
 ---
 
 ## Services in Development
+
+The following areas are currently being developed as future service or project capabilities.
 
 ### Technical Design
 
@@ -55,19 +59,19 @@ Early-stage design work for mechanical, digital, and system-based projects.
 
 ### CAD Modelling
 
-Basic 3D modelling, part concepts, assemblies, design layouts, and visual project planning.
+3D modelling, part concepts, assemblies, design layouts, and visual project planning.
 
 ### Concept Development
 
-Turning early ideas into structured technical concepts with clear goals, use cases, constraints, and development paths.
+Turning early ideas into structured technical concepts with clear goals, use cases, constraints, risks, and development paths.
 
 ### Systems Planning
 
-Designing how different parts of a project work together, including hardware, software, people, logistics, workflow, and physical systems.
+Designing how different parts of a project work together, including hardware, software, people, logistics, workflows, and physical systems.
 
 ### Technology Research
 
-Researching emerging technologies, comparing solutions, identifying improvements, and building technical knowledge.
+Researching emerging technologies, comparing solutions, identifying technical gaps, and building applied knowledge.
 
 ### Engineering Documentation
 
@@ -94,16 +98,94 @@ Fromentin Industries is currently organizing and developing work in the followin
 
 ---
 
+## Repository Purpose
+
+This repository supports the Fromentin Industries GitHub Pages website.
+
+It may include:
+
+- Website source files
+- Static pages
+- CSS and visual styling
+- Brand wording
+- Legal and privacy pages
+- Early project documentation
+- Public-facing development notes
+
+This repository is part of the early digital infrastructure for Fromentin Industries.
+
+---
+
+## Website Structure
+
+Typical structure:
+
+```text
+/
+├── index.html
+├── style.css
+├── README.md
+├── assets/
+├── privacy/
+├── services/
+└── thanks/
+```
+
+Actual structure may change as the website develops.
+
+---
+
 ## Current Priorities
 
 - Build the Fromentin Industries digital foundation
+- Improve the website structure and user flow
+- Strengthen privacy, legal, and terms-of-use pages
 - Organize project documentation
 - Develop a private technical portfolio
 - Build and test early concepts
 - Improve CAD, engineering, systems, and documentation skills
-- Prepare for a public launch after graduation
-- Secure a future custom domain
-- Build a professional website and brand identity
+- Prepare for a future public launch
+- Secure a custom domain
+- Build a professional brand identity
+
+---
+
+## Development Roadmap
+
+### Phase 1 - Foundation
+
+- Create the core brand identity
+- Set up the public website
+- Organize GitHub and project files
+- Build documentation systems
+- Define services and project categories
+- Create legal, privacy, and terms-of-use pages
+- Begin project portfolio development
+
+### Phase 2 - Technical Growth
+
+- Build CAD and design examples
+- Document server and digital systems projects
+- Research Canadian technology needs
+- Develop engineering concept briefs
+- Build early prototypes and mockups where possible
+- Improve technical documentation standards
+
+### Phase 3 - Public Launch
+
+- Secure a custom domain
+- Launch the official public website
+- Create public-facing project pages
+- Build a professional email system
+- Publish a clear services page
+- Begin public brand presence
+
+### Phase 4 - Expansion
+
+- Develop stronger technical capabilities
+- Build partnerships and project experience
+- Expand into more advanced engineering, systems, and technology work
+- Move from concept-stage brand to active company structure
 
 ---
 
@@ -111,7 +193,7 @@ Fromentin Industries is currently organizing and developing work in the followin
 
 ### Discipline
 
-Every project should be structured, documented, and improved over time.
+Every project should be structured, documented, reviewed, and improved over time.
 
 ### Capability
 
@@ -131,54 +213,37 @@ The brand is being built before it is announced. The foundation comes first.
 
 ---
 
-## Development Roadmap
+## Legal and Use Notice
 
-### Phase 1 - Foundation
+Fromentin Industries is a private development-stage brand.
 
-- Create the core brand identity
-- Set up the website
-- Organize Google Drive and GitHub
-- Build documentation systems
-- Define services and project categories
-- Begin project portfolio development
+All website structure, written content, branding, layouts, visual identity, logos, development-area wording, and documentation concepts are part of the Fromentin Industries brand system unless otherwise stated.
 
-### Phase 2 - Technical Growth
+Unauthorized copying, mirroring, scraping, impersonation, commercial reuse, misleading use, or redistribution of this website content is not permitted.
 
-- Build CAD and design examples
-- Document server and digital systems projects
-- Research Canadian technology needs
-- Develop engineering concept briefs
-- Build early prototypes and mockups where possible
+This repository is provided for the operation and development of the Fromentin Industries website. Public visibility of this repository does not grant permission to copy, reuse, modify, or represent the content as your own.
 
-### Phase 3 - Public Launch
+---
 
-- Secure a custom domain
-- Launch the official website
-- Create public-facing project pages
-- Build a professional email system
-- Publish a clear services page
-- Begin public brand presence
+## Disclaimer
 
-### Phase 4 - Expansion
+Fromentin Industries is not currently publicly launched, incorporated, contracted, or operating as a defence contractor, manufacturer, military supplier, professional engineering firm, or regulated technical service provider.
 
-- Develop stronger technical capabilities
-- Build partnerships and project experience
-- Expand into more advanced engineering, systems, and technology work
-- Move from concept-stage brand to active company structure
+All current work is focused on research, design, documentation, technical learning, early-stage planning, website development, and private project development.
+
+Nothing in this repository should be interpreted as an offer of regulated engineering services, defence contracting, military procurement support, or manufacturing services.
 
 ---
 
 ## Contact
-
-For now, Fromentin Industries is in private development.
 
 **Email:** contact.fromentinindustries@gmail.com  
 **Website:** https://fromentinindustries.github.io
 
 ---
 
-## Notice
+## Ownership
 
-Fromentin Industries is a development-stage brand. It is not currently publicly launched, incorporated, contracted, or operating as a defence contractor or manufacturer.
+© 2026 Fromentin Industries. All rights reserved.
 
-All current work is focused on research, design, documentation, technical learning, and early-stage project development.
+© 2026 Systems for a stronger Canada.
