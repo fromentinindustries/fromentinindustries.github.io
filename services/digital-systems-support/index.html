@@ -1,39 +1,80 @@
+<!--
+  =========================================================
+  Fromentin Industries
+  Private Development-Stage Website
+  Systems for a stronger Canada.
+
+  All site structure, written content, branding, layouts,
+  visual identity, logos, development-area wording and
+  documentation concepts are part of the Fromentin Industries
+  brand system unless otherwise stated.
+
+  Unauthorized copying, mirroring, scraping, impersonation,
+  commercial reuse or misleading use of this website content
+  is not permitted.
+  =========================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Digital Systems Support | Fromentin Industries</title>
+  <meta name="description" content="A current development area focused on websites, files, digital tools, basic infrastructure, documentation systems and technical support workflows.">
 
-  <meta name="description" content="Digital Systems Support is a current learning and development area for Fromentin Industries, focused on servers, automation, information systems, digital infrastructure and technical workflow planning.">
+  <script>
+    const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
+    const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
+    const TERMS_DATE_KEY = "fi_terms_accepted_date";
+    const MAIN_INDEX_URL = "../.././";
 
-  <link rel="icon" href="../assets/favicon">
-  <link rel="apple-touch-icon" href="../assets/favicon">
+    function servicePageTermsAreValid() {
+      const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
+      const expiryTime = localStorage.getItem(TERMS_EXPIRY_KEY);
+      const now = Date.now();
 
-  <link rel="stylesheet" href="../style.css?v=6">
+      return (
+        acceptedTerms === "accepted" &&
+        expiryTime &&
+        now < Number(expiryTime)
+      );
+    }
+
+    if (!servicePageTermsAreValid()) {
+      localStorage.removeItem(TERMS_STORAGE_KEY);
+      localStorage.removeItem(TERMS_EXPIRY_KEY);
+      localStorage.removeItem(TERMS_DATE_KEY);
+
+      const currentPath = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(MAIN_INDEX_URL + "?return=" + encodeURIComponent(currentPath));
+    }
+  </script>
+
+  <link rel="icon" href="../../assets/favicon">
+  <link rel="apple-touch-icon" href="../../assets/favicon">
+  <link rel="stylesheet" href="../../style.css?v=7">
 </head>
 
 <body>
 
   <nav class="site-nav visible" id="site-nav">
-    <a href="../index.html" class="nav-brand">
-      <img src="../assets/logo" alt="Fromentin Industries logo">
+    <a href="../../." class="nav-brand">
+      <img src="../../assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
     </a>
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <div class="nav-links" id="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="../index.html#services">Development Areas</a>
+      <a href="../..//">Home</a>
+      <a href="../../#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="../privacy.html">Privacy</a>
+      <a href="../../privacy/">Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
@@ -47,20 +88,18 @@
     <div class="hero-scanline"></div>
 
     <div class="hero-content">
-      <img src="../assets/logo" alt="Fromentin Industries Logo" class="logo">
+      <img src="../../assets/logo" alt="Fromentin Industries Logo" class="logo">
 
       <p class="eyebrow">Development Area 07</p>
-
       <h1>Digital Systems Support</h1>
-
-      <p class="tagline">Learning digital infrastructure for organized execution.</p>
+      <p class="tagline">Supporting the digital side of technical work.</p>
 
       <p class="hero-description">
-        A current learning area focused on servers, automation, information systems, digital infrastructure, workflow planning and technical command systems.
+        A current development area focused on websites, files, digital tools, basic infrastructure, documentation systems and technical support workflows.
       </p>
 
       <div class="hero-buttons">
-        <a href="../index.html#services" class="button secondary-button">Back to Areas</a>
+        <a href="../../#services" class="button secondary-button">Back to Areas</a>
         <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
       </div>
     </div>
@@ -70,23 +109,21 @@
 
     <section class="scroll-reveal">
       <div class="section-label">01 / Overview</div>
-
       <h2>Purpose</h2>
 
       <div class="card glass-card">
         <p>
-          Digital Systems Support is where I am learning how to build and organize the technical backbone behind structured work, including server setups, automation planning, file systems, information management and digital workflows.
+          Digital Systems Support is where I work on the digital tools and structures that support the wider Fromentin Industries concept.
         </p>
 
         <p>
-          This area is being developed to make future technical work cleaner, faster, better documented and easier to control.
+          This area includes website development, file organization, digital workflows, technical support habits and systems that keep projects organized and accessible.
         </p>
       </div>
     </section>
 
     <section class="scroll-reveal">
       <div class="section-label">02 / Focus</div>
-
       <h2>Current Learning Focus</h2>
 
       <div class="flip-grid three-column">
@@ -95,12 +132,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">01</span>
-              <h3>Server Projects</h3>
+              <h3>Web Systems</h3>
             </div>
 
             <div class="flip-card-back">
-              <h3>Server Projects</h3>
-              <p>Learning how to plan and document home-lab, file storage, local network and infrastructure projects.</p>
+              <h3>Web Systems</h3>
+              <p>Building and maintaining simple public-facing web pages for the brand and its development areas.</p>
             </div>
           </div>
         </div>
@@ -109,12 +146,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">02</span>
-              <h3>Automation</h3>
+              <h3>File Structure</h3>
             </div>
 
             <div class="flip-card-back">
-              <h3>Automation</h3>
-              <p>Learning how to design workflows that reduce repeated manual work and improve consistency.</p>
+              <h3>File Structure</h3>
+              <p>Organizing digital files, assets, documentation and project materials so they are easier to manage.</p>
             </div>
           </div>
         </div>
@@ -123,12 +160,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">03</span>
-              <h3>Information Systems</h3>
+              <h3>Support Workflows</h3>
             </div>
 
             <div class="flip-card-back">
-              <h3>Information Systems</h3>
-              <p>Learning how to organize files, project records, accounts, documentation, schedules and digital command structures.</p>
+              <h3>Support Workflows</h3>
+              <p>Developing repeatable processes for troubleshooting, updating and improving digital systems.</p>
             </div>
           </div>
         </div>
@@ -150,20 +187,20 @@
 
         <div class="footer-column">
           <h3>Site</h3>
-          <a href="../index.html">Home</a>
-          <a href="../index.html#services">Development Areas</a>
+          <a href="../../">Home</a>
+          <a href="../../#services">Development Areas</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
 
         <div class="footer-column">
           <h3>Development Areas</h3>
-          <a href="technical-design.html">Technical Design</a>
-          <a href="cad-modelling.html">CAD Modelling</a>
-          <a href="concept-development.html">Concept Development</a>
-          <a href="systems-planning.html">Systems Planning</a>
-          <a href="technology-research.html">Technology Research</a>
-          <a href="engineering-documentation.html">Engineering Documentation</a>
-          <a href="digital-systems-support.html">Digital Systems Support</a>
+          <a href="../technical-design/">Technical Design</a>
+          <a href="../cad-modelling/">CAD Modelling</a>
+          <a href="../concept-development/">Concept Development</a>
+          <a href="../systems-planning/">Systems Planning</a>
+          <a href="../technology-research/">Technology Research</a>
+          <a href="../engineering-documentation/">Engineering Documentation</a>
+          <a href="../digital-systems-support/">Digital Systems Support</a>
         </div>
 
         <div class="footer-column">
@@ -176,7 +213,8 @@
 
         <div class="footer-column">
           <h3>Legal</h3>
-          <a href="../privacy.html">Privacy</a>
+          <a href="../../privacy/">Privacy</a>
+          <a href="../../">Terms Gate</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -189,15 +227,15 @@
     </div>
   </footer>
 
-  <div id="contact-modal" class="contact-modal">
+  <div id="contact-modal" class="contact-modal" aria-hidden="true">
     <div class="modal-backdrop" onclick="closeContactModal()"></div>
 
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close contact form">×</button>
 
       <div class="modal-header">
         <p class="eyebrow">Fromentin Industries</p>
-        <h2>Contact Request</h2>
+        <h2 id="contact-modal-title">Contact Request</h2>
         <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
       </div>
 
@@ -205,7 +243,7 @@
         <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks/">
 
         <div class="form-row">
           <div class="form-group">
@@ -253,53 +291,98 @@
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.15
       });
-    }, { threshold: 0.15 });
-    revealElements.forEach(element => revealObserver.observe(element));
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
+
       modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.remove("menu-open");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      if (nav) {
+        nav.classList.remove("menu-open");
+      }
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+      }
     }
 
     function closeContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
+
       modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
+      const navToggle = document.querySelector(".nav-toggle");
+
       if (!nav) return;
+
       nav.classList.toggle("menu-open");
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", String(nav.classList.contains("menu-open")));
+      }
     }
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") closeContactModal();
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
     });
 
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
-        if (nav) nav.classList.remove("menu-open");
+        const navToggle = document.querySelector(".nav-toggle");
+
+        if (nav) {
+          nav.classList.remove("menu-open");
+        }
+
+        if (navToggle) {
+          navToggle.setAttribute("aria-expanded", "false");
+        }
       });
     });
   </script>
