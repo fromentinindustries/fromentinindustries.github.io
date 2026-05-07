@@ -27,7 +27,7 @@
     const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
     const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
     const TERMS_DATE_KEY = "fi_terms_accepted_date";
-    const MAIN_INDEX_URL = "../../index.html";
+    const MAIN_INDEX_URL = "../../";
 
     function servicePageTermsAreValid() {
       const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
@@ -59,7 +59,7 @@
 <body>
 
   <nav class="site-nav visible" id="site-nav">
-    <a href="../../index.html" class="nav-brand">
+    <a href="../../" class="nav-brand">
       <img src="../../assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
     </a>
@@ -72,7 +72,7 @@
 
     <div class="nav-links" id="nav-links">
       <a href="../../index.html">Home</a>
-      <a href="../index.html#services">Development Areas</a>
+      <a href="../../#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
       <a href="../../privacy/">Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -99,7 +99,7 @@
       </p>
 
       <div class="hero-buttons">
-        <a href="../index.html#services" class="button secondary-button">Back to Areas</a>
+        <a href="../../#services" class="button secondary-button">Back to Areas</a>
         <button type="button" class="button primary-button" onclick="openContactModal()">Contact</button>
       </div>
     </div>
@@ -194,13 +194,13 @@
 
         <div class="footer-column">
           <h3>Development Areas</h3>
-          <a href="technical-design.html">Technical Design</a>
-          <a href="cad-modelling.html">CAD Modelling</a>
-          <a href="concept-development.html">Concept Development</a>
-          <a href="systems-planning.html">Systems Planning</a>
-          <a href="technology-research.html">Technology Research</a>
-          <a href="engineering-documentation.html">Engineering Documentation</a>
-          <a href="digital-systems-support.html">Digital Systems Support</a>
+          <a href="../technical-design/">Technical Design</a>
+          <a href="../cad-modelling/">CAD Modelling</a>
+          <a href="../concept-development/">Concept Development</a>
+          <a href="../systems-planning/">Systems Planning</a>
+          <a href="../technology-research/">Technology Research</a>
+          <a href="../engineering-documentation/">Engineering Documentation</a>
+          <a href="../digital-systems-support/">Digital Systems Support</a>
         </div>
 
         <div class="footer-column">
@@ -214,7 +214,6 @@
         <div class="footer-column">
           <h3>Legal</h3>
           <a href="../../privacy/">Privacy</a>
-          <a href="../../index.html">Terms Gate</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -243,7 +242,7 @@
         <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks.html">
+        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks/">
 
         <div class="form-row">
           <div class="form-group">
