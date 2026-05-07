@@ -1,39 +1,80 @@
+<!--
+  =========================================================
+  Fromentin Industries
+  Private Development-Stage Website
+  Systems for a stronger Canada.
+
+  All site structure, written content, branding, layouts,
+  visual identity, logos, development-area wording and
+  documentation concepts are part of the Fromentin Industries
+  brand system unless otherwise stated.
+
+  Unauthorized copying, mirroring, scraping, impersonation,
+  commercial reuse or misleading use of this website content
+  is not permitted.
+  =========================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Technology Research | Fromentin Industries</title>
+  <meta name="description" content="A current development area focused on researching technologies, materials, systems, tools and trends that may support future Canadian innovation.">
 
-  <meta name="description" content="Technology Research is a current learning and development area for Fromentin Industries, focused on emerging tools, systems, engineering trends, Canadian capability needs and future innovation areas.">
+  <script>
+    const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
+    const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
+    const TERMS_DATE_KEY = "fi_terms_accepted_date";
+    const MAIN_INDEX_URL = "../../index.html";
 
-  <link rel="icon" href="../assets/favicon">
-  <link rel="apple-touch-icon" href="../assets/favicon">
+    function servicePageTermsAreValid() {
+      const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
+      const expiryTime = localStorage.getItem(TERMS_EXPIRY_KEY);
+      const now = Date.now();
 
-  <link rel="stylesheet" href="../style.css?v=6">
+      return (
+        acceptedTerms === "accepted" &&
+        expiryTime &&
+        now < Number(expiryTime)
+      );
+    }
+
+    if (!servicePageTermsAreValid()) {
+      localStorage.removeItem(TERMS_STORAGE_KEY);
+      localStorage.removeItem(TERMS_EXPIRY_KEY);
+      localStorage.removeItem(TERMS_DATE_KEY);
+
+      const currentPath = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(MAIN_INDEX_URL + "?return=" + encodeURIComponent(currentPath));
+    }
+  </script>
+
+  <link rel="icon" href="../../assets/favicon">
+  <link rel="apple-touch-icon" href="../../assets/favicon">
+  <link rel="stylesheet" href="../../style.css?v=7">
 </head>
 
 <body>
 
   <nav class="site-nav visible" id="site-nav">
-    <a href="../index.html" class="nav-brand">
-      <img src="../assets/logo" alt="Fromentin Industries logo">
+    <a href="../../index.html" class="nav-brand">
+      <img src="../../assets/logo" alt="Fromentin Industries logo">
       <span>Fromentin Industries</span>
     </a>
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <div class="nav-links" id="nav-links">
-      <a href="../index.html">Home</a>
+      <a href="../../index.html">Home</a>
       <a href="../index.html#services">Development Areas</a>
       <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="../privacy.html">Privacy</a>
+      <a href="../../privacy/">Privacy</a>
       <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
@@ -47,16 +88,14 @@
     <div class="hero-scanline"></div>
 
     <div class="hero-content">
-      <img src="../assets/logo" alt="Fromentin Industries Logo" class="logo">
+      <img src="../../assets/logo" alt="Fromentin Industries Logo" class="logo">
 
       <p class="eyebrow">Development Area 05</p>
-
       <h1>Technology Research</h1>
-
-      <p class="tagline">Learning what matters before building what is next.</p>
+      <p class="tagline">Studying what exists before designing what comes next.</p>
 
       <p class="hero-description">
-        A current learning area focused on researching emerging tools, systems, engineering trends, future capability gaps and Canadian innovation opportunities.
+        A current development area focused on researching technologies, materials, systems, tools and trends that may support future Canadian innovation.
       </p>
 
       <div class="hero-buttons">
@@ -70,23 +109,21 @@
 
     <section class="scroll-reveal">
       <div class="section-label">01 / Overview</div>
-
       <h2>Purpose</h2>
 
       <div class="card glass-card">
         <p>
-          Technology Research is where I am learning how to study existing solutions, emerging systems, technical limits and real-world needs before moving into design or development.
+          Technology Research is where I study existing tools, systems, materials and technical ideas to understand what is possible and where improvement may be needed.
         </p>
 
         <p>
-          This area is being developed to help future ideas become stronger through research, comparison, practical analysis and a better understanding of Canadian technology needs.
+          This area supports informed design decisions, stronger project planning and a more serious understanding of technology before attempting to build around it.
         </p>
       </div>
     </section>
 
     <section class="scroll-reveal">
       <div class="section-label">02 / Focus</div>
-
       <h2>Current Learning Focus</h2>
 
       <div class="flip-grid three-column">
@@ -95,12 +132,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">01</span>
-              <h3>Technology Scanning</h3>
+              <h3>Technical Research</h3>
             </div>
 
             <div class="flip-card-back">
-              <h3>Technology Scanning</h3>
-              <p>Learning how to research tools, systems, engineering methods and innovation areas that could support future projects.</p>
+              <h3>Technical Research</h3>
+              <p>Studying existing technologies, systems and design approaches to understand how they work.</p>
             </div>
           </div>
         </div>
@@ -114,7 +151,7 @@
 
             <div class="flip-card-back">
               <h3>Comparison</h3>
-              <p>Learning how to compare advantages, disadvantages, costs, limitations and possible improvements.</p>
+              <p>Comparing tools, platforms, materials or methods to judge strengths, weaknesses and realistic use.</p>
             </div>
           </div>
         </div>
@@ -123,12 +160,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="service-number">03</span>
-              <h3>Capability Gaps</h3>
+              <h3>Future Application</h3>
             </div>
 
             <div class="flip-card-back">
-              <h3>Capability Gaps</h3>
-              <p>Learning how to identify areas where Canada could benefit from stronger domestic technology, infrastructure or systems.</p>
+              <h3>Future Application</h3>
+              <p>Looking at how researched technologies could support future concepts, prototypes or Canadian systems.</p>
             </div>
           </div>
         </div>
@@ -150,7 +187,7 @@
 
         <div class="footer-column">
           <h3>Site</h3>
-          <a href="../index.html">Home</a>
+          <a href="../../index.html">Home</a>
           <a href="../index.html#services">Development Areas</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
@@ -176,7 +213,8 @@
 
         <div class="footer-column">
           <h3>Legal</h3>
-          <a href="../privacy.html">Privacy</a>
+          <a href="../../privacy/">Privacy</a>
+          <a href="../../index.html">Terms Gate</a>
           <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
@@ -189,15 +227,15 @@
     </div>
   </footer>
 
-  <div id="contact-modal" class="contact-modal">
+  <div id="contact-modal" class="contact-modal" aria-hidden="true">
     <div class="modal-backdrop" onclick="closeContactModal()"></div>
 
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close contact form">×</button>
 
       <div class="modal-header">
         <p class="eyebrow">Fromentin Industries</p>
-        <h2>Contact Request</h2>
+        <h2 id="contact-modal-title">Contact Request</h2>
         <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
       </div>
 
@@ -253,53 +291,98 @@
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     const revealElements = document.querySelectorAll(".scroll-reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.15
       });
-    }, { threshold: 0.15 });
-    revealElements.forEach(element => revealObserver.observe(element));
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
 
     function openContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
+
       modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
+
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.remove("menu-open");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      if (nav) {
+        nav.classList.remove("menu-open");
+      }
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+      }
     }
 
     function closeContactModal() {
       const modal = document.getElementById("contact-modal");
       if (!modal) return;
+
       modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
     }
 
     function toggleMenu() {
       const nav = document.getElementById("site-nav");
+      const navToggle = document.querySelector(".nav-toggle");
+
       if (!nav) return;
+
       nav.classList.toggle("menu-open");
+
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", String(nav.classList.contains("menu-open")));
+      }
     }
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("site-nav");
-      if (nav) nav.classList.add("visible");
+      if (nav) {
+        nav.classList.add("visible");
+      }
     });
 
     document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") closeContactModal();
+      if (event.key === "Escape") {
+        closeContactModal();
+      }
     });
 
     document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
       link.addEventListener("click", () => {
         const nav = document.getElementById("site-nav");
-        if (nav) nav.classList.remove("menu-open");
+        const navToggle = document.querySelector(".nav-toggle");
+
+        if (nav) {
+          nav.classList.remove("menu-open");
+        }
+
+        if (navToggle) {
+          navToggle.setAttribute("aria-expanded", "false");
+        }
       });
     });
   </script>
