@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal | Fromentin Industries</title>
+  <meta name="description" content="Legal terms, website use notice and intellectual property disclosure for Fromentin Industries." />
+  <meta property="og:title" content="Legal Terms | Fromentin Industries" />
+  <meta property="og:description" content="Review the legal terms and website use notice for the Fromentin Industries development-stage website." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/hero-banner" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="./assets/favicon">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <!--
+    =========================================================
+    Fromentin Industries
+    Private Development-Stage Website
+    Systems for a stronger Canada.
+
+    All site structure, written content, branding, layouts,
+    visual identity, logos, development-area wording and
+    documentation concepts are part of the Fromentin Industries
+    brand system unless otherwise stated.
+
+    Unauthorized copying, mirroring, scraping, impersonation,
+    commercial reuse or misleading use of this website content
+    is not permitted.
+    =========================================================
+  -->
+
+  <div id="terms-gate" class="terms-gate" aria-live="polite" aria-modal="true" role="dialog">
+    <div class="terms-panel">
+      <p class="eyebrow">Access notice</p>
+      <h2>Terms and privacy notice</h2>
+      <p>Fromentin Industries is a private development-stage Canadian technology and systems initiative. This website is presented for information, learning, documentation and brand development.</p>
+      <p>By continuing, you acknowledge the Development-Stage Notice, Privacy Policy and Legal Terms. You also acknowledge that this website is not a source of professional engineering, legal or investment advice.</p>
+      <div class="terms-check">
+        <input type="checkbox" id="terms-checkbox">
+        <label for="terms-checkbox">I have read and accept the site terms, privacy notice and legal disclosure.</label>
+      </div>
+      <div class="terms-actions">
+        <a href="./privacy/" class="button secondary-button">Read privacy</a>
+        <a href="./legal.html" class="button secondary-button">Read legal</a>
+        <button id="accept-terms-button" class="button primary-button" disabled>Accept and continue</button>
+      </div>
+      <p class="small-note">If you do not agree, please close this page or return to the referring site.</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-frame">
+      <a class="brand" href="./">
+        <img src="./assets/logo" alt="Fromentin Industries logo">
+        <div>
+          <span class="brand-name">Fromentin Industries</span>
+          <small>Systems for a stronger Canada</small>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+        <a href="./">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services/">Development Areas</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy/">Privacy</a>
+        <a href="./legal.html">Legal</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-panel hero-legal">
+      <div class="hero-copy">
+        <p class="eyebrow">Legal terms</p>
+        <h1>Website terms and intellectual property notice.</h1>
+        <p class="hero-text">Read the legal guidance and usage terms for this development-stage Fromentin Industries website.</p>
+      </div>
+    </section>
+
+    <section class="section intro-panel">
+      <div class="section-header">
+        <p class="eyebrow">Legal disclosure</p>
+        <h2>Development-stage status and permissible use.</h2>
+      </div>
+      <div class="content-card">
+        <p>Fromentin Industries is presented as a private development-stage initiative. This website is informational and should not be relied on as professional engineering, legal, financial, defence or investment advice.</p>
+        <p>Visitors may review the material, but may not copy, mirror, scrape, impersonate or reuse brand assets, written content, designs or visual identity without permission.</p>
+      </div>
+    </section>
+
+    <section class="section feature-panel">
+      <div class="section-grid">
+        <article class="feature-card">
+          <h3>No warranty</h3>
+          <p>The website is provided as-is. Fromentin Industries does not guarantee accuracy, availability or suitability for a particular purpose.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Intellectual property</h3>
+          <p>The Fromentin Industries name, logo, content and design are protected and intended for brand use only.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Restricted behavior</h3>
+          <p>Copying, scraping, impersonation, misuse or misleading reuse of this website is prohibited.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Information notice</h3>
+          <p>All content is intended for general information, documentation and brand-building purposes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact-panel">
+      <div class="contact-copy">
+        <p class="eyebrow">More details</p>
+        <h2>Privacy and legal pages are available from every page.</h2>
+        <p>Use the privacy page to review data handling. Use the contact page for inquiries about the initiative and website presentation.</p>
+        <div class="contact-actions">
+          <a class="button primary-button" href="./privacy/">Privacy</a>
+          <a class="button secondary-button" href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Fromentin Industries</p>
+        <p>Private development-stage initiative focused on Canadian engineering and systems research.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="./privacy/">Privacy</a>
+        <a href="./legal.html">Legal</a>
+      </div>
+    </div>
+    <p class="footer-note">This website is informational and should be reviewed carefully before live publication.</p>
+  </footer>
+</body>
+</html>

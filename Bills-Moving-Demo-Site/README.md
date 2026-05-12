@@ -1,37 +1,47 @@
-# Bill's Moving Website Demo
+# Bill's Moving Demo Website
 
-A complete static website package for a Brockville moving and storage business.
+This is a complete static website concept for Bill's Moving in Brockville, Ontario.
 
-## Files
+## What is included
 
-- `index.html` — full single-page website
-- `styles.css` — responsive design, mobile-first styling, light professional brand
-- `script.js` — menu and scroll reveal interactions
-- `assets/` — local SVG logo, icons and illustrations
-- `sitemap.xml` and `robots.txt` — basic SEO support
-- `SALES_BRIEF.md` — pitch notes and research summary
+- `index.html` — Landing page with service details, quote form and local SEO structure.
+- `styles.css` — Responsive styling with light/dark mode support.
+- `script.js` — Theme toggle, mobile menu and quote form mailto handling.
+- `sales-brief.md` — Sales messaging, pitch notes and owner verification checklist.
+- `sitemap.xml` — Simple sitemap for static hosting.
+- `robots.txt` — Static host support file.
+- `assets/` — SVG illustrations and logo assets.
 
-## Before going live
+## Editing the website
 
-Replace the placeholder form action in `index.html`:
+- Replace text content directly in `index.html`.
+- Update the quote form recipient in `script.js` before launch.
+- Replace the placeholder address or phone number only after confirming with the owner.
+- Replace SVG assets in `assets/` with real photos or custom graphics if needed.
 
-```html
-<form class="quote-form" action="mailto:example@example.com" method="post" enctype="text/plain">
-```
+## Quote form behavior
 
-Use the owner's confirmed email address or connect a form service such as Formspree, Netlify Forms, Basin or a backend endpoint.
+The quote form is static. It opens the user’s email client with move details.
+No backend is required.
 
-Also replace `https://example.com/` in the schema, robots file and sitemap with the final domain.
+## Deploying the site
 
-## Deployment
+### GitHub Pages
 
-This site can run anywhere static files are accepted:
+1. Push this folder to a GitHub repository.
+2. In repository settings, enable GitHub Pages from the `main` branch.
+3. The site will be available at the generated GitHub Pages URL.
 
-- GitHub Pages
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Standard cPanel hosting
-- Any folder on a web server
+### Netlify / Vercel / Static hosts
 
-Upload the full folder contents, not just the HTML file.
+- Deploy the folder as a static site.
+- Use the `index.html` root file as the entry point.
+- No build step or server is required.
+
+## Verify before launch
+
+- Confirm the business name and address with the owner.
+- Confirm the phone number is current.
+- Replace the `mailto:` email address in `script.js` with the owner’s preferred contact address.
+- Review the service copy for accuracy.
+- Ensure the site is published on the correct domain.

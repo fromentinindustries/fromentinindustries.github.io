@@ -1,50 +1,78 @@
-# Bill's Moving — Website Sales Brief
+/*
+  =========================================================
+  Bill's Moving
+  Local moving demo website
+  Brockville, Ontario.
 
-## Target
+  Demo content and business details are based on publicly available listings.
+  Owner verification is required before launch.
+  =========================================================
+*/
 
-Bill's Moving
-12 Keefer St, Brockville, ON K6V 1R7
-Phone: 613-498-3250
-Category: Moving services and storage facilities
+const themeToggle = document.querySelector('.theme-toggle');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+const quoteForm = document.getElementById('quote-form');
+const THEME_KEY = 'billsMovingTheme';
 
-## Public research summary
+function getSavedTheme() {
+  return localStorage.getItem(THEME_KEY);
+}
 
-Public directory listings show Bill's Moving as a Brockville moving/storage business. A storage directory lists the website field as N/A, which makes this a strong website pitch target. YellowPages also lists Bill's Moving under moving services and storage facilities.
+function getPreferredTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 
-## Business problem
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeToggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
+  themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+}
 
-The business appears searchable through directories, but a customer searching for a local mover has no strong dedicated website to verify services, service area, process, phone number, location, FAQs or quote request options.
+function initTheme() {
+  const saved = getSavedTheme();
+  applyTheme(saved || getPreferredTheme());
+}
 
-## Why this site is sellable
+function toggleTheme() {
+  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem(THEME_KEY, next);
+}
 
-This website solves three immediate problems:
+function toggleNav() {
+  const isOpen = navMenu.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
 
-1. Trust: Customers see address, phone, services, FAQs and local positioning immediately.
-2. Conversion: Mobile call buttons and quote CTA are visible throughout the page.
-3. SEO: Copy is structured around Brockville movers, local moving, storage transitions, furniture moving and nearby communities.
+function buildMailto(data) {
+  const recipient = 'owner@billsmoving.com';
+  const subject = encodeURIComponent('Bill\'s Moving quote request');
+  const body = encodeURIComponent(
+    `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nMoving from: ${data.from}\nMoving to: ${data.to}\nPreferred date: ${data.date}\nType of move: ${data.type}\nDetails: ${data.details}`
+  );
+  return `mailto:${recipient}?subject=${subject}&body=${body}`;
+}
 
-## Recommended pitch line
+function handleQuoteSubmit(event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const mailto = buildMailto({
+    name: formData.get('name') || '',
+    phone: formData.get('phone') || '',
+    email: formData.get('email') || '',
+    from: formData.get('from') || '',
+    to: formData.get('to') || '',
+    date: formData.get('date') || '',
+    type: formData.get('type') || '',
+    details: formData.get('details') || ''
+  });
+  window.location.href = mailto;
+}
 
-"I noticed Bill's Moving is listed online in Brockville directories, but I could not find a proper dedicated website. I built a clean mobile-ready demo that gives customers your services, service area, phone number, quote form and local search structure. It is ready for owner verification and could be launched quickly."
-
-## Owner verification needed
-
-Before publishing, confirm:
-
-- Exact active business name
-- Current phone number
-- Email address for quote form
-- Operating hours
-- Service list
-- Insurance/licensing statements they are comfortable making
-- Real customer reviews
-- Whether they want online quote requests, calls only or both
-- Final domain name
-
-## Suggested price positioning
-
-Starter launch package: CAD $350-$650
-Includes static website, mobile optimization, basic SEO, contact/quote setup and deployment.
-
-Monthly care option: CAD $35-$75/month
-Includes edits, uptime checks, small content changes and basic local SEO maintenance.
+window.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+  if (navToggle) navToggle.addEventListener('click', toggleNav);
+  if (quoteForm) quoteForm.addEventListener('submit', handleQuoteSubmit);
+});

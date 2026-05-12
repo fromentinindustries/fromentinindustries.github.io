@@ -2,21 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Fromentin Industries</title>
-
-  <meta name="description" content="Fromentin Industries is a development-stage Canadian technology and systems brand focused on learning technical design, CAD modelling, systems planning, digital systems and future innovation projects.">
-
-  <link rel="icon" href="assets/favicon">
-  <link rel="apple-touch-icon" href="assets/favicon">
-
-  <link rel="stylesheet" href="style.css?v=10">
+  <title>Fromentin Industries | Development-Stage Systems for a Stronger Canada</title>
+  <meta name="description" content="Fromentin Industries is a private development-stage initiative focused on disciplined engineering, systems thinking and Canadian innovation. Learn about development areas, technology research and digital systems planning." />
+  <meta property="og:title" content="Fromentin Industries | Systems for a Stronger Canada" />
+  <meta property="og:description" content="A clean, professional public website for Fromentin Industries, a development-stage Canadian technology and systems initiative." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/hero-banner" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="./assets/favicon">
+  <link rel="stylesheet" href="./style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fromentin Industries",
+    "url": "https://example.com/",
+    "description": "Private development-stage initiative focused on Canadian engineering, technology and systems thinking.",
+    "logo": "./assets/logo",
+    "sameAs": ["https://github.com/fromentinindustries"]
+  }
+  </script>
+  <script defer src="./script.js"></script>
 </head>
-
 <body>
-
   <!--
     =========================================================
     Fromentin Industries
@@ -34,529 +43,170 @@
     =========================================================
   -->
 
-  <div id="terms-gate" class="terms-gate">
-    <div class="terms-gate-panel">
-      <div class="terms-watermark">Fromentin Industries</div>
-
-      <p class="eyebrow">Access Notice</p>
-
-      <h2>Terms and Conditions</h2>
-
-      <p>
-        Fromentin Industries is a private development-stage Canadian technology and systems brand.
-        This website is provided for information, documentation, portfolio development and brand-building purposes.
-      </p>
-
-      <p>
-        By entering this website, you acknowledge that you have been given access to the Legal and Privacy page,
-        including the development-stage notice, website-use terms, intellectual property notice, privacy notice,
-        no-warranty statement and contact form disclosure.
-      </p>
-
-      <p>
-        You agree not to copy, mirror, scrape, impersonate, misuse or misrepresent Fromentin Industries branding,
-        written content, logos, layouts, project concepts or website materials.
-      </p>
-
-      <div class="terms-check-row">
+  <div id="terms-gate" class="terms-gate" aria-live="polite" aria-modal="true" role="dialog">
+    <div class="terms-panel">
+      <p class="eyebrow">Access notice</p>
+      <h2>Terms and privacy notice</h2>
+      <p>Fromentin Industries is a private development-stage Canadian technology and systems initiative. This website is presented for information, learning, documentation and brand development.</p>
+      <p>By continuing, you acknowledge the Development-Stage Notice, Privacy Policy and Legal Terms. You also acknowledge that this website is not a source of professional engineering, legal or investment advice.</p>
+      <div class="terms-check">
         <input type="checkbox" id="terms-checkbox">
-        <label for="terms-checkbox">
-          I have read and accept the website terms, Legal and Privacy notice.
-        </label>
+        <label for="terms-checkbox">I have read and accept the site terms, privacy notice and legal disclosure.</label>
       </div>
-
       <div class="terms-actions">
-        <a href="privacy/" class="button secondary-button">Read Legal and Privacy</a>
-        <button type="button" class="button primary-button" id="accept-terms-button" disabled>
-          Accept and Enter
-        </button>
+        <a href="./privacy/" class="button secondary-button">Read privacy</a>
+        <a href="./legal.html" class="button secondary-button">Read legal</a>
+        <button id="accept-terms-button" class="button primary-button" disabled>Accept and continue</button>
       </div>
-
-      <p class="small-note">
-        If you do not agree, do not use this website.
-      </p>
+      <p class="small-note">If you do not agree, please close this page or return to the referring site.</p>
     </div>
   </div>
 
-  <nav class="site-nav visible" id="site-nav">
-    <a href="./" class="nav-brand">
-      <img src="assets/logo" alt="Fromentin Industries logo">
-      <span>Fromentin Industries</span>
-    </a>
+  <header class="site-header">
+    <div class="site-frame">
+      <a class="brand" href="./">
+        <img src="./assets/logo" alt="Fromentin Industries logo">
+        <div>
+          <span class="brand-name">Fromentin Industries</span>
+          <small>Systems for a stronger Canada</small>
+        </div>
+      </a>
 
-    <button class="nav-toggle" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
 
-    <div class="nav-links" id="nav-links">
-      <a href="./">Home</a>
-      <a href="#services">Development Areas</a>
-      <button type="button" class="nav-link-button" onclick="openContactModal()">Contact</button>
-      <a href="privacy/">Legal and Privacy</a>
-      <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-  </nav>
-
-  <div class="page-loader">
-    <div class="loader-mark">FI</div>
-  </div>
-
-  <header class="hero">
-    <div class="hero-background-grid"></div>
-    <div class="hero-scanline"></div>
-
-    <div class="hero-content">
-      <img src="assets/logo" alt="Fromentin Industries Logo" class="logo">
-
-      <p class="eyebrow">Canadian Technology & Systems</p>
-
-      <h1>Fromentin Industries</h1>
-
-      <p class="tagline">SYSTEMS FOR A STRONGER CANADA</p>
-
-      <div class="hero-buttons">
-        <a href="#services" class="button primary-button">View Development Areas</a>
-        <button type="button" class="button secondary-button" onclick="openContactModal()">Contact</button>
-      </div>
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+        <a href="./">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services/">Development Areas</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy/">Privacy</a>
+        <a href="./legal.html">Legal</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">Dark</button>
+      </nav>
     </div>
   </header>
 
   <main>
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">Development-stage technology initiative</p>
+        <h1>Fromentin Industries</h1>
+        <p class="hero-text">A private Canadian initiative exploring disciplined engineering, systems thinking and secure digital infrastructure for future capability development.</p>
+        <div class="hero-actions">
+          <a class="button primary-button" href="./contact.html">Contact</a>
+          <a class="button secondary-button" href="./services/">Development Areas</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="./assets/hero-banner" alt="Abstract technical systems visualization" class="hero-image">
+      </div>
+    </section>
 
-    <section class="banner-about-wrapper scroll-reveal">
-      <img src="assets/hero-banner" alt="Fromentin Industries systems banner" class="hero-banner-image">
-
-      <div class="banner-about-panel">
-        <div class="banner-about-panel-inner">
-          <div class="section-label">01 / About</div>
-
-          <h2>Built Quietly. Structured Seriously.</h2>
-
-          <div class="card glass-card">
-            <p>
-              Fromentin Industries is a developing Canadian technology and systems concept focused on learning technical design,
-              engineering research, CAD modelling, systems planning, digital systems and future innovation projects.
-            </p>
-
-            <p>
-              The long-term mission is to develop practical technology and system-level solutions that strengthen Canadian
-              capability, resilience and future readiness.
-            </p>
-          </div>
+    <section class="section intro-panel" id="home-about">
+      <div class="section-header">
+        <p class="eyebrow">About the initiative</p>
+        <h2>Professional, disciplined and quietly development-stage.</h2>
+      </div>
+      <div class="section-grid">
+        <div class="content-card">
+          <p>Fromentin Industries is a private development-stage initiative focused on Canadian technology, engineering systems and future capability research. The work is purpose built for disciplined learning, technical planning and concept development.</p>
+        </div>
+        <div class="content-card">
+          <p>The project explores real engineering and systems topics such as aerospace-adjacent concepts, defense-adjacent technologies, secure digital infrastructure and structured systems design while respecting the brand’s development-stage status.</p>
         </div>
       </div>
     </section>
 
-    <section id="services" class="scroll-reveal">
-      <div class="section-label">02 / Development Areas</div>
-
-      <h2>Current Learning Areas</h2>
-
-      <div class="flip-grid">
-
-        <a href="services/technical-design/" class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">01</span>
-              <h3>Technical Design</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Technical Design</h3>
-              <p>Learning early-stage design thinking, requirements, constraints and structured technical planning.</p>
-              <span class="card-link-text">Open Area</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="services/cad-modelling/" class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">02</span>
-              <h3>CAD Modelling</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>CAD Modelling</h3>
-              <p>Learning 3D parts, assemblies, layouts, prototype visualization and design-for-build thinking.</p>
-              <span class="card-link-text">Open Area</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="services/concept-development/" class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">03</span>
-              <h3>Concept Development</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Concept Development</h3>
-              <p>Learning how rough ideas become structured plans with purpose, use cases and development paths.</p>
-              <span class="card-link-text">Open Area</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="services/systems-planning/" class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">04</span>
-              <h3>Systems Planning</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Systems Planning</h3>
-              <p>Learning how hardware, software, people, workflows and logistics connect into working systems.</p>
-              <span class="card-link-text">Open Area</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="services/technology-research/" class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">05</span>
-              <h3>Technology Research</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Technology Research</h3>
-              <p>Learning how to research emerging tools, engineering trends and Canadian capability gaps.</p>
-              <span class="card-link-text">Open Area</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="services/engineering-documentation/" class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">06</span>
-              <h3>Engineering Documentation</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Engineering Documentation</h3>
-              <p>Learning how to create reports, briefs, diagrams, project records and structured technical communication.</p>
-              <span class="card-link-text">Open Area</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="services/digital-systems-support/" class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">07</span>
-              <h3>Digital Systems Support</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Digital Systems Support</h3>
-              <p>Learning servers, automation, information systems, digital infrastructure and workflow planning.</p>
-              <span class="card-link-text">Open Area</span>
-            </div>
-          </div>
-        </a>
-
+    <section class="section" id="services-overview">
+      <div class="section-header">
+        <p class="eyebrow">Development areas</p>
+        <h2>Clear focus areas for technical development and systems research.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Engineering Systems</h3>
+          <p>Structured systems thinking for connected hardware, software, process and physical environments.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Aerospace-Adjacent Concepts</h3>
+          <p>Exploring concept development and design planning for aerospace-like systems and capabilities.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Defense-Adjacent Technology</h3>
+          <p>Researching future-ready, secure and resilient technology concepts with Canadian innovation in mind.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Secure Digital Infrastructure</h3>
+          <p>Development-stage planning for digital systems, information support and secure workflow design.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Canadian Industrial Innovation</h3>
+          <p>Concepts that support Canadian resilience, domestic capability and practical systems research.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Research and Development</h3>
+          <p>Technical research, data-driven review and concept validation to guide future work.</p>
+        </article>
+      </div>
+      <div class="section-action">
+        <a class="button secondary-button" href="./services/">Explore all areas</a>
       </div>
     </section>
 
-    <section class="scroll-reveal">
-      <div class="section-label">03 / Current Stage</div>
-
-      <h2>Development Status</h2>
-
-      <div class="flip-grid three-column">
-
-        <div class="flip-card no-link">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">01</span>
-              <h3>Development</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Development</h3>
-              <p>Fromentin Industries is currently being built as a private development-stage brand.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card no-link">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">02</span>
-              <h3>Foundation</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Foundation</h3>
-              <p>Current work is focused on documentation, technical skill-building, brand systems and project organization.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card no-link">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="service-number">03</span>
-              <h3>Launch</h3>
-            </div>
-
-            <div class="flip-card-back">
-              <h3>Launch</h3>
-              <p>Public launch is planned after high school graduation, once the portfolio and technical foundation are stronger.</p>
-            </div>
-          </div>
-        </div>
-
+    <section class="section feature-panel">
+      <div class="section-header">
+        <p class="eyebrow">Why this matters</p>
+        <h2>Polished, credible and sensible for a project still under development.</h2>
+      </div>
+      <div class="feature-grid minigrid">
+        <article class="feature-chip">
+          <strong>Disciplined approach</strong>
+          <p>Focuses on quality wording, structure and real systems thinking rather than exaggerated marketing claims.</p>
+        </article>
+        <article class="feature-chip">
+          <strong>Clear development stage</strong>
+          <p>Uses responsible language and avoids implied certification, contracts or operational claims.</p>
+        </article>
+        <article class="feature-chip">
+          <strong>Portable static design</strong>
+          <p>Built as a normal static site so it works from GitHub Pages, Netlify, Vercel or any host.</p>
+        </article>
+        <article class="feature-chip">
+          <strong>Modern readability</strong>
+          <p>Improved typography, spacing and mobile-friendly layout for better credibility.</p>
+        </article>
       </div>
     </section>
 
+    <section class="section contact-panel" id="contact">
+      <div class="contact-copy">
+        <p class="eyebrow">Contact</p>
+        <h2>Connect with Fromentin Industries.</h2>
+        <p>For inquiries about the initiative, development areas or partnership concepts, use the contact page and verify details before publication.</p>
+        <div class="contact-actions">
+          <a class="button primary-button" href="./contact.html">Open contact page</a>
+          <a class="button secondary-button" href="./privacy/">Privacy & legal</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="footer-inner">
-
-      <div class="footer-top">
-        <div class="footer-brand-block">
-          <p class="footer-brand">Fromentin Industries</p>
-          <p class="footer-tagline">Systems for a stronger Canada.</p>
-          <p class="footer-note">Development-stage Canadian technology and systems brand. Public launch planned after graduation.</p>
-        </div>
-
-        <div class="footer-column">
-          <h3>Site</h3>
-          <a href="./">Home</a>
-          <a href="#services">Development Areas</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
-        </div>
-
-        <div class="footer-column">
-          <h3>Development Areas</h3>
-          <a href="services/technical-design/">Technical Design</a>
-          <a href="services/cad-modelling/">CAD Modelling</a>
-          <a href="services/concept-development/">Concept Development</a>
-          <a href="services/systems-planning/">Systems Planning</a>
-          <a href="services/technology-research/">Technology Research</a>
-          <a href="services/engineering-documentation/">Engineering Documentation</a>
-          <a href="services/digital-systems-support/">Digital Systems Support</a>
-        </div>
-
-        <div class="footer-column">
-          <h3>Connect</h3>
-          <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://x.com/FromentinInd" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
-
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <a href="privacy/">Legal and Privacy</a>
-          <button type="button" class="footer-link-button" onclick="openContactModal()">Contact</button>
-        </div>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Fromentin Industries</p>
+        <p>Private development-stage initiative exploring Canadian systems, engineering and infrastructure concepts.</p>
       </div>
-
-      <div class="footer-bottom">
-        <p>© 2026 Fromentin Industries. All rights reserved.</p>
-        <p>Private development-stage brand. Not publicly launched, incorporated, contracted or operating as a defence contractor.</p>
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./services/">Development Areas</a>
+        <a href="./privacy/">Privacy</a>
+        <a href="./legal.html">Legal</a>
       </div>
-
     </div>
+    <p class="footer-note">This website is a development-stage public presentation. Content is informational and should be verified before use.</p>
   </footer>
-
-  <div id="contact-modal" class="contact-modal">
-    <div class="modal-backdrop" onclick="closeContactModal()"></div>
-
-    <div class="modal-panel">
-      <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
-
-      <div class="modal-header">
-        <p class="eyebrow">Fromentin Industries</p>
-        <h2>Contact Request</h2>
-        <p>Submit a short inquiry below. Messages are sent to the Fromentin Industries contact inbox.</p>
-      </div>
-
-      <form class="contact-form" action="https://formsubmit.co/contact.fromentinindustries@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Fromentin Industries Inquiry">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://fromentinindustries.github.io/thanks/">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="Name" placeholder="Full legal name and/or company" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="Email" placeholder="name@example.com" required>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="request-type">Request Type</label>
-          <select id="request-type" name="Request Type" required>
-            <option value="" selected disabled>Select one</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Legal or Privacy Question">Legal or Privacy Question</option>
-            <option value="Technical Design">Technical Design</option>
-            <option value="CAD Modelling">CAD Modelling</option>
-            <option value="Concept Development">Concept Development</option>
-            <option value="Systems Planning">Systems Planning</option>
-            <option value="Technology Research">Technology Research</option>
-            <option value="Engineering Documentation">Engineering Documentation</option>
-            <option value="Digital Systems Support">Digital Systems Support</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="Message" rows="6" placeholder="Briefly explain what you are contacting Fromentin Industries about." required></textarea>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="submit-button">Send Request</button>
-          <button type="button" class="copy-button" onclick="closeContactModal()">Cancel</button>
-        </div>
-
-        <p class="small-note">Contact inbox: contact.fromentinindustries@gmail.com</p>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-
-      const nav = document.getElementById("site-nav");
-      if (nav) {
-        nav.classList.add("visible");
-      }
-
-      openTermsGateIfNeeded();
-    });
-
-    const revealElements = document.querySelectorAll(".scroll-reveal");
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
-
-    revealElements.forEach(element => revealObserver.observe(element));
-
-    function openContactModal() {
-      const modal = document.getElementById("contact-modal");
-      if (!modal) return;
-
-      modal.classList.add("open");
-      document.body.classList.add("modal-open");
-
-      const nav = document.getElementById("site-nav");
-      if (nav) {
-        nav.classList.remove("menu-open");
-      }
-    }
-
-    function closeContactModal() {
-      const modal = document.getElementById("contact-modal");
-      if (!modal) return;
-
-      modal.classList.remove("open");
-      document.body.classList.remove("modal-open");
-    }
-
-    function toggleMenu() {
-      const nav = document.getElementById("site-nav");
-      if (!nav) return;
-
-      nav.classList.toggle("menu-open");
-    }
-
-    window.addEventListener("scroll", () => {
-      const nav = document.getElementById("site-nav");
-      if (nav) {
-        nav.classList.add("visible");
-      }
-    });
-
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        closeContactModal();
-      }
-    });
-
-    document.querySelectorAll(".nav-links a, .nav-link-button").forEach(link => {
-      link.addEventListener("click", () => {
-        const nav = document.getElementById("site-nav");
-        if (nav) {
-          nav.classList.remove("menu-open");
-        }
-      });
-    });
-
-    const termsGate = document.getElementById("terms-gate");
-    const termsCheckbox = document.getElementById("terms-checkbox");
-    const acceptTermsButton = document.getElementById("accept-terms-button");
-
-    const TERMS_STORAGE_KEY = "fi_terms_accepted_v1";
-    const TERMS_EXPIRY_KEY = "fi_terms_expiry_v1";
-
-    const TERMS_VALID_DURATION = 7 * 24 * 60 * 60 * 1000;
-
-    function openTermsGateIfNeeded() {
-      const acceptedTerms = localStorage.getItem(TERMS_STORAGE_KEY);
-      const expiryTime = localStorage.getItem(TERMS_EXPIRY_KEY);
-      const now = Date.now();
-
-      const termsStillValid =
-        acceptedTerms === "accepted" &&
-        expiryTime &&
-        now < Number(expiryTime);
-
-      if (!termsStillValid && termsGate) {
-        localStorage.removeItem(TERMS_STORAGE_KEY);
-        localStorage.removeItem(TERMS_EXPIRY_KEY);
-
-        termsGate.classList.add("open");
-        document.body.classList.add("terms-locked");
-      }
-    }
-
-    if (termsCheckbox && acceptTermsButton) {
-      termsCheckbox.addEventListener("change", () => {
-        acceptTermsButton.disabled = !termsCheckbox.checked;
-      });
-    }
-
-    if (acceptTermsButton) {
-      acceptTermsButton.addEventListener("click", () => {
-        const expiryTime = Date.now() + TERMS_VALID_DURATION;
-
-        localStorage.setItem(TERMS_STORAGE_KEY, "accepted");
-        localStorage.setItem(TERMS_EXPIRY_KEY, String(expiryTime));
-        localStorage.setItem("fi_terms_accepted_date", new Date().toISOString());
-
-        if (termsGate) {
-          termsGate.classList.remove("open");
-        }
-
-        document.body.classList.remove("terms-locked");
-      });
-    }
-  </script>
-
 </body>
 </html>
