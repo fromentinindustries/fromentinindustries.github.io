@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="64" viewBox="0 0 220 64" role="img" aria-label="Fromentin Industries">
-  <rect width="64" height="64" rx="14" fill="#f15a24"/>
-  <path d="M18 46V18h30v7H27v5h17v7H27v9h-9z" fill="#111214"/>
-  <path d="M80 20h116" stroke="#f15a24" stroke-width="3"/>
-  <text x="80" y="40" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#f5f5f0">Fromentin</text>
-  <text x="80" y="55" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="2" fill="#a9aba6">INDUSTRIES</text>
-</svg>
