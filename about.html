@@ -1,158 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Fromentin Industries</title>
-  <meta name="description" content="About Fromentin Industries, a private development-stage Canadian technology and systems initiative focused on disciplined engineering, systems thinking and future capability research." />
-  <meta property="og:title" content="About Fromentin Industries" />
-  <meta property="og:description" content="Learn about the development-stage direction, purpose and responsible positioning of Fromentin Industries." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="./assets/hero-banner" />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="icon" href="./assets/favicon">
-  <link rel="stylesheet" href="./style.css">
-  <script defer src="./script.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Development Areas | Fromentin Industries</title>
+  <meta name="description" content="Engineering systems, aerospace-adjacent concepts, defence-adjacent technology and secure infrastructure research areas.">
+  <meta name="theme-color" content="#0c0d0f">
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <!-- Fromentin Industries protected development-stage website. -->
 </head>
 <body>
-  <!--
-    =========================================================
-    Fromentin Industries
-    Private Development-Stage Website
-    Systems for a stronger Canada.
-
-    All site structure, written content, branding, layouts,
-    visual identity, logos, development-area wording and
-    documentation concepts are part of the Fromentin Industries
-    brand system unless otherwise stated.
-
-    Unauthorized copying, mirroring, scraping, impersonation,
-    commercial reuse or misleading use of this website content
-    is not permitted.
-    =========================================================
-  -->
-
-  <div id="terms-gate" class="terms-gate" aria-live="polite" aria-modal="true" role="dialog">
-    <div class="terms-panel">
+  <div class="site-bg" aria-hidden="true"></div>
+  <div id="terms-gate" class="terms-gate" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+    <div class="terms-box">
       <p class="eyebrow">Access notice</p>
-      <h2>Terms and privacy notice</h2>
+      <h2 id="terms-title">Terms and privacy notice</h2>
       <p>Fromentin Industries is a private development-stage Canadian technology and systems initiative. This website is presented for information, learning, documentation and brand development.</p>
-      <p>By continuing, you acknowledge the Development-Stage Notice, Privacy Policy and Legal Terms. You also acknowledge that this website is not a source of professional engineering, legal or investment advice.</p>
-      <div class="terms-check">
-        <input type="checkbox" id="terms-checkbox">
-        <label for="terms-checkbox">I have read and accept the site terms, privacy notice and legal disclosure.</label>
+      <p style="margin-top:.8rem;">By continuing, you acknowledge the Development-Stage Notice, Privacy Policy and Legal Terms. This website is not a source of professional engineering, legal, defence, financial or investment advice.</p>
+      <label class="check-row"><input id="terms-check" type="checkbox"> <span>I have read and accept the site terms, privacy notice and legal disclosure.</span></label>
+      <p id="terms-warning" style="color:var(--accent-2); min-height:1.5rem;"></p>
+      <div class="actions">
+        <a class="btn" href="../privacy/">Read privacy</a>
+        <a class="btn" href="../legal.html">Read legal</a>
+        <button class="btn primary" onclick="acceptTerms()">Accept and continue</button>
       </div>
-      <div class="terms-actions">
-        <a href="./privacy/" class="button secondary-button">Read privacy</a>
-        <a href="./legal.html" class="button secondary-button">Read legal</a>
-        <button id="accept-terms-button" class="button primary-button" disabled>Accept and continue</button>
-      </div>
-      <p class="small-note">If you do not agree, please close this page or return to the referring site.</p>
+      <p style="margin-top:1rem; font-size:.9rem;">If you do not agree, close this page or return to the referring site.</p>
     </div>
   </div>
 
+  <div class="top-strip"><div class="top-strip-inner"><span>Development-Stage Initiative</span><span>Research · Documentation · Systems Planning</span><span>Systems for a stronger Canada</span></div></div>
   <header class="site-header">
-    <div class="site-frame">
-      <a class="brand" href="./">
-        <img src="./assets/logo" alt="Fromentin Industries logo">
-        <div>
-          <span class="brand-name">Fromentin Industries</span>
-          <small>Systems for a stronger Canada</small>
-        </div>
+    <div class="nav-wrap">
+      <a class="brand" href="../index.html" aria-label="Fromentin Industries home">
+        <span class="brand-mark">FI</span><span class="brand-text"><strong>Fromentin Industries</strong><span>Systems for a stronger Canada</span></span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
-        <a href="./">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./services/">Development Areas</a>
-        <a href="./contact.html">Contact</a>
-        <a href="./privacy/">Privacy</a>
-        <a href="./legal.html">Legal</a>
-        <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">Dark</button>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="" href="../index.html">Home</a>
+<a class="" href="../about.html">About</a>
+<a class="active" href="../services/">Development Areas</a>
+<a class="" href="../contact.html">Contact</a>
+<a class="" href="../privacy/">Privacy</a>
+<a class="" href="../legal.html">Legal</a>
+        <button class="theme-toggle" type="button">Light</button>
       </nav>
     </div>
   </header>
-
   <main>
-    <section class="hero-panel hero-about">
-      <div class="hero-copy">
-        <p class="eyebrow">About the initiative</p>
-        <h1>Building a credible development-stage presence.</h1>
-        <p class="hero-text">Fromentin Industries is a private Canadian initiative focused on disciplined engineering, systems planning and technology research. The brand is positioned for learning, documentation and future capability development.</p>
-      </div>
-    </section>
-
-    <section class="section intro-panel">
-      <div class="section-header">
-        <p class="eyebrow">What this project is</p>
-        <h2>Early-stage work on systems, engineering and digital capability.</h2>
-      </div>
-      <div class="section-grid">
-        <div class="content-card">
-          <h3>Development-stage initiative</h3>
-          <p>The website presents Fromentin Industries as a private project. It is not a formal engineering firm, licensed contractor or operational supplier.</p>
-        </div>
-        <div class="content-card">
-          <h3>Purpose-driven learning</h3>
-          <p>The focus is on engineering systems, aerospace-adjacent concept research, secure infrastructure thinking and structured documentation.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section feature-panel">
-      <div class="section-header">
-        <p class="eyebrow">How the work is framed</p>
-        <h2>Responsible language, clear boundaries and credible project direction.</h2>
-      </div>
-      <div class="feature-grid minigrid">
-        <article class="feature-chip">
-          <strong>Research-driven</strong>
-          <p>Concepts are explored as research and development, not deployed products.</p>
-        </article>
-        <article class="feature-chip">
-          <strong>Systems thinking</strong>
-          <p>Engineering, digital and operational ideas are framed as connected system-level concepts.</p>
-        </article>
-        <article class="feature-chip">
-          <strong>Canadian focus</strong>
-          <p>The initiative is positioned around Canadian capability and innovation.</p>
-        </article>
-        <article class="feature-chip">
-          <strong>Clear disclosure</strong>
-          <p>No claims are made about contracts, certifications, manufacturing or defence supplier status.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section contact-panel">
-      <div class="contact-copy">
-        <p class="eyebrow">Next steps</p>
-        <h2>Review the work and verify details before publication.</h2>
-        <p>If you have questions about the initiative, services or website presentation, use the contact page and legal/privacy pages to confirm the next steps.</p>
-        <div class="contact-actions">
-          <a class="button primary-button" href="./contact.html">Contact</a>
-          <a class="button secondary-button" href="./legal.html">Legal</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
+<section class="page-hero"><div class="container"><p class="eyebrow">Development areas</p><h1>What FI is exploring.</h1><p class="lead">These areas define the current research and concept-development focus. They are not presented as finished products, operational services or certified engineering offerings.</p></div></section>
+<section class="section tight"><div class="container grid-3">
+<article class="card service-card scroll-reveal"><span class="number">01</span><h3>Engineering Systems</h3><p>Structured systems design, integration logic, workflows, technical planning and practical engineering documentation.</p></article>
+<article class="card service-card scroll-reveal"><span class="number">02</span><h3>Aerospace-Adjacent Concepts</h3><p>Early-stage concept evaluation, design thinking and documentation for aerospace-like platforms, components and support systems.</p></article>
+<article class="card service-card scroll-reveal"><span class="number">03</span><h3>Defence-Adjacent Technology</h3><p>Research into secure, resilient and future-facing technologies while avoiding unsupported operational or supplier claims.</p></article>
+<article class="card service-card scroll-reveal"><span class="number">04</span><h3>Secure Digital Infrastructure</h3><p>Planning for data handling, servers, automation, workflow security and information-support systems.</p></article>
+<article class="card service-card scroll-reveal"><span class="number">05</span><h3>Canadian Industrial Innovation</h3><p>Concepts focused on domestic resilience, practical capability development and stronger Canadian technical independence.</p></article>
+<article class="card service-card scroll-reveal"><span class="number">06</span><h3>Research and Development</h3><p>Technical research, source review, testing logic and evidence-based development records to guide future work.</p></article>
+</div></section>
+<section class="section"><div class="container grid-2"><div class="content-stack scroll-reveal"><p class="eyebrow">Output model</p><h2>The next credibility layer is proof.</h2></div><div class="card accent scroll-reveal"><p>Future site growth should prioritize research logs, system diagrams, CAD screenshots, technical briefs, project roadmaps and non-sensitive documentation. That is what turns the brand from a polished concept into a visible development initiative.</p><div class="actions"><a class="btn primary" href="../contact.html">Discuss a development area</a></div></div></div></section></main>
   <footer class="site-footer">
     <div class="footer-grid">
-      <div>
-        <p class="footer-brand">Fromentin Industries</p>
-        <p>Private development-stage initiative focused on Canadian engineering and systems planning.</p>
-      </div>
-      <div class="footer-links">
-        <a href="./">Home</a>
-        <a href="./services/">Development Areas</a>
-        <a href="./privacy/">Privacy</a>
-        <a href="./legal.html">Legal</a>
-      </div>
+      <div><strong>Fromentin Industries</strong><p>Private development-stage initiative exploring Canadian systems, engineering and infrastructure concepts.</p></div>
+      <div class="footer-links"><a href="../about.html">About</a><a href="../services/">Development Areas</a><a href="../privacy/">Privacy</a><a href="../legal.html">Legal</a></div>
     </div>
-    <p class="footer-note">This site is informational and should be reviewed before being used as a live public site.</p>
   </footer>
+  <script src="../script.js"></script>
 </body>
 </html>
