@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fromentinindustries.github.io/sitemap.xml
