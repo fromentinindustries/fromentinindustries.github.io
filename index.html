@@ -1,0 +1,63 @@
+<!--
+=========================================================
+Fromentin Industries
+Private Development-Stage Website
+Systems for a Stronger Canada
+
+Copyright Notice / Code Watermark
+
+All site structure, written content, branding, layouts,
+visual identity, logos, wording, page
+organization, documentation concepts and related materials
+are part of the Fromentin Industries brand system unless
+otherwise stated.
+
+Unauthorized copying, mirroring, scraping, impersonation,
+commercial reuse, redistribution, misleading reference or
+misuse of this website content is not permitted.
+=========================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fromentin Industries | Redirecting</title>
+
+  <script>
+    (function () {
+      const language = navigator.language || navigator.userLanguage || "en";
+      const target = language.toLowerCase().startsWith("fr") ? "/fr/" : "/en/";
+      window.location.replace(target);
+    })();
+  </script>
+
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/en/" />
+  </noscript>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #020711;
+      color: #e8edf2;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    a {
+      color: #c8102e;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Redirecting to <a href="/en/">Fromentin Industries</a>...</p>
+</body>
+</html>
