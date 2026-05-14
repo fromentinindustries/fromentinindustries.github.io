@@ -28,7 +28,7 @@ misuse of this website content is not permitted.
 
   <meta
     name="description"
-    content="Fromentin Industries is a Canadian development-stage company being established around engineering, infrastructure, research, industrial systems, and long-term national capability."
+    content="Fromentin Industries is a Canadian company focused on engineering, infrastructure, research, industrial systems, and long-term national capability."
   />
 
   <meta name="author" content="Fromentin Industries" />
@@ -76,21 +76,126 @@ misuse of this website content is not permitted.
       </a>
 
       <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
-        <a href="/en/">Home</a>
-        <a href="/en/sectors.html">Sectors</a>
-        <a href="/en/research.html">Research</a>
-        <a href="/en/projects.html">Projects</a>
-        <a href="/en/founders-archive.html">Founder’s Archive</a>
-        <a href="/en/news.html">News</a>
-        <a href="/en/careers.html">Careers</a>
-        <button type="button" onclick="openContactModal()">Contact</button>
-        <a href="/fr/">FR</a>
+        <div class="nav-item">
+          <a href="/en/">Home</a>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-trigger" data-dropdown="company-dropdown">
+            Company
+          </button>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-trigger" data-dropdown="work-dropdown">
+            Work
+          </button>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-trigger" data-dropdown="archive-dropdown">
+            Archive
+          </button>
+        </div>
+
+        <div class="nav-item">
+          <a href="/en/news.html">News</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="/en/careers.html">Careers</a>
+        </div>
+
+        <div class="nav-item">
+          <button type="button" onclick="openContactModal()">Contact</button>
+        </div>
+
+        <div class="nav-item">
+          <a href="/fr/">FR</a>
+        </div>
       </nav>
 
       <div class="nav-control">
-        <span class="status-pill">Development Stage</span>
         <button class="icon-button" type="button" onclick="toggleTheme()">Theme</button>
         <button class="mobile-menu-button" type="button" onclick="toggleMobileMenu()">Menu</button>
+      </div>
+    </div>
+
+    <div class="dropdown-panel" id="company-dropdown">
+      <div class="dropdown-inner">
+        <div>
+          <div class="dropdown-label">Company</div>
+          <h3>Structure, history, and public direction.</h3>
+        </div>
+
+        <div class="dropdown-links">
+          <a href="/en/about.html">
+            <strong>About</strong>
+            <span>Company purpose, public profile, and operating direction.</span>
+          </a>
+
+          <a href="/en/history.html">
+            <strong>History</strong>
+            <span>Origins, influences, development path, and future milestones.</span>
+          </a>
+
+          <a href="/en/careers.html">
+            <strong>Careers</strong>
+            <span>Future opportunities, student collaboration, and role planning.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown-panel" id="work-dropdown">
+      <div class="dropdown-inner">
+        <div>
+          <div class="dropdown-label">Work</div>
+          <h3>Sectors, research, and project records.</h3>
+        </div>
+
+        <div class="dropdown-links">
+          <a href="/en/sectors.html">
+            <strong>Sectors</strong>
+            <span>Infrastructure, energy, industry, aerospace, security research, and digital systems.</span>
+          </a>
+
+          <a href="/en/research.html">
+            <strong>Research</strong>
+            <span>Technical notes, industry files, future systems, and Canadian capability studies.</span>
+          </a>
+
+          <a href="/en/projects.html">
+            <strong>Projects</strong>
+            <span>Academic technical work, concept studies, design records, and documented development.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown-panel" id="archive-dropdown">
+      <div class="dropdown-inner">
+        <div>
+          <div class="dropdown-label">Archive</div>
+          <h3>Founder records and long-term development material.</h3>
+        </div>
+
+        <div class="dropdown-links">
+          <a href="/en/founders-archive.html">
+            <strong>Founder’s Archive</strong>
+            <span>Engineering notes, school work, leadership records, and early research material.</span>
+          </a>
+
+          <a href="/en/news.html">
+            <strong>Newsroom</strong>
+            <span>Company updates, public notices, announcements, and milestone records.</span>
+          </a>
+
+          <a href="/en/legal.html">
+            <strong>Legal Notice</strong>
+            <span>Ownership, site usage, brand protection, and public legal information.</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -100,7 +205,7 @@ misuse of this website content is not permitted.
 
     <div class="hero-inner">
       <div class="hero-copy">
-        <div class="eyebrow">Official Development-Stage Website</div>
+        <div class="eyebrow">Canadian Systems • Engineering • Research • Industry</div>
 
         <h1 id="main-title">Fromentin Industries</h1>
 
@@ -109,18 +214,18 @@ misuse of this website content is not permitted.
         </div>
 
         <p class="hero-description">
-          A Canadian development-stage company being established around engineering,
-          infrastructure, research, industrial systems, and long-term national capability.
+          Fromentin Industries operates at the intersection of engineering, infrastructure,
+          research, industrial systems, and long-term Canadian capability.
         </p>
 
         <div class="hero-actions">
-          <a class="button primary-button" href="/en/sectors.html">View Sectors</a>
-          <a class="button secondary-button" href="/en/founders-archive.html">Founder’s Archive</a>
+          <a class="button primary-button" href="/en/sectors.html">Explore Sectors</a>
+          <a class="button secondary-button" href="/en/research.html">Research Index</a>
           <button class="button secondary-button" type="button" onclick="openContactModal()">Contact</button>
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Website status">
+      <aside class="hero-card" aria-label="Fromentin Industries operating focus">
         <div class="hero-card-content">
           <img
             class="hero-card-logo"
@@ -128,16 +233,16 @@ misuse of this website content is not permitted.
             alt="Fromentin Industries emblem"
           />
 
-          <div class="panel-title">Establishment Status</div>
+          <div class="panel-title">Operating Focus</div>
 
           <div class="panel-main">
-            Official website under development.
+            Engineering discipline. Industrial thinking. Canadian purpose.
           </div>
 
           <ul class="panel-list">
-            <li>Public sections are being prepared in English and French.</li>
-            <li>Research, project records, archive pages, and news are reserved for staged release.</li>
-            <li>Legal, privacy, terms, cookie, analytics, and contact systems are being structured.</li>
+            <li>Infrastructure, industry, aerospace, digital systems, and national capability.</li>
+            <li>Research-driven planning, documentation, concept development, and technical organization.</li>
+            <li>Founder’s Archive, projects, and public records structured for long-term institutional growth.</li>
           </ul>
         </div>
       </aside>
@@ -145,119 +250,133 @@ misuse of this website content is not permitted.
   </section>
 
   <div class="mission-strip">
-    <div class="mission-inner">
-      <span>Integrate</span>
-      <span>•</span>
-      <span>Innovate</span>
-      <span>•</span>
-      <span>Protect</span>
-      <span>•</span>
-      <span>Perform</span>
-      <span>•</span>
-      <span>Built in Canada</span>
+    <div class="mission-inner canada-strip">
+      <span><strong>C</strong>apability</span>
+      <span><strong>A</strong>dvancement</span>
+      <span><strong>N</strong>ational</span>
+      <span><strong>A</strong>rchitecture</span>
+      <span><strong>D</strong>iscipline</span>
+      <span><strong>A</strong>mbition</span>
     </div>
   </div>
 
-  <main>
-    <section class="reveal" aria-labelledby="notice-title">
-      <div class="notice-card">
-        <div class="section-label">Official Establishment Notice</div>
+  <main class="f-layout">
+    <aside class="f-rail" aria-label="Page sections">
+      <a href="#overview">01 / Overview</a>
+      <a href="#sectors">02 / Sectors</a>
+      <a href="#research">03 / Research</a>
+      <a href="#archive">04 / Archive</a>
+      <a href="#public-record">05 / Public Record</a>
+    </aside>
 
-        <h2 id="notice-title">Fromentin Industries is being established.</h2>
+    <div class="f-content">
+      <section class="f-section reveal" id="overview" aria-labelledby="overview-title">
+        <div class="section-label">Overview</div>
+
+        <h2 id="overview-title">A Canadian company built around systems thinking.</h2>
 
         <p class="section-copy">
-          This website serves as the official digital front for Fromentin Industries while its
-          internal structure, public documentation, bilingual pages, legal notices, publishing
-          systems, and future public sections are prepared.
+          Fromentin Industries is structured around the belief that national strength is built
+          through disciplined systems: infrastructure, engineering, manufacturing, research,
+          digital organization, and long-term strategic capability.
         </p>
 
         <p class="section-copy">
-          Public information may be revised, expanded, reorganized, or removed as the company
-          develops. Visitors using this site are subject to the Terms of Use, Privacy Policy,
-          Cookie Policy, and Legal Notice.
+          The company’s public platform organizes sectors, research, projects, historical records,
+          and founder-origin material into a single institutional front.
         </p>
-      </div>
-    </section>
+      </section>
 
-    <section class="reveal" aria-labelledby="preview-title">
-      <div class="section-label">Public Sections Under Preparation</div>
+      <section class="f-section reveal" id="sectors" aria-labelledby="sectors-title">
+        <div class="section-label">Sectors</div>
 
-      <h2 id="preview-title">A formal company structure before full public launch.</h2>
+        <h2 id="sectors-title">Canadian capability begins with organized sectors.</h2>
 
-      <p class="section-copy">
-        The current website is intentionally limited. Its role is to establish the official brand
-        presence while preparing future sections for sectors, research, projects, founder records,
-        news, careers, history, and bilingual documentation.
-      </p>
+        <p class="section-copy">
+          Fromentin Industries tracks and develops work across infrastructure, energy, transportation,
+          manufacturing, aerospace, digital systems, agriculture, northern systems, and defence and
+          security research.
+        </p>
 
-      <div class="preview-grid">
-        <article class="preview-card">
-          <div>
-            <h3>Sectors</h3>
-            <p>
-              Reserved for infrastructure, energy, transportation, manufacturing, aerospace,
-              digital systems, and defence and security research.
-            </p>
-          </div>
-          <div class="coming-soon">Preview page reserved</div>
-        </article>
+        <div class="sector-grid">
+          <a href="/en/sectors.html">Infrastructure</a>
+          <a href="/en/sectors.html">Energy & Utilities</a>
+          <a href="/en/sectors.html">Transportation</a>
+          <a href="/en/sectors.html">Manufacturing</a>
+          <a href="/en/sectors.html">Aerospace</a>
+          <a href="/en/sectors.html">Digital Systems</a>
+          <a href="/en/sectors.html">Security Research</a>
+          <a href="/en/sectors.html">Northern Systems</a>
+        </div>
+      </section>
 
-        <article class="preview-card">
-          <div>
-            <h3>Research</h3>
-            <p>
-              Reserved for technical notes, Canadian industry research, aerospace concepts,
-              infrastructure resilience, and national capability studies.
-            </p>
-          </div>
-          <div class="coming-soon">Research index pending</div>
-        </article>
+      <section class="f-section reveal" id="research" aria-labelledby="research-title">
+        <div class="section-label">Research</div>
 
-        <article class="preview-card">
-          <div>
-            <h3>Projects</h3>
-            <p>
-              Reserved for academic technical work, independent concept studies, engineering
-              notes, design records, and future development documentation.
-            </p>
-          </div>
-          <div class="coming-soon">Records under preparation</div>
-        </article>
+        <h2 id="research-title">Research, documentation, and technical direction.</h2>
 
-        <article class="preview-card">
-          <div>
-            <h3>Founder’s Archive</h3>
-            <p>
-              A future archive for selected notes, school projects, leadership development,
-              early research, technical interests, and historical influences.
-            </p>
-          </div>
-          <div class="coming-soon">Archive pending</div>
-        </article>
+        <p class="section-copy">
+          Research is organized as a long-term knowledge base: Canadian industrial capability,
+          aerospace concepts, infrastructure resilience, systems planning, engineering history,
+          technology studies, and project documentation.
+        </p>
 
-        <article class="preview-card">
-          <div>
-            <h3>News</h3>
-            <p>
-              Reserved for official updates, establishment notices, public milestones, research
-              releases, and future company announcements.
-            </p>
-          </div>
-          <div class="coming-soon">Newsroom reserved</div>
-        </article>
+        <div class="inline-actions">
+          <a class="button primary-button" href="/en/research.html">Open Research</a>
+          <a class="button secondary-button" href="/en/projects.html">View Projects</a>
+        </div>
+      </section>
 
-        <article class="preview-card">
-          <div>
-            <h3>Careers</h3>
-            <p>
-              Reserved for future opportunities, student collaboration, project roles, research
-              contributions, and organization-building notices.
-            </p>
-          </div>
-          <div class="coming-soon">Not currently hiring</div>
-        </article>
-      </div>
-    </section>
+      <section class="f-section reveal" id="archive" aria-labelledby="archive-title">
+        <div class="section-label">Founder’s Archive</div>
+
+        <h2 id="archive-title">A record of origin, learning, leadership, and technical development.</h2>
+
+        <p class="section-copy">
+          The Founder’s Archive preserves selected school-based technical work, leadership records,
+          engineering notes, early research, design thinking, aerospace interests, and the formative
+          material behind Fromentin Industries.
+        </p>
+
+        <div class="inline-actions">
+          <a class="button primary-button" href="/en/founders-archive.html">Enter Archive</a>
+        </div>
+      </section>
+
+      <section class="f-section reveal" id="public-record" aria-labelledby="record-title">
+        <div class="section-label">Public Record</div>
+
+        <h2 id="record-title">News, careers, history, and official information.</h2>
+
+        <p class="section-copy">
+          Public records are organized through the newsroom, history page, careers section, and
+          legal documentation. This structure keeps the website formal, expandable, and ready for
+          future operational growth.
+        </p>
+
+        <div class="record-grid">
+          <a href="/en/news.html">
+            <strong>News</strong>
+            <span>Updates and public notices.</span>
+          </a>
+
+          <a href="/en/careers.html">
+            <strong>Careers</strong>
+            <span>Future roles and opportunities.</span>
+          </a>
+
+          <a href="/en/history.html">
+            <strong>History</strong>
+            <span>Origins and development path.</span>
+          </a>
+
+          <a href="/en/legal.html">
+            <strong>Legal</strong>
+            <span>Ownership and site rules.</span>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer footer">
@@ -270,8 +389,8 @@ misuse of this website content is not permitted.
         />
 
         <p>
-          Systems for a Stronger Canada. A Canadian development-stage company being established
-          around engineering, infrastructure, research, industrial systems, and long-term national capability.
+          Systems for a Stronger Canada. Engineering, infrastructure, research,
+          industrial systems, and long-term national capability.
         </p>
       </div>
 
@@ -302,54 +421,236 @@ misuse of this website content is not permitted.
           <a href="/en/privacy.html">Privacy Policy</a>
           <a href="/en/terms.html">Terms of Use</a>
           <a href="/en/cookies.html">Cookie Policy</a>
+          <a href="#" onclick="openCookieModal(true); return false;">Manage Cookie Preferences</a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      © <span id="current-year"></span> Fromentin Industries. All rights reserved.
+      Copyright © 2026 Fromentin Industries. All Rights Reserved.
     </div>
   </footer>
 
-  <div class="modal" id="entry-modal" role="dialog" aria-modal="true" aria-labelledby="entry-title">
+  <div class="modal cookie-modal" id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
     <div class="modal-backdrop"></div>
 
-    <div class="modal-panel">
+    <div class="modal-panel cookie-panel">
       <img
         class="modal-logo"
         src="../assets/img/FI-Logo-White_Full-Transparent-v1.png"
         alt="Fromentin Industries"
       />
 
-      <h2 id="entry-title">Terms, Conditions, and Cookie Notice</h2>
+      <h2 id="cookie-title">Privacy, Terms, and Cookie Preferences</h2>
 
       <p>
-        By entering this website, you acknowledge that Fromentin Industries is currently in a
-        development-stage establishment phase and that public content may be revised, expanded,
-        reorganized, or removed without notice.
+        We and, where applicable, approved service providers may place cookies, access,
+        and use non-sensitive information from your device to improve products, measure
+        content performance, support site functionality, and personalize future content.
+        You may accept all or part of these operations.
       </p>
 
       <p>
-        This website uses essential local storage for site operation, including saving site-entry
-        acknowledgement, cookie preference, and display preference. Future analytics may be used
-        only after appropriate notice and disclosure.
+        To learn more about cookies, service providers, how information may be used, or
+        to review your options, visit the Privacy Policy and Cookie Policy.
       </p>
 
-      <p>
-        Unauthorized copying, mirroring, scraping, impersonation, misleading reference,
-        redistribution, or commercial misuse of website content is not permitted.
-      </p>
+      <div class="cookie-preferences" id="cookie-preferences">
+        <div class="cookie-row required">
+          <div>
+            <strong>Functional</strong>
+            <span>Required for site operation.</span>
+          </div>
+          <span class="required-pill">Required</span>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="analytics">
+          <div>
+            <strong>Analytics</strong>
+            <span>Measure general website usage and performance.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="deviceStorage">
+          <div>
+            <strong>Store and/or access information on a device</strong>
+            <span>Use local storage or similar technologies.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="contentPerformance">
+          <div>
+            <strong>Measure content performance</strong>
+            <span>Understand which sections perform best.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="serviceImprovement">
+          <div>
+            <strong>Develop and improve services</strong>
+            <span>Use general statistics to improve future site systems.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="contentProfiles">
+          <div>
+            <strong>Create profiles to personalise content</strong>
+            <span>Future-ready personalization category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="personalizedContent">
+          <div>
+            <strong>Use profiles to select personalised content</strong>
+            <span>Future-ready personalized content selection.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="limitedContentData">
+          <div>
+            <strong>Use limited data to select content</strong>
+            <span>Use limited interaction data to improve relevance.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="deviceScanning">
+          <div>
+            <strong>Actively scan device characteristics for identification</strong>
+            <span>Future-ready device identification category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="preciseGeolocation">
+          <div>
+            <strong>Use precise geolocation data</strong>
+            <span>Future-ready precise location category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="limitedAdvertisingData">
+          <div>
+            <strong>Use limited data to select advertising</strong>
+            <span>Future-ready advertising relevance category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="advertisingProfiles">
+          <div>
+            <strong>Create profiles for personalised advertising</strong>
+            <span>Future-ready advertising profile category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="personalizedAdvertising">
+          <div>
+            <strong>Use profiles to select personalised advertising</strong>
+            <span>Future-ready advertising selection category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="advertisingPerformance">
+          <div>
+            <strong>Measure advertising performance</strong>
+            <span>Future-ready advertising measurement category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="marketingGeolocation">
+          <div>
+            <strong>Storage and access to geolocation information to carry out marketing studies</strong>
+            <span>Future-ready marketing study category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="audienceStatistics">
+          <div>
+            <strong>Understand audiences through statistics or combinations of data from different sources</strong>
+            <span>Future-ready audience insight category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+
+        <div class="cookie-row" data-cookie-key="advertising">
+          <div>
+            <strong>Advertising</strong>
+            <span>Future-ready advertising category.</span>
+          </div>
+          <div class="choice-buttons">
+            <button type="button" data-choice="false">Disagree</button>
+            <button type="button" data-choice="true">Agree</button>
+          </div>
+        </div>
+      </div>
 
       <div class="modal-actions">
-        <button class="button primary-button" type="button" onclick="acceptEntry('accepted')">
-          Accept and Enter
-        </button>
+        <button class="button secondary-button" type="button" onclick="rejectOptionalCookies()">Reject Optional</button>
+        <button class="button secondary-button" type="button" onclick="saveCookiePreferences()">Save Preferences</button>
+        <button class="button primary-button" type="button" onclick="acceptAllCookies()">Accept All</button>
+      </div>
 
-        <button class="button secondary-button" type="button" onclick="acceptEntry('essential')">
-          Essential Only
-        </button>
-
-        <a class="button secondary-button" href="/en/terms.html">Review Terms</a>
+      <div class="policy-links">
+        <a href="/en/privacy.html">Privacy Policy</a>
+        <a href="/en/terms.html">Terms of Use</a>
+        <a href="/en/cookies.html">Cookie Policy</a>
       </div>
     </div>
   </div>
@@ -365,9 +666,8 @@ misuse of this website content is not permitted.
       <h2 id="contact-title">Contact Fromentin Industries</h2>
 
       <p>
-        This contact form is prepared for future backend handling. It does not use mailto.
-        During the establishment phase, submissions can later be routed through a secure form
-        backend, database, or contact API.
+        Use this form for general inquiries, research, project records, founder archive matters,
+        careers, media, legal, or other official communication.
       </p>
 
       <form class="contact-form" id="contact-form" method="POST" action="/api/contact">
@@ -415,15 +715,13 @@ misuse of this website content is not permitted.
 
         <label class="checkbox-row">
           <input type="checkbox" name="consent" required />
-          <span>
-            I consent to Fromentin Industries using this information to review and respond to this inquiry.
-          </span>
+          <span>I consent to Fromentin Industries using this information to review and respond to this inquiry.</span>
         </label>
 
         <button class="button primary-button" type="submit">Submit Inquiry</button>
 
         <div class="form-note" id="form-note">
-          Contact system under preparation. Backend processing is not active on this static test page.
+          Contact system prepared. Backend processing is not active on this static test page.
         </div>
       </form>
     </div>
