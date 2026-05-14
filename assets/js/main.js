@@ -13,8 +13,18 @@ let cursorFrame = null;
 let cursorX = 0;
 let cursorY = 0;
 
-const TEMP_ARCHIVE_PASSWORD = "FI-ARCHIVE-2026";
 const ARCHIVE_UNLOCK_KEY = "fi_archive_unlocked";
+const ARCHIVE_ATTEMPT_KEY = "fi_archive_attempts";
+const ARCHIVE_LOCKOUT_KEY = "fi_archive_lockout_until";
+
+/*
+  Temporary archive phrase:
+  Systems for a Stronger Canada | Founder Archive | 2026
+
+  SHA-256:
+  ba78b606614cc1d95398b0347c97e302990cc2da609b3f23e008b0cbf13c5cd2
+*/
+const ARCHIVE_HASH = "ba78b606614cc1d95398b0347c97e302990cc2da609b3f23e008b0cbf13c5cd2";
 
 const defaultCookiePreferences = {
   functional: true,
@@ -539,6 +549,116 @@ function bindLoginForm() {
       note.textContent = "Access denied. Check the archive access code.";
     }
   });
+}
+
+const ARCHIVE_UNLOCK_KEY = "fi_archive_unlocked";
+const ARCHIVE_ATTEMPT_KEY = "fi_archive_attempts";
+const ARCHIVE_LOCKOUT_KEY = "fi_archive_lockout_until";
+
+document.addEventListener("DOMContentLoaded", () => {
+  bindArchivePageGate();
+});
+
+async function sha256Hex(value) {
+  const encoded = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", encoded);
+
+  return Array.from(new Uint8Array(digest))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function getArchiveAttempts() {
+  const attempts = Number(localStorage.getItem(ARCHIVE_ATTEMPT_KEY) || "0");
+  return Number.isFinite(attempts) ? attempts : 0;
+}
+
+function setArchiveAttempts(value) {
+  localStorage.setItem(ARCHIVE_ATTEMPT_KEY, String(value));
+}
+
+function getArchiveLockoutUntil() {
+  const lockout = Number(localStorage.getItem(ARCHIVE_LOCKOUT_KEY) || "0");
+  return Number.isFinite(lockout) ? lockout : 0;
+}
+
+function setArchiveLockout(millisecondsFromNow) {
+  localStorage.setItem(ARCHIVE_LOCKOUT_KEY, String(Date.now() + millisecondsFromNow));
+}
+
+function clearArchiveLockout() {
+  localStorage.removeItem(ARCHIVE_ATTEMPT_KEY);
+  localStorage.removeItem(ARCHIVE_LOCKOUT_KEY);
+}
+
+function bindArchivePageGate() {
+  const archiveForm = document.getElementById("archive-page-login-form");
+  const archivePassword = document.getElementById("archive-page-password");
+  const archiveNote = document.getElementById("archive-page-note");
+
+  if (!archiveForm || !archivePassword) return;
+
+  if (localStorage.getItem(ARCHIVE_UNLOCK_KEY) === "true") {
+    document.body.classList.add("archive-unlocked");
+  }
+
+  archiveForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const lockoutUntil = getArchiveLockoutUntil();
+
+    if (lockoutUntil && Date.now() < lockoutUntil) {
+      const secondsRemaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
+
+      if (archiveNote) {
+        archiveNote.classList.add("visible");
+        archiveNote.textContent = `Temporary lockout active. Try again in ${secondsRemaining} seconds.`;
+      }
+
+      return;
+    }
+
+    const enteredPhrase = archivePassword.value.trim();
+    const enteredHash = await sha256Hex(enteredPhrase);
+
+    if (enteredHash === ARCHIVE_HASH) {
+      localStorage.setItem(ARCHIVE_UNLOCK_KEY, "true");
+      clearArchiveLockout();
+      document.body.classList.add("archive-unlocked");
+
+      if (archiveNote) {
+        archiveNote.classList.add("visible");
+        archiveNote.textContent = "Access granted.";
+      }
+
+      return;
+    }
+
+    const attempts = getArchiveAttempts() + 1;
+    setArchiveAttempts(attempts);
+
+    if (attempts >= 5) {
+      setArchiveLockout(5 * 60 * 1000);
+      setArchiveAttempts(0);
+
+      if (archiveNote) {
+        archiveNote.classList.add("visible");
+        archiveNote.textContent = "Too many failed attempts. Temporary lockout active for 5 minutes.";
+      }
+
+      return;
+    }
+
+    if (archiveNote) {
+      archiveNote.classList.add("visible");
+      archiveNote.textContent = `Access denied. ${5 - attempts} attempt(s) remaining before timeout.`;
+    }
+  });
+}
+
+function lockArchiveAgain() {
+  localStorage.removeItem(ARCHIVE_UNLOCK_KEY);
+  document.body.classList.remove("archive-unlocked");
 }
 
 /* Contact */

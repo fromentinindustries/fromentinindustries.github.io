@@ -1,0 +1,277 @@
+<!--
+=========================================================
+Fromentin Industries
+Private Development-Stage Website
+Systems for a Stronger Canada
+
+Copyright Notice / Code Watermark
+
+All site structure, written content, branding, layouts,
+visual identity, logos, wording, page organization,
+documentation concepts and related materials are part of
+the Fromentin Industries brand system unless otherwise stated.
+
+Unauthorized copying, mirroring, scraping, impersonation,
+commercial reuse, redistribution, misleading reference or
+misuse of this website content is not permitted.
+=========================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Founder’s Archive | Fromentin Industries</title>
+
+  <meta
+    name="description"
+    content="Protected Founder’s Archive for Fromentin Industries records, development material, and founder-origin documentation."
+  />
+
+  <meta name="author" content="Fromentin Industries" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="canonical" href="https://fromentinindustries.com/en/founders-archive/" />
+  <link rel="icon" type="image/png" href="/assets/img/FI-Logo-Favicon-v1.png" />
+  <link rel="apple-touch-icon" href="/assets/img/FI-Logo-Favicon-v1.png" />
+  <meta name="theme-color" content="#020711" />
+
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <script src="/assets/js/main.js" defer></script>
+</head>
+
+<body class="archive-page">
+  <div class="custom-cursor" id="cursor-ring"></div>
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+
+  <div class="background-glow"></div>
+  <div class="background-grid"></div>
+
+  <header class="site-header scrolled mission-visible" id="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="/en/" aria-label="Fromentin Industries home">
+        <img
+          class="brand-logo"
+          src="/assets/img/FI-Logo-Favicon-v1.png"
+          alt="Fromentin Industries logo"
+        />
+
+        <span class="brand-text">
+          <strong>Fromentin Industries</strong>
+          <span class="header-mission">Founder’s Archive</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
+        <div class="nav-item"><a href="/en/">Home</a></div>
+        <div class="nav-item"><a href="/en/about/">About</a></div>
+        <div class="nav-item"><a href="/en/sectors/">Sectors</a></div>
+        <div class="nav-item"><a href="/en/research/">Research</a></div>
+        <div class="nav-item"><a href="/en/projects/">Projects</a></div>
+        <div class="nav-item"><a href="/en/news/">News</a></div>
+        <div class="nav-item"><button type="button" onclick="openContactModal()">Contact</button></div>
+      </nav>
+
+      <div class="nav-control">
+        <button class="mobile-menu-button" type="button" onclick="toggleMobileMenu()">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="archive-gate-page">
+    <section class="archive-gate-card archive-login-area">
+      <div class="section-label">Protected Area</div>
+
+      <h1>Founder’s Archive</h1>
+
+      <p>
+        This section is reserved for authorized access. Public material may be released
+        through Research, Projects, News, or History.
+      </p>
+
+      <form class="contact-form login-form" id="archive-page-login-form">
+        <div class="form-group">
+          <label for="archive-page-password">Archive Access Phrase</label>
+          <input
+            id="archive-page-password"
+            name="archivePagePassword"
+            type="password"
+            autocomplete="off"
+            spellcheck="false"
+            required
+          />
+        </div>
+
+        <button class="button primary-button" type="submit">Unlock Archive</button>
+
+        <div class="form-note visible" id="archive-page-note">
+          Enter the current temporary archive access phrase.
+        </div>
+      </form>
+
+      <div class="backend-reserved" aria-hidden="true">
+        <!-- Future backend hook: Cloudflare Access protected route -->
+        <!-- Future backend hook: Supabase Auth email/password login -->
+        <!-- Future backend hook: paid archive membership tier -->
+        <!-- Future backend hook: Stripe customer portal -->
+        <!-- Future backend hook: role-based access control -->
+        <!-- Future backend hook: audit logging and server-side session verification -->
+      </div>
+    </section>
+
+    <section class="archive-content-shell archive-protected-content">
+      <div class="section-label">Access Granted</div>
+
+      <h1>Founder’s Archive</h1>
+
+      <p>
+        Founder-origin records, technical development material, research notes, project
+        documentation, education records, and early company-building files.
+      </p>
+
+      <button class="text-link-button" type="button" onclick="lockArchiveAgain()">
+        Lock Archive
+      </button>
+
+      <div class="archive-grid">
+        <article class="archive-card">
+          <span>01</span>
+          <strong>Technical Notes</strong>
+          <p>Engineering notes, design logic, research sketches, and technical study records.</p>
+        </article>
+
+        <article class="archive-card">
+          <span>02</span>
+          <strong>Project Records</strong>
+          <p>School-based technical work, early concepts, and documented development files.</p>
+        </article>
+
+        <article class="archive-card">
+          <span>03</span>
+          <strong>Leadership Material</strong>
+          <p>Founder records, planning documents, biographies, and organizational notes.</p>
+        </article>
+
+        <article class="archive-card">
+          <span>04</span>
+          <strong>Company Foundation</strong>
+          <p>Mission, structure, development notes, operating documents, and archived drafts.</p>
+        </article>
+
+        <article class="archive-card">
+          <span>05</span>
+          <strong>Research Index</strong>
+          <p>Canadian capability studies, industrial systems, aerospace notes, and reference files.</p>
+        </article>
+
+        <article class="archive-card">
+          <span>06</span>
+          <strong>Restricted Queue</strong>
+          <p>Reserved for future authenticated backend-controlled archive records.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer footer">
+    <div class="footer-inner">
+      <div>
+        <img
+          class="footer-logo"
+          src="/assets/img/FI-Logo-Nameplate-HeaderFooter-v1.png"
+          alt="Fromentin Industries"
+        />
+
+        <p>
+          Systems for a Stronger Canada. Engineering, infrastructure, research,
+          industrial systems, and long-term national capability.
+        </p>
+
+        <div class="footer-socials">
+          <a href="https://github.com/fromentinindustries" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.instagram.com/fromentinindustries" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://x.com/FromentinInd" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.youtube.com/@fromentinindustries" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <a href="/en/about/">About</a>
+        <a href="/en/history/">History</a>
+        <a href="/en/careers/">Careers</a>
+        <a href="#" onclick="openContactModal(); return false;">Contact</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Work</h4>
+        <a href="/en/sectors/">Sectors</a>
+        <a href="/en/research/">Research</a>
+        <a href="/en/projects/">Projects</a>
+        <a href="/en/founders-archive/">Founder’s Archive</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <a href="/en/legal/">Legal Notice</a>
+        <a href="/en/privacy/">Privacy Policy</a>
+        <a href="/en/terms/">Terms of Use</a>
+        <a href="/en/cookies/">Cookie Policy</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      Copyright © 2026 Fromentin Industries. All Rights Reserved.
+    </div>
+  </footer>
+
+  <div class="modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+
+    <div class="modal-panel">
+      <button class="modal-close" type="button" onclick="closeContactModal()" aria-label="Close contact form">
+        ×
+      </button>
+
+      <h2 id="contact-title">Contact Fromentin Industries</h2>
+
+      <p>
+        Use this form for official communication, project inquiries, research, careers, media, legal, or general contact.
+      </p>
+
+      <form class="contact-form" id="contact-form" action="https://formsubmit.co/contact@fromentinindustries.com" method="POST">
+        <input type="hidden" name="_subject" value="New Fromentin Industries Website Inquiry" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="true" />
+        <input type="hidden" name="_next" value="https://fromentinindustries.com/en/thanks/" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input id="full-name" name="Full Name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input id="email" name="Email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" required></textarea>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" name="Consent" value="Consent given" required />
+          <span>I consent to Fromentin Industries using this information to review and respond to this inquiry.</span>
+        </label>
+
+        <button class="button primary-button" type="submit">Submit Inquiry</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
