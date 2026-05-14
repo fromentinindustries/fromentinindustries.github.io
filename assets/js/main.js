@@ -13,18 +13,28 @@ let cursorFrame = null;
 let cursorX = 0;
 let cursorY = 0;
 
+/* =========================================================
+   Archive Gate Configuration
+
+   Temporary archive phrase:
+   Systems for a Stronger Canada | Founder Archive | 2026
+
+   SHA-256:
+   ba78b606614cc1d95398b0347c97e302990cc2da609b3f23e008b0cbf13c5cd2
+
+   Static-site protection is only a temporary front-end gate.
+   Future real protection should use Cloudflare Access, Supabase Auth,
+   server-side sessions, Stripe paywall logic, or equivalent.
+========================================================= */
+
 const ARCHIVE_UNLOCK_KEY = "fi_archive_unlocked";
 const ARCHIVE_ATTEMPT_KEY = "fi_archive_attempts";
 const ARCHIVE_LOCKOUT_KEY = "fi_archive_lockout_until";
-
-/*
-  Temporary archive phrase:
-  Systems for a Stronger Canada | Founder Archive | 2026
-
-  SHA-256:
-  ba78b606614cc1d95398b0347c97e302990cc2da609b3f23e008b0cbf13c5cd2
-*/
 const ARCHIVE_HASH = "ba78b606614cc1d95398b0347c97e302990cc2da609b3f23e008b0cbf13c5cd2";
+
+/* =========================================================
+   Cookie Configuration
+========================================================= */
 
 const defaultCookiePreferences = {
   functional: true,
@@ -36,6 +46,10 @@ const defaultCookiePreferences = {
 };
 
 let cookiePreferences = { ...defaultCookiePreferences };
+
+/* =========================================================
+   C.A.N.A.D.A Content
+========================================================= */
 
 const canadaContent = [
   {
@@ -66,6 +80,10 @@ const canadaContent = [
 
 let activeCanadaIndex = 0;
 
+/* =========================================================
+   Main Startup
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
   bindIntroTransition();
   bindLightweightCursor();
@@ -77,20 +95,23 @@ document.addEventListener("DOMContentLoaded", () => {
   bindSectionRail();
   bindCookieChoiceButtons();
   bindProtectedLinks();
-  bindLoginForm();
+  bindArchivePageGate();
   loadCookiePreferences();
   bindReversibleReveal();
 
-  setTimeout(() => {
+  window.setTimeout(() => {
     document.body.classList.add("loaded");
     openCookiePopupIfNeeded();
   }, 500);
 });
 
-/* Intro */
+/* =========================================================
+   Intro Transition
+========================================================= */
 
 function bindIntroTransition() {
   const intro = document.getElementById("site-intro");
+
   if (!intro) return;
 
   window.setTimeout(() => {
@@ -102,7 +123,9 @@ function bindIntroTransition() {
   }, 7000);
 }
 
-/* Cursor */
+/* =========================================================
+   Cursor
+========================================================= */
 
 function bindLightweightCursor() {
   if (!cursorRing || !cursorDot) return;
@@ -119,8 +142,10 @@ function bindLightweightCursor() {
 
     cursorFrame = requestAnimationFrame(() => {
       const position = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+
       cursorRing.style.transform = position;
       cursorDot.style.transform = position;
+
       cursorFrame = null;
     });
   });
@@ -128,20 +153,33 @@ function bindLightweightCursor() {
 
 function bindCursorHoverStates() {
   document.querySelectorAll("a, button, input, textarea, select").forEach((element) => {
-    element.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
-    element.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+    element.addEventListener("mouseenter", () => {
+      document.body.classList.add("cursor-hover");
+    });
+
+    element.addEventListener("mouseleave", () => {
+      document.body.classList.remove("cursor-hover");
+    });
   });
 }
 
-/* Mobile menu */
+/* =========================================================
+   Mobile Menu
+========================================================= */
 
 function toggleMobileMenu() {
   const nav = document.getElementById("site-nav");
+
   if (!nav) return;
+
   nav.classList.toggle("open");
 }
 
-/* Dropdowns */
+/* =========================================================
+   Header Dropdowns
+   Desktop: CSS hover
+   Mobile: JS click
+========================================================= */
 
 function bindDropdownsForMobile() {
   const triggers = document.querySelectorAll(".nav-trigger[data-dropdown]");
@@ -166,16 +204,19 @@ function bindDropdownsForMobile() {
   });
 
   panels.forEach((panel) => {
-    panel.addEventListener("click", (event) => event.stopPropagation());
+    panel.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
   });
 
-  document.addEventListener("click", () => closeDropdowns());
+  document.addEventListener("click", () => {
+    closeDropdowns();
+  });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeDropdowns();
       closeContactModal();
-      closeLoginModal();
       closeCookieModal();
     }
   });
@@ -187,10 +228,13 @@ function closeDropdowns() {
   });
 }
 
-/* Header */
+/* =========================================================
+   Header Scroll Behaviour
+========================================================= */
 
 function bindHeaderScrollBehaviour() {
   const header = document.getElementById("site-header");
+
   if (!header) return;
 
   let lastScrollY = window.scrollY;
@@ -198,6 +242,7 @@ function bindHeaderScrollBehaviour() {
 
   window.addEventListener("scroll", () => {
     if (ticking) return;
+
     ticking = true;
 
     requestAnimationFrame(() => {
@@ -220,6 +265,10 @@ function bindHeaderScrollBehaviour() {
   });
 }
 
+/* =========================================================
+   Hero Mission Merge
+========================================================= */
+
 function bindHeroMissionMerge() {
   const header = document.getElementById("site-header");
   const hero = document.getElementById("landing-hero");
@@ -235,10 +284,13 @@ function bindHeroMissionMerge() {
   };
 
   window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
   update();
 }
 
-/* C.A.N.A.D.A */
+/* =========================================================
+   Scroll-Driven C.A.N.A.D.A
+========================================================= */
 
 function bindScrollDrivenCanada() {
   const section = document.getElementById("canada-framework");
@@ -290,6 +342,8 @@ function getClosestCanadaMobileIndex(units) {
 }
 
 function setCanadaIndex(index, display, kicker, text, units) {
+  if (!canadaContent[index]) return;
+
   if (index === activeCanadaIndex && kicker.textContent === canadaContent[index].kicker) return;
 
   activeCanadaIndex = index;
@@ -307,7 +361,9 @@ function setCanadaIndex(index, display, kicker, text, units) {
   }, 160);
 }
 
-/* 01–05 rail */
+/* =========================================================
+   01–05 Section Rail
+========================================================= */
 
 function bindSectionRail() {
   const sections = document.querySelectorAll(".f-section[data-section-id]");
@@ -344,10 +400,13 @@ function bindSectionRail() {
   update();
 }
 
-/* Reversible reveals */
+/* =========================================================
+   Reversible Reveal Animations
+========================================================= */
 
 function bindReversibleReveal() {
   const revealElements = document.querySelectorAll(".reveal");
+
   if (!revealElements.length) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -358,10 +417,14 @@ function bindReversibleReveal() {
     threshold: 0.22
   });
 
-  revealElements.forEach((element) => observer.observe(element));
+  revealElements.forEach((element) => {
+    observer.observe(element);
+  });
 }
 
-/* Cookies */
+/* =========================================================
+   Cookie System
+========================================================= */
 
 function openCookiePopupIfNeeded() {
   const cookieSaved = localStorage.getItem("fi_cookie_preferences_saved");
@@ -374,11 +437,15 @@ function openCookiePopupIfNeeded() {
 
 function closeCookiePopup() {
   const popup = document.getElementById("cookie-popup");
-  if (popup) popup.classList.remove("visible");
+
+  if (popup) {
+    popup.classList.remove("visible");
+  }
 }
 
 function openCookieModal(forceOpen = true) {
   const modal = document.getElementById("cookie-modal");
+
   if (!modal) return;
 
   closeCookiePopup();
@@ -393,6 +460,7 @@ function openCookieModal(forceOpen = true) {
 
 function closeCookieModal() {
   const modal = document.getElementById("cookie-modal");
+
   if (!modal) return;
 
   modal.classList.remove("open");
@@ -407,7 +475,11 @@ function bindCookieChoiceButtons() {
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         cookiePreferences[key] = button.dataset.choice === "true";
-        buttons.forEach((item) => item.classList.remove("active"));
+
+        buttons.forEach((item) => {
+          item.classList.remove("active");
+        });
+
         button.classList.add("active");
       });
     });
@@ -476,90 +548,24 @@ function activateAnalyticsPlaceholder() {
   console.info("Analytics placeholder ready. No production analytics loaded.");
 }
 
-/* Protected archive */
+/* =========================================================
+   Archive Links and Archive Page Gate
+========================================================= */
 
 function bindProtectedLinks() {
   document.querySelectorAll(".login-required").forEach((element) => {
     element.addEventListener("click", (event) => {
       event.preventDefault();
-
-      if (localStorage.getItem(ARCHIVE_UNLOCK_KEY) === "true") {
-        window.location.href = "/en/founders-archive.html";
-        return;
-      }
-
-      openLoginModal(element.dataset.protectedArea || "Protected Area");
+      window.location.href = "/en/founders-archive/";
     });
   });
 }
 
-function openLoginModal(areaName = "Protected Area") {
-  const modal = document.getElementById("login-modal");
-  const title = document.getElementById("login-title");
-
-  if (!modal) return;
-
-  closeDropdowns();
-
-  if (title) {
-    title.textContent = `${areaName} Access`;
+async function sha256Hex(value) {
+  if (!window.crypto || !crypto.subtle) {
+    return null;
   }
 
-  modal.classList.add("open");
-  document.body.classList.add("modal-open");
-}
-
-function closeLoginModal() {
-  const modal = document.getElementById("login-modal");
-  if (!modal) return;
-
-  modal.classList.remove("open");
-  clearModalLockIfNoModalsOpen();
-}
-
-function bindLoginForm() {
-  const loginForm = document.getElementById("login-form");
-  const passwordInput = document.getElementById("archive-access-code");
-  const note = document.getElementById("login-note");
-
-  if (!loginForm || !passwordInput) return;
-
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const enteredPassword = passwordInput.value.trim();
-
-    if (enteredPassword === TEMP_ARCHIVE_PASSWORD) {
-      localStorage.setItem(ARCHIVE_UNLOCK_KEY, "true");
-
-      if (note) {
-        note.classList.add("visible");
-        note.textContent = "Access granted. Redirecting...";
-      }
-
-      window.setTimeout(() => {
-        window.location.href = "/en/founders-archive.html";
-      }, 650);
-
-      return;
-    }
-
-    if (note) {
-      note.classList.add("visible");
-      note.textContent = "Access denied. Check the archive access code.";
-    }
-  });
-}
-
-const ARCHIVE_UNLOCK_KEY = "fi_archive_unlocked";
-const ARCHIVE_ATTEMPT_KEY = "fi_archive_attempts";
-const ARCHIVE_LOCKOUT_KEY = "fi_archive_lockout_until";
-
-document.addEventListener("DOMContentLoaded", () => {
-  bindArchivePageGate();
-});
-
-async function sha256Hex(value) {
   const encoded = new TextEncoder().encode(value);
   const digest = await crypto.subtle.digest("SHA-256", encoded);
 
@@ -618,6 +624,15 @@ function bindArchivePageGate() {
       return;
     }
 
+    if (!window.crypto || !crypto.subtle) {
+      if (archiveNote) {
+        archiveNote.classList.add("visible");
+        archiveNote.textContent = "Secure browser hashing is unavailable. Use HTTPS and try again.";
+      }
+
+      return;
+    }
+
     const enteredPhrase = archivePassword.value.trim();
     const enteredHash = await sha256Hex(enteredPhrase);
 
@@ -661,10 +676,13 @@ function lockArchiveAgain() {
   document.body.classList.remove("archive-unlocked");
 }
 
-/* Contact */
+/* =========================================================
+   Contact Modal
+========================================================= */
 
 function openContactModal() {
   const modal = document.getElementById("contact-modal");
+
   if (!modal) return;
 
   closeDropdowns();
@@ -673,16 +691,24 @@ function openContactModal() {
   document.body.classList.add("modal-open");
 
   const nav = document.getElementById("site-nav");
-  if (nav) nav.classList.remove("open");
+
+  if (nav) {
+    nav.classList.remove("open");
+  }
 }
 
 function closeContactModal() {
   const modal = document.getElementById("contact-modal");
+
   if (!modal) return;
 
   modal.classList.remove("open");
   clearModalLockIfNoModalsOpen();
 }
+
+/* =========================================================
+   Shared Modal Unlock
+========================================================= */
 
 function clearModalLockIfNoModalsOpen() {
   const openModal = document.querySelector(".modal.open");
