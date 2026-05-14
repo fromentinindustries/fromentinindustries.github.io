@@ -57,6 +57,24 @@ misuse of this website content is not permitted.
     </div>
   </div>
 
+  <script>
+  (function () {
+    function removeIntro() {
+      document.body.classList.add("intro-complete");
+
+      const intro = document.getElementById("site-intro");
+      if (intro) {
+        setTimeout(function () {
+          intro.remove();
+        }, 1000);
+      }
+    }
+
+    // 7 second GIF + 1 second fade buffer
+    setTimeout(removeIntro, 7000);
+  })();
+</script>
+
   <div class="custom-cursor" id="cursor-ring"></div>
   <div class="custom-cursor-dot" id="cursor-dot"></div>
 
