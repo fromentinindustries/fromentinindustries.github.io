@@ -50,17 +50,10 @@ misuse of this website content is not permitted.
   <div class="custom-cursor" id="cursor-ring"></div>
   <div class="custom-cursor-dot" id="cursor-dot"></div>
 
-  <div class="page-loader" id="page-loader" aria-hidden="true">
-    <div class="loader-inner">
-      <img src="../assets/img/FI-Logo-Primary_Nameless-Transparent-v1.png" alt="" />
-      <div class="loader-mark">Systems Loading</div>
-    </div>
-  </div>
-
   <div class="background-glow"></div>
   <div class="background-grid"></div>
 
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="nav-inner">
       <a class="brand" href="/en/" aria-label="Fromentin Industries home">
         <img
@@ -71,7 +64,7 @@ misuse of this website content is not permitted.
 
         <span class="brand-text">
           <strong>Fromentin Industries</strong>
-          <span>Systems for a Stronger Canada</span>
+          <span class="header-mission" id="header-mission">Systems for a Stronger Canada</span>
         </span>
       </a>
 
@@ -135,7 +128,7 @@ misuse of this website content is not permitted.
 
           <a href="/en/history.html">
             <strong>History</strong>
-            <span>Origins, influences, development path, and future milestones.</span>
+            <span>Origins, influences, development path, and milestones.</span>
           </a>
 
           <a href="/en/careers.html">
@@ -173,264 +166,225 @@ misuse of this website content is not permitted.
     </div>
   </header>
 
-  <section class="hero" aria-labelledby="main-title">
-    <div class="hero-scanline" aria-hidden="true"></div>
+  <main>
+    <section class="landing-hero" id="landing-hero" aria-labelledby="main-title">
+      <div class="landing-bg" aria-hidden="true"></div>
+      <div class="landing-overlay" aria-hidden="true"></div>
 
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow">Canadian Systems • Engineering • Research • Industry</div>
+      <div class="landing-center" id="landing-center">
+        <img
+          class="landing-logo"
+          src="../assets/img/FI-Logo-White_Full-Transparent-v1.png"
+          alt="Fromentin Industries"
+        />
 
-        <h1 id="main-title">Fromentin Industries</h1>
-
-        <div class="tagline">
-          Systems for a Stronger <span>Canada.</span>
-        </div>
-
-        <p class="hero-description">
-          Fromentin Industries operates at the intersection of engineering, infrastructure,
-          research, industrial systems, and long-term Canadian capability.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button primary-button" href="/en/sectors.html">Explore Sectors</a>
-          <a class="button secondary-button" href="/en/research.html">Research Index</a>
-          <button class="button secondary-button" type="button" onclick="openContactModal()">Contact</button>
-        </div>
+        <h1 id="main-title" class="landing-title">
+          Systems for a Stronger Canada.
+        </h1>
       </div>
 
-      <aside class="hero-card" aria-label="Fromentin Industries operating focus">
-        <div class="hero-card-content">
-          <img
-            class="hero-card-logo"
-            src="../assets/img/FI-Logo-Primary_Nameless-Transparent-v1.png"
-            alt="Fromentin Industries emblem"
-          />
-
-          <div class="panel-title">Operating Focus</div>
-
-          <div class="panel-main">
-            Engineering discipline. Industrial thinking. Canadian purpose.
-          </div>
-
-          <ul class="panel-list">
-            <li>Infrastructure, industry, aerospace, digital systems, and national capability.</li>
-            <li>Research-driven planning, documentation, concept development, and technical organization.</li>
-            <li>Projects, public records, and research systems structured for long-term institutional growth.</li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <div class="mission-strip mission-vertical-strip" aria-label="C.A.N.A.D.A mission framework">
-    <div class="mission-vertical-inner">
-      <div class="mission-vertical-heading">
-        <span>Mission Framework</span>
-        <strong>C.A.N.A.D.A</strong>
+      <div class="scroll-cue" aria-hidden="true">
+        Scroll
       </div>
+    </section>
 
-      <div class="canada-stack">
-        <button class="canada-item active" type="button" data-canada-panel="canada-capability">
-          <span class="canada-letter">C</span>
-          <span class="canada-word">Capability</span>
-        </button>
-
-        <button class="canada-item" type="button" data-canada-panel="canada-advancement">
-          <span class="canada-letter">A</span>
-          <span class="canada-word">Advancement</span>
-        </button>
-
-        <button class="canada-item" type="button" data-canada-panel="canada-national">
-          <span class="canada-letter">N</span>
-          <span class="canada-word">National</span>
-        </button>
-
-        <button class="canada-item" type="button" data-canada-panel="canada-architecture">
-          <span class="canada-letter">A</span>
-          <span class="canada-word">Architecture</span>
-        </button>
-
-        <button class="canada-item" type="button" data-canada-panel="canada-discipline">
-          <span class="canada-letter">D</span>
-          <span class="canada-word">Discipline</span>
-        </button>
-
-        <button class="canada-item" type="button" data-canada-panel="canada-ambition">
-          <span class="canada-letter">A</span>
-          <span class="canada-word">Ambition</span>
-        </button>
-      </div>
-
-      <div class="canada-panels">
-        <article class="canada-panel active" id="canada-capability">
-          <div class="panel-title">C / Capability</div>
-          <p>
-            Building practical strength through engineering, infrastructure, systems planning,
-            industrial awareness, and technical execution.
-          </p>
-        </article>
-
-        <article class="canada-panel" id="canada-advancement">
-          <div class="panel-title">A / Advancement</div>
-          <p>
-            Moving ideas forward through research, documentation, design development,
-            education, and long-term institutional growth.
-          </p>
-        </article>
-
-        <article class="canada-panel" id="canada-national">
-          <div class="panel-title">N / National</div>
-          <p>
-            Maintaining a Canadian focus across infrastructure, industry, aerospace,
-            security research, digital systems, and future capability.
-          </p>
-        </article>
-
-        <article class="canada-panel" id="canada-architecture">
-          <div class="panel-title">A / Architecture</div>
-          <p>
-            Organizing systems, projects, research, records, and operating structures
-            so the company can scale without losing direction.
-          </p>
-        </article>
-
-        <article class="canada-panel" id="canada-discipline">
-          <div class="panel-title">D / Discipline</div>
-          <p>
-            Prioritizing order, standards, documentation, technical clarity, and controlled
-            execution over noise, hype, or weak presentation.
-          </p>
-        </article>
-
-        <article class="canada-panel" id="canada-ambition">
-          <div class="panel-title">A / Ambition</div>
-          <p>
-            Pursuing long-term Canadian industrial strength through serious work,
-            technical development, and a mission-first company identity.
-          </p>
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <main class="f-layout">
-    <aside class="f-rail" aria-label="Page sections">
-      <a href="#overview">01 / Overview</a>
-      <a href="#sectors">02 / Sectors</a>
-      <a href="#research">03 / Research</a>
-      <a href="#archive">04 / Archive</a>
-      <a href="#public-record">05 / Public Record</a>
-    </aside>
-
-    <div class="f-content">
-      <section class="f-section reveal" id="overview" aria-labelledby="overview-title">
-        <div class="section-label">Overview</div>
-
-        <h2 id="overview-title">A Canadian company built around systems thinking.</h2>
-
-        <p class="section-copy">
-          Fromentin Industries is structured around the belief that national strength is built
-          through disciplined systems: infrastructure, engineering, manufacturing, research,
-          digital organization, and long-term strategic capability.
-        </p>
-
-        <p class="section-copy">
-          The company’s public platform organizes sectors, research, projects, historical records,
-          and company information into a single institutional front.
-        </p>
-      </section>
-
-      <section class="f-section reveal" id="sectors" aria-labelledby="sectors-title">
-        <div class="section-label">Sectors</div>
-
-        <h2 id="sectors-title">Canadian capability begins with organized sectors.</h2>
-
-        <p class="section-copy">
-          Fromentin Industries tracks and develops work across infrastructure, energy, transportation,
-          manufacturing, aerospace, digital systems, agriculture, northern systems, and defence and
-          security research.
-        </p>
-
-        <div class="sector-grid">
-          <a href="/en/sectors.html">Infrastructure</a>
-          <a href="/en/sectors.html">Energy & Utilities</a>
-          <a href="/en/sectors.html">Transportation</a>
-          <a href="/en/sectors.html">Manufacturing</a>
-          <a href="/en/sectors.html">Aerospace</a>
-          <a href="/en/sectors.html">Digital Systems</a>
-          <a href="/en/sectors.html">Security Research</a>
-          <a href="/en/sectors.html">Northern Systems</a>
+    <section class="mission-strip mission-vertical-strip" aria-label="C.A.N.A.D.A mission framework">
+      <div class="mission-vertical-inner">
+        <div class="mission-vertical-heading">
+          <span>Mission Framework</span>
+          <strong>C.A.N.A.D.A</strong>
         </div>
-      </section>
 
-      <section class="f-section reveal" id="research" aria-labelledby="research-title">
-        <div class="section-label">Research</div>
+        <div class="canada-stack">
+          <button class="canada-item active" type="button" data-canada-panel="canada-capability">
+            <span class="canada-letter">C</span>
+            <span class="canada-word">Capability</span>
+          </button>
 
-        <h2 id="research-title">Research, documentation, and technical direction.</h2>
+          <button class="canada-item" type="button" data-canada-panel="canada-advancement">
+            <span class="canada-letter">A</span>
+            <span class="canada-word">Advancement</span>
+          </button>
 
-        <p class="section-copy">
-          Research is organized as a long-term knowledge base: Canadian industrial capability,
-          aerospace concepts, infrastructure resilience, systems planning, engineering history,
-          technology studies, and project documentation.
-        </p>
+          <button class="canada-item" type="button" data-canada-panel="canada-national">
+            <span class="canada-letter">N</span>
+            <span class="canada-word">National</span>
+          </button>
 
-        <div class="inline-actions">
-          <a class="button primary-button" href="/en/research.html">Open Research</a>
-          <a class="button secondary-button" href="/en/projects.html">View Projects</a>
-        </div>
-      </section>
+          <button class="canada-item" type="button" data-canada-panel="canada-architecture">
+            <span class="canada-letter">A</span>
+            <span class="canada-word">Architecture</span>
+          </button>
 
-      <section class="f-section reveal" id="archive" aria-labelledby="archive-title">
-        <div class="section-label">Founder’s Archive</div>
+          <button class="canada-item" type="button" data-canada-panel="canada-discipline">
+            <span class="canada-letter">D</span>
+            <span class="canada-word">Discipline</span>
+          </button>
 
-        <h2 id="archive-title">Protected records, development material, and founder-origin documentation.</h2>
-
-        <p class="section-copy">
-          The Founder’s Archive is a protected section reserved for authorized access. Public archive
-          material may be released through Research, Projects, News, or History.
-        </p>
-
-        <div class="inline-actions">
-          <button class="button primary-button login-required" type="button" data-protected-area="Founder’s Archive">
-            Request Archive Access
+          <button class="canada-item" type="button" data-canada-panel="canada-ambition">
+            <span class="canada-letter">A</span>
+            <span class="canada-word">Ambition</span>
           </button>
         </div>
-      </section>
 
-      <section class="f-section reveal" id="public-record" aria-labelledby="record-title">
-        <div class="section-label">Public Record</div>
+        <div class="canada-panels">
+          <article class="canada-panel active" id="canada-capability">
+            <div class="panel-title">C / Capability</div>
+            <p>
+              Building practical strength through engineering, infrastructure, systems planning,
+              industrial awareness, and technical execution.
+            </p>
+          </article>
 
-        <h2 id="record-title">News, careers, history, and official information.</h2>
+          <article class="canada-panel" id="canada-advancement">
+            <div class="panel-title">A / Advancement</div>
+            <p>
+              Moving ideas forward through research, documentation, design development,
+              education, and long-term institutional growth.
+            </p>
+          </article>
 
-        <p class="section-copy">
-          Public records are organized through the newsroom, history page, careers section, and
-          legal documentation. This structure keeps the website formal, expandable, and ready for
-          future operational growth.
-        </p>
+          <article class="canada-panel" id="canada-national">
+            <div class="panel-title">N / National</div>
+            <p>
+              Maintaining a Canadian focus across infrastructure, industry, aerospace,
+              security research, digital systems, and future capability.
+            </p>
+          </article>
 
-        <div class="record-grid">
-          <a href="/en/news.html">
-            <strong>News</strong>
-            <span>Updates and public notices.</span>
-          </a>
+          <article class="canada-panel" id="canada-architecture">
+            <div class="panel-title">A / Architecture</div>
+            <p>
+              Organizing systems, projects, research, records, and operating structures
+              so the company can scale without losing direction.
+            </p>
+          </article>
 
-          <a href="/en/careers.html">
-            <strong>Careers</strong>
-            <span>Future roles and opportunities.</span>
-          </a>
+          <article class="canada-panel" id="canada-discipline">
+            <div class="panel-title">D / Discipline</div>
+            <p>
+              Prioritizing order, standards, documentation, technical clarity, and controlled
+              execution over noise, hype, or weak presentation.
+            </p>
+          </article>
 
-          <a href="/en/history.html">
-            <strong>History</strong>
-            <span>Origins and development path.</span>
-          </a>
-
-          <a href="/en/legal.html">
-            <strong>Legal</strong>
-            <span>Ownership and site rules.</span>
-          </a>
+          <article class="canada-panel" id="canada-ambition">
+            <div class="panel-title">A / Ambition</div>
+            <p>
+              Pursuing long-term Canadian industrial strength through serious work,
+              technical development, and a mission-first company identity.
+            </p>
+          </article>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <section class="f-layout">
+      <aside class="f-rail" aria-label="Page sections">
+        <a href="#overview">01 / Overview</a>
+        <a href="#sectors">02 / Sectors</a>
+        <a href="#research">03 / Research</a>
+        <a href="#archive">04 / Archive</a>
+        <a href="#public-record">05 / Public Record</a>
+      </aside>
+
+      <div class="f-content">
+        <section class="f-section reveal" id="overview" aria-labelledby="overview-title">
+          <div class="section-label">Overview</div>
+
+          <h2 id="overview-title">A Canadian company built around systems thinking.</h2>
+
+          <p class="section-copy">
+            Fromentin Industries is structured around the belief that national strength is built
+            through disciplined systems: infrastructure, engineering, manufacturing, research,
+            digital organization, and long-term strategic capability.
+          </p>
+        </section>
+
+        <section class="f-section reveal" id="sectors" aria-labelledby="sectors-title">
+          <div class="section-label">Sectors</div>
+
+          <h2 id="sectors-title">Canadian capability begins with organized sectors.</h2>
+
+          <p class="section-copy">
+            Fromentin Industries tracks and develops work across infrastructure, energy, transportation,
+            manufacturing, aerospace, digital systems, agriculture, northern systems, and defence and
+            security research.
+          </p>
+
+          <div class="sector-grid">
+            <a href="/en/sectors.html">Infrastructure</a>
+            <a href="/en/sectors.html">Energy & Utilities</a>
+            <a href="/en/sectors.html">Transportation</a>
+            <a href="/en/sectors.html">Manufacturing</a>
+            <a href="/en/sectors.html">Aerospace</a>
+            <a href="/en/sectors.html">Digital Systems</a>
+            <a href="/en/sectors.html">Security Research</a>
+            <a href="/en/sectors.html">Northern Systems</a>
+          </div>
+        </section>
+
+        <section class="f-section reveal" id="research" aria-labelledby="research-title">
+          <div class="section-label">Research</div>
+
+          <h2 id="research-title">Research, documentation, and technical direction.</h2>
+
+          <p class="section-copy">
+            Research is organized as a long-term knowledge base: Canadian industrial capability,
+            aerospace concepts, infrastructure resilience, systems planning, engineering history,
+            technology studies, and project documentation.
+          </p>
+        </section>
+
+        <section class="f-section reveal" id="archive" aria-labelledby="archive-title">
+          <div class="section-label">Founder’s Archive</div>
+
+          <h2 id="archive-title">Protected records, development material, and founder-origin documentation.</h2>
+
+          <p class="section-copy">
+            The Founder’s Archive is a protected section reserved for authorized access. Public archive
+            material may be released through Research, Projects, News, or History.
+          </p>
+
+          <button class="text-link-button login-required" type="button" data-protected-area="Founder’s Archive">
+            Request Archive Access
+          </button>
+        </section>
+
+        <section class="f-section reveal" id="public-record" aria-labelledby="record-title">
+          <div class="section-label">Public Record</div>
+
+          <h2 id="record-title">News, careers, history, and official information.</h2>
+
+          <p class="section-copy">
+            Public records are organized through the newsroom, history page, careers section, and
+            legal documentation.
+          </p>
+
+          <div class="record-grid">
+            <a href="/en/news.html">
+              <strong>News</strong>
+              <span>Updates and public notices.</span>
+            </a>
+
+            <a href="/en/careers.html">
+              <strong>Careers</strong>
+              <span>Future roles and opportunities.</span>
+            </a>
+
+            <a href="/en/history.html">
+              <strong>History</strong>
+              <span>Origins and development path.</span>
+            </a>
+
+            <a href="/en/legal.html">
+              <strong>Legal</strong>
+              <span>Ownership and site rules.</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer footer">
@@ -448,9 +402,9 @@ misuse of this website content is not permitted.
         </p>
       </div>
 
-      <div>
-        <h4>Company</h4>
-        <div class="footer-links">
+      <div class="footer-hover-group">
+        <button type="button">Company</button>
+        <div class="footer-hover-menu">
           <a href="/en/about.html">About</a>
           <a href="/en/history.html">History</a>
           <a href="/en/careers.html">Careers</a>
@@ -458,9 +412,9 @@ misuse of this website content is not permitted.
         </div>
       </div>
 
-      <div>
-        <h4>Work</h4>
-        <div class="footer-links">
+      <div class="footer-hover-group">
+        <button type="button">Work</button>
+        <div class="footer-hover-menu">
           <a href="/en/sectors.html">Sectors</a>
           <a href="/en/research.html">Research</a>
           <a href="/en/projects.html">Projects</a>
@@ -468,9 +422,9 @@ misuse of this website content is not permitted.
         </div>
       </div>
 
-      <div>
-        <h4>Legal</h4>
-        <div class="footer-links">
+      <div class="footer-hover-group">
+        <button type="button">Legal</button>
+        <div class="footer-hover-menu">
           <a href="/en/legal.html">Legal Notice</a>
           <a href="/en/privacy.html">Privacy Policy</a>
           <a href="/en/terms.html">Terms of Use</a>
@@ -522,12 +476,6 @@ misuse of this website content is not permitted.
         We and, where applicable, approved service providers may place cookies, access,
         and use non-sensitive information from your device to improve products, measure
         content performance, support site functionality, and personalize future content.
-        You may accept all or part of these operations.
-      </p>
-
-      <p>
-        To learn more about cookies, service providers, how information may be used, or
-        to review your options, visit the Privacy Policy and Cookie Policy.
       </p>
 
       <div class="cookie-preferences" id="cookie-preferences">
@@ -583,127 +531,6 @@ misuse of this website content is not permitted.
           </div>
         </div>
 
-        <div class="cookie-row" data-cookie-key="contentProfiles">
-          <div>
-            <strong>Create profiles to personalize content</strong>
-            <span>Future-ready personalization category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="personalizedContent">
-          <div>
-            <strong>Use profiles to select personalized content</strong>
-            <span>Future-ready personalized content selection.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="limitedContentData">
-          <div>
-            <strong>Use limited data to select content</strong>
-            <span>Use limited interaction data to improve relevance.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="deviceScanning">
-          <div>
-            <strong>Actively scan device characteristics for identification</strong>
-            <span>Future-ready device identification category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="preciseGeolocation">
-          <div>
-            <strong>Use precise geolocation data</strong>
-            <span>Future-ready precise location category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="limitedAdvertisingData">
-          <div>
-            <strong>Use limited data to select advertising</strong>
-            <span>Future-ready advertising relevance category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="advertisingProfiles">
-          <div>
-            <strong>Create profiles for personalized advertising</strong>
-            <span>Future-ready advertising profile category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="personalizedAdvertising">
-          <div>
-            <strong>Use profiles to select personalized advertising</strong>
-            <span>Future-ready advertising selection category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="advertisingPerformance">
-          <div>
-            <strong>Measure advertising performance</strong>
-            <span>Future-ready advertising measurement category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="marketingGeolocation">
-          <div>
-            <strong>Storage and access to geolocation information to carry out marketing studies</strong>
-            <span>Future-ready marketing study category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
-        <div class="cookie-row" data-cookie-key="audienceStatistics">
-          <div>
-            <strong>Understand audiences through statistics or combinations of data from different sources</strong>
-            <span>Future-ready audience insight category.</span>
-          </div>
-          <div class="choice-buttons">
-            <button type="button" data-choice="false">Disagree</button>
-            <button type="button" data-choice="true">Agree</button>
-          </div>
-        </div>
-
         <div class="cookie-row" data-cookie-key="advertising">
           <div>
             <strong>Advertising</strong>
@@ -749,8 +576,7 @@ misuse of this website content is not permitted.
       <h2 id="login-title">Founder’s Archive Access</h2>
 
       <p>
-        The Founder’s Archive is a protected section reserved for authorized access.
-        Public archive material may be released through Research, Projects, News, or History.
+        The Founder’s Archive is reserved for authorized access.
       </p>
 
       <form class="contact-form login-form" id="login-form">
@@ -762,12 +588,9 @@ misuse of this website content is not permitted.
         <button class="button primary-button" type="submit">Enter Archive</button>
 
         <div class="form-note" id="login-note">
-          Access system prepared. Backend authentication is not active on this static test page.
+          Backend authentication is not active on this static test page.
         </div>
       </form>
-
-      <!-- Future backend hook: replace static gate with authenticated account login -->
-      <!-- Future backend hook: route approved users to /portal/archive/ -->
     </div>
   </div>
 
@@ -782,79 +605,69 @@ misuse of this website content is not permitted.
       <h2 id="contact-title">Contact Fromentin Industries</h2>
 
       <p>
-        Use this form for general inquiries, research, project records, founder archive matters,
-        careers, media, legal, or other official communication.
+        Use this form for official communication, project inquiries, research, careers, media, legal, or general contact.
       </p>
 
-      <form class="contact-form" id="contact-form" method="POST" action="/api/contact">
-        <!-- Future backend hook: replace /api/contact with production contact endpoint -->
-        <!-- Future backend hook: add spam protection, consent logging, rate limiting, and admin notification -->
+      <form class="contact-form" id="contact-form" action="https://formsubmit.co/contact@fromentinindustries.com" method="POST">
+        <input type="hidden" name="_subject" value="New Fromentin Industries Website Inquiry" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="true" />
+        <input type="hidden" name="_next" value="https://fromentinindustries.com/en/thanks.html" />
 
         <div class="form-row">
           <div class="form-group">
             <label for="full-name">Full Name</label>
-            <input id="full-name" name="fullName" type="text" autocomplete="name" required />
+            <input id="full-name" name="Full Name" type="text" autocomplete="name" required />
           </div>
 
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
+            <input id="email" name="Email" type="email" autocomplete="email" required />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="organization">Organization / Affiliation</label>
-            <input id="organization" name="organization" type="text" autocomplete="organization" />
+            <input id="organization" name="Organization" type="text" autocomplete="organization" />
           </div>
 
           <div class="form-group">
             <label for="inquiry-type">Inquiry Type</label>
-            <select id="inquiry-type" name="inquiryType" required>
+            <select id="inquiry-type" name="Inquiry Type" required>
               <option value="">Select an option</option>
-              <option value="general">General Inquiry</option>
-              <option value="research">Research</option>
-              <option value="projects">Projects</option>
-              <option value="founders-archive">Founder’s Archive</option>
-              <option value="careers">Careers</option>
-              <option value="media-news">Media / News</option>
-              <option value="legal">Legal</option>
-              <option value="other">Other</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Research">Research</option>
+              <option value="Projects">Projects</option>
+              <option value="Founder’s Archive">Founder’s Archive</option>
+              <option value="Careers">Careers</option>
+              <option value="Media / News">Media / News</option>
+              <option value="Legal">Legal</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </div>
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="Message" required></textarea>
         </div>
 
         <label class="checkbox-row">
-          <input type="checkbox" name="consent" required />
+          <input type="checkbox" name="Consent" value="Consent given" required />
           <span>I consent to Fromentin Industries using this information to review and respond to this inquiry.</span>
         </label>
 
         <button class="button primary-button" type="submit">Submit Inquiry</button>
-
-        <div class="form-note" id="form-note">
-          Contact system prepared. Backend processing is not active on this static test page.
-        </div>
       </form>
     </div>
   </div>
 
   <div class="hidden-development-hooks" aria-hidden="true">
-    <!-- Future backend hook: public news CMS -->
-    <!-- Future backend hook: project database -->
-    <!-- Future backend hook: bilingual content manager -->
-    <!-- Future backend hook: careers intake -->
-    <!-- Future backend hook: founder archive publishing system -->
-    <!-- Future backend hook: secure admin portal -->
-    <!-- Future backend hook: merchandise catalogue -->
-    <!-- Future route reserved: /admin/ -->
-    <!-- Future route reserved: /portal/ -->
-    <!-- Future route reserved: /merch/ -->
-    <!-- Future analytics placeholder: Cloudflare Web Analytics / privacy-respecting analytics -->
+    <!-- Future backend/admin portal reserved -->
+    <!-- Route: /portal/ -->
+    <!-- Route: /admin/ -->
+    <!-- Recommended free stack: Cloudflare Pages, Cloudflare Email Routing, FormSubmit, Cloudflare Turnstile, Supabase Free, Cloudflare Web Analytics -->
   </div>
 </body>
 </html>

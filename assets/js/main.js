@@ -17,21 +17,6 @@ misuse of this website content is not permitted.
 =========================================================
 */
 
-/* =========================================================
-   Fromentin Industries Main JavaScript
-   Handles:
-   - Lightweight custom cursor
-   - Header dropdown panels
-   - Mobile menu
-   - Auto-hide header on scroll
-   - Bottom cookie popup
-   - Full cookie preference modal
-   - Protected archive login wall
-   - Contact modal
-   - C.A.N.A.D.A mission framework
-   - Scroll reveal animations
-========================================================= */
-
 const cursorRing = document.getElementById("cursor-ring");
 const cursorDot = document.getElementById("cursor-dot");
 
@@ -45,17 +30,6 @@ const defaultCookiePreferences = {
   deviceStorage: false,
   contentPerformance: false,
   serviceImprovement: false,
-  contentProfiles: false,
-  personalizedContent: false,
-  limitedContentData: false,
-  deviceScanning: false,
-  preciseGeolocation: false,
-  limitedAdvertisingData: false,
-  advertisingProfiles: false,
-  personalizedAdvertising: false,
-  advertisingPerformance: false,
-  marketingGeolocation: false,
-  audienceStatistics: false,
   advertising: false
 };
 
@@ -64,12 +38,12 @@ let cookiePreferences = { ...defaultCookiePreferences };
 window.addEventListener("load", () => {
   bindLightweightCursor();
   bindCursorHoverStates();
-  bindDropdowns();
+  bindDropdownsForMobile();
+  bindHeaderScrollBehaviour();
+  bindHeroMissionMerge();
   bindCookieChoiceButtons();
   bindCanadaMissionPanels();
   bindProtectedLinks();
-  bindHeaderAutoHide();
-  bindContactForm();
   bindLoginForm();
   loadCookiePreferences();
   revealOnScroll();
@@ -77,12 +51,10 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     document.body.classList.add("loaded");
     openCookiePopupIfNeeded();
-  }, 800);
+  }, 500);
 });
 
-/* =========================================================
-   Lightweight Custom Cursor
-========================================================= */
+/* Cursor */
 
 function bindLightweightCursor() {
   if (!cursorRing || !cursorDot) return;
@@ -120,9 +92,7 @@ function bindCursorHoverStates() {
   });
 }
 
-/* =========================================================
-   Mobile Menu
-========================================================= */
+/* Mobile Menu */
 
 function toggleMobileMenu() {
   const nav = document.getElementById("site-nav");
@@ -132,16 +102,16 @@ function toggleMobileMenu() {
   nav.classList.toggle("open");
 }
 
-/* =========================================================
-   Header Dropdown Mega Panels
-========================================================= */
+/* Header Dropdowns - Hover on desktop, click on mobile */
 
-function bindDropdowns() {
+function bindDropdownsForMobile() {
   const triggers = document.querySelectorAll(".nav-trigger[data-dropdown]");
   const panels = document.querySelectorAll(".dropdown-panel");
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
+      if (window.innerWidth > 1100) return;
+
       event.stopPropagation();
 
       const targetId = trigger.dataset.dropdown;
@@ -151,7 +121,6 @@ function bindDropdowns() {
       closeDropdowns();
 
       if (!isOpen && targetPanel) {
-        trigger.classList.add("active");
         targetPanel.classList.add("open");
       }
     });
@@ -178,21 +147,15 @@ function bindDropdowns() {
 }
 
 function closeDropdowns() {
-  document.querySelectorAll(".nav-trigger").forEach((trigger) => {
-    trigger.classList.remove("active");
-  });
-
   document.querySelectorAll(".dropdown-panel").forEach((panel) => {
     panel.classList.remove("open");
   });
 }
 
-/* =========================================================
-   Header Auto-Hide on Scroll
-========================================================= */
+/* Header scroll behaviour */
 
-function bindHeaderAutoHide() {
-  const header = document.querySelector(".site-header");
+function bindHeaderScrollBehaviour() {
+  const header = document.getElementById("site-header");
 
   if (!header) return;
 
@@ -209,6 +172,12 @@ function bindHeaderAutoHide() {
       const scrollingDown = currentScrollY > lastScrollY;
       const pastHeader = currentScrollY > 120;
 
+      if (pastHeader) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
       if (scrollingDown && pastHeader) {
         header.classList.add("header-hidden");
         closeDropdowns();
@@ -222,9 +191,29 @@ function bindHeaderAutoHide() {
   });
 }
 
-/* =========================================================
-   C.A.N.A.D.A Mission Framework
-========================================================= */
+/* Hero mission merge */
+
+function bindHeroMissionMerge() {
+  const header = document.getElementById("site-header");
+  const hero = document.getElementById("landing-hero");
+
+  if (!header || !hero) return;
+
+  window.addEventListener("scroll", () => {
+    const heroHeight = hero.offsetHeight || window.innerHeight;
+    const progress = Math.min(window.scrollY / (heroHeight * 0.58), 1);
+
+    hero.style.setProperty("--hero-fade", String(progress));
+
+    if (progress > 0.42) {
+      header.classList.add("mission-visible");
+    } else {
+      header.classList.remove("mission-visible");
+    }
+  });
+}
+
+/* C.A.N.A.D.A */
 
 function bindCanadaMissionPanels() {
   const items = document.querySelectorAll(".canada-item");
@@ -254,9 +243,7 @@ function bindCanadaMissionPanels() {
   });
 }
 
-/* =========================================================
-   Cookie Popup and Preference Modal
-========================================================= */
+/* Cookies */
 
 function openCookiePopupIfNeeded() {
   const cookieSaved = localStorage.getItem("fi_cookie_preferences_saved");
@@ -296,16 +283,7 @@ function closeCookieModal() {
   if (!modal) return;
 
   modal.classList.remove("open");
-
-  const contactModal = document.getElementById("contact-modal");
-  const loginModal = document.getElementById("login-modal");
-
-  if (
-    (!contactModal || !contactModal.classList.contains("open")) &&
-    (!loginModal || !loginModal.classList.contains("open"))
-  ) {
-    document.body.classList.remove("modal-open");
-  }
+  clearModalLockIfNoModalsOpen();
 }
 
 function bindCookieChoiceButtons() {
@@ -394,22 +372,10 @@ function saveCookiePreferences() {
 }
 
 function activateAnalyticsPlaceholder() {
-  /*
-    Future analytics hook:
-    - Cloudflare Web Analytics
-    - Plausible
-    - Google Analytics
-
-    Do not activate production analytics without a valid token
-    and completed privacy/cookie disclosure.
-  */
-
   console.info("Analytics placeholder ready. No production analytics loaded.");
 }
 
-/* =========================================================
-   Protected Archive Login Wall
-========================================================= */
+/* Archive login wall */
 
 function bindProtectedLinks() {
   document.querySelectorAll(".login-required").forEach((element) => {
@@ -444,16 +410,7 @@ function closeLoginModal() {
   if (!modal) return;
 
   modal.classList.remove("open");
-
-  const cookieModal = document.getElementById("cookie-modal");
-  const contactModal = document.getElementById("contact-modal");
-
-  if (
-    (!cookieModal || !cookieModal.classList.contains("open")) &&
-    (!contactModal || !contactModal.classList.contains("open"))
-  ) {
-    document.body.classList.remove("modal-open");
-  }
+  clearModalLockIfNoModalsOpen();
 }
 
 function bindLoginForm() {
@@ -469,24 +426,10 @@ function bindLoginForm() {
     if (note) {
       note.classList.add("visible");
     }
-
-    /*
-      Future backend authentication logic:
-
-      fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(Object.fromEntries(new FormData(loginForm)))
-      });
-    */
   });
 }
 
-/* =========================================================
-   Contact Modal
-========================================================= */
+/* Contact modal */
 
 function openContactModal() {
   const modal = document.getElementById("contact-modal");
@@ -511,49 +454,20 @@ function closeContactModal() {
   if (!modal) return;
 
   modal.classList.remove("open");
+  clearModalLockIfNoModalsOpen();
+}
 
-  const cookieModal = document.getElementById("cookie-modal");
-  const loginModal = document.getElementById("login-modal");
+/* Shared modal unlock */
 
-  if (
-    (!cookieModal || !cookieModal.classList.contains("open")) &&
-    (!loginModal || !loginModal.classList.contains("open"))
-  ) {
+function clearModalLockIfNoModalsOpen() {
+  const openModal = document.querySelector(".modal.open");
+
+  if (!openModal) {
     document.body.classList.remove("modal-open");
   }
 }
 
-function bindContactForm() {
-  const contactForm = document.getElementById("contact-form");
-
-  if (!contactForm) return;
-
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const note = document.getElementById("form-note");
-
-    if (note) {
-      note.classList.add("visible");
-    }
-
-    /*
-      Future backend submission logic:
-
-      fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
-      });
-    */
-  });
-}
-
-/* =========================================================
-   Scroll Reveal Animations
-========================================================= */
+/* Reveal */
 
 function revealOnScroll() {
   const revealElements = document.querySelectorAll(".reveal");
