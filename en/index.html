@@ -48,14 +48,15 @@ misuse of this website content is not permitted.
 
 <body>
   <div class="site-intro" id="site-intro" aria-hidden="true">
-  <div class="site-intro-bg"></div>
-  <div class="site-intro-overlay"></div>
+    <div class="site-intro-bg"></div>
+    <div class="site-intro-overlay"></div>
 
-  <div class="site-intro-mark">
-    <span>Fromentin Industries</span>
-    <strong>Systems Loading</strong>
+    <div class="site-intro-mark">
+      <span>Fromentin Industries</span>
+      <strong>Systems Loading</strong>
+    </div>
   </div>
-</div>
+
   <div class="custom-cursor" id="cursor-ring"></div>
   <div class="custom-cursor-dot" id="cursor-dot"></div>
 
@@ -176,123 +177,89 @@ misuse of this website content is not permitted.
   </header>
 
   <main>
-<section class="landing-hero" id="landing-hero" aria-labelledby="main-title">
-  <div class="landing-matrix" aria-hidden="true"></div>
-  <div class="landing-matrix-glow" aria-hidden="true"></div>
+    <section class="landing-hero" id="landing-hero" aria-labelledby="main-title">
+      <div class="landing-matrix" aria-hidden="true"></div>
+      <div class="landing-matrix-glow" aria-hidden="true"></div>
 
-  <div class="landing-center" id="landing-center">
-    <h1 id="main-title" class="landing-title">
-      Systems for a Stronger Canada.
-    </h1>
-  </div>
+      <div class="landing-center" id="landing-center">
+        <h1 id="main-title" class="landing-title">
+          Systems for a Stronger Canada.
+        </h1>
+      </div>
 
-  <div class="scroll-cue" aria-hidden="true">
-    Scroll
-  </div>
-</section>
+      <div class="scroll-cue" aria-hidden="true">
+        Scroll
+      </div>
+    </section>
 
-    <section class="mission-strip mission-vertical-strip" aria-label="C.A.N.A.D.A mission framework">
-      <div class="mission-vertical-inner">
-        <div class="mission-vertical-heading">
+    <section class="canada-scroll-section" id="canada-framework" aria-label="C.A.N.A.D.A mission framework">
+      <div class="canada-sticky">
+        <div class="canada-header">
           <span>Mission Framework</span>
           <strong>C.A.N.A.D.A</strong>
         </div>
 
-        <div class="canada-stack">
-          <button class="canada-item active" type="button" data-canada-panel="canada-capability">
-            <span class="canada-letter">C</span>
-            <span class="canada-word">Capability</span>
-          </button>
+        <div class="canada-horizontal" aria-hidden="true">
+          <div class="canada-icon active" data-canada-icon="0">
+            <span>C</span>
+            <strong>Capability</strong>
+          </div>
 
-          <button class="canada-item" type="button" data-canada-panel="canada-advancement">
-            <span class="canada-letter">A</span>
-            <span class="canada-word">Advancement</span>
-          </button>
+          <div class="canada-icon" data-canada-icon="1">
+            <span>A</span>
+            <strong>Advancement</strong>
+          </div>
 
-          <button class="canada-item" type="button" data-canada-panel="canada-national">
-            <span class="canada-letter">N</span>
-            <span class="canada-word">National</span>
-          </button>
+          <div class="canada-icon" data-canada-icon="2">
+            <span>N</span>
+            <strong>National</strong>
+          </div>
 
-          <button class="canada-item" type="button" data-canada-panel="canada-architecture">
-            <span class="canada-letter">A</span>
-            <span class="canada-word">Architecture</span>
-          </button>
+          <div class="canada-icon" data-canada-icon="3">
+            <span>A</span>
+            <strong>Architecture</strong>
+          </div>
 
-          <button class="canada-item" type="button" data-canada-panel="canada-discipline">
-            <span class="canada-letter">D</span>
-            <span class="canada-word">Discipline</span>
-          </button>
+          <div class="canada-icon" data-canada-icon="4">
+            <span>D</span>
+            <strong>Discipline</strong>
+          </div>
 
-          <button class="canada-item" type="button" data-canada-panel="canada-ambition">
-            <span class="canada-letter">A</span>
-            <span class="canada-word">Ambition</span>
-          </button>
+          <div class="canada-icon" data-canada-icon="5">
+            <span>A</span>
+            <strong>Ambition</strong>
+          </div>
         </div>
 
-        <div class="canada-panels">
-          <article class="canada-panel active" id="canada-capability">
-            <div class="panel-title">C / Capability</div>
-            <p>
-              Building practical strength through engineering, infrastructure, systems planning,
-              industrial awareness, and technical execution.
-            </p>
-          </article>
-
-          <article class="canada-panel" id="canada-advancement">
-            <div class="panel-title">A / Advancement</div>
-            <p>
-              Moving ideas forward through research, documentation, design development,
-              education, and long-term institutional growth.
-            </p>
-          </article>
-
-          <article class="canada-panel" id="canada-national">
-            <div class="panel-title">N / National</div>
-            <p>
-              Maintaining a Canadian focus across infrastructure, industry, aerospace,
-              security research, digital systems, and future capability.
-            </p>
-          </article>
-
-          <article class="canada-panel" id="canada-architecture">
-            <div class="panel-title">A / Architecture</div>
-            <p>
-              Organizing systems, projects, research, records, and operating structures
-              so the company can scale without losing direction.
-            </p>
-          </article>
-
-          <article class="canada-panel" id="canada-discipline">
-            <div class="panel-title">D / Discipline</div>
-            <p>
-              Prioritizing order, standards, documentation, technical clarity, and controlled
-              execution over noise, hype, or weak presentation.
-            </p>
-          </article>
-
-          <article class="canada-panel" id="canada-ambition">
-            <div class="panel-title">A / Ambition</div>
-            <p>
-              Pursuing long-term Canadian industrial strength through serious work,
-              technical development, and a mission-first company identity.
-            </p>
-          </article>
+        <div class="canada-display">
+          <div class="canada-display-kicker" id="canada-kicker">C / Capability</div>
+          <p id="canada-text">
+            Building practical strength through engineering, infrastructure, systems planning,
+            industrial awareness, and technical execution.
+          </p>
         </div>
       </div>
+
+      <div class="canada-step" data-canada-step="0"></div>
+      <div class="canada-step" data-canada-step="1"></div>
+      <div class="canada-step" data-canada-step="2"></div>
+      <div class="canada-step" data-canada-step="3"></div>
+      <div class="canada-step" data-canada-step="4"></div>
+      <div class="canada-step" data-canada-step="5"></div>
     </section>
 
     <section class="f-layout">
       <aside class="f-rail" aria-label="Page sections">
-        <a href="#overview">01 / Overview</a>
-        <a href="#sectors">02 / Sectors</a>
-        <a href="#research">03 / Research</a>
-        <a href="#archive">04 / Archive</a>
-        <a href="#public-record">05 / Public Record</a>
+        <a href="#overview" class="f-rail-link active" data-section-link="overview">01 / Overview</a>
+        <a href="#sectors" class="f-rail-link" data-section-link="sectors">02 / Sectors</a>
+        <a href="#research" class="f-rail-link" data-section-link="research">03 / Research</a>
+        <a href="#archive" class="f-rail-link" data-section-link="archive">04 / Archive</a>
+        <a href="#public-record" class="f-rail-link" data-section-link="public-record">05 / Public Record</a>
       </aside>
 
       <div class="f-content">
-        <section class="f-section reveal" id="overview" aria-labelledby="overview-title">
+        <section class="f-section reveal active-section" id="overview" data-section-id="overview" aria-labelledby="overview-title">
+          <div class="section-number">01</div>
           <div class="section-label">Overview</div>
 
           <h2 id="overview-title">A Canadian company built around systems thinking.</h2>
@@ -304,7 +271,8 @@ misuse of this website content is not permitted.
           </p>
         </section>
 
-        <section class="f-section reveal" id="sectors" aria-labelledby="sectors-title">
+        <section class="f-section reveal" id="sectors" data-section-id="sectors" aria-labelledby="sectors-title">
+          <div class="section-number">02</div>
           <div class="section-label">Sectors</div>
 
           <h2 id="sectors-title">Canadian capability begins with organized sectors.</h2>
@@ -327,7 +295,8 @@ misuse of this website content is not permitted.
           </div>
         </section>
 
-        <section class="f-section reveal" id="research" aria-labelledby="research-title">
+        <section class="f-section reveal" id="research" data-section-id="research" aria-labelledby="research-title">
+          <div class="section-number">03</div>
           <div class="section-label">Research</div>
 
           <h2 id="research-title">Research, documentation, and technical direction.</h2>
@@ -339,7 +308,8 @@ misuse of this website content is not permitted.
           </p>
         </section>
 
-        <section class="f-section reveal" id="archive" aria-labelledby="archive-title">
+        <section class="f-section reveal" id="archive" data-section-id="archive" aria-labelledby="archive-title">
+          <div class="section-number">04</div>
           <div class="section-label">Founder’s Archive</div>
 
           <h2 id="archive-title">Protected records, development material, and founder-origin documentation.</h2>
@@ -354,7 +324,8 @@ misuse of this website content is not permitted.
           </button>
         </section>
 
-        <section class="f-section reveal" id="public-record" aria-labelledby="record-title">
+        <section class="f-section reveal" id="public-record" data-section-id="public-record" aria-labelledby="record-title">
+          <div class="section-number">05</div>
           <div class="section-label">Public Record</div>
 
           <h2 id="record-title">News, careers, history, and official information.</h2>
@@ -670,7 +641,6 @@ misuse of this website content is not permitted.
     <!-- Future backend/admin portal reserved -->
     <!-- Route: /portal/ -->
     <!-- Route: /admin/ -->
-    <!-- Recommended free stack: Cloudflare Pages, Cloudflare Email Routing, FormSubmit, Cloudflare Turnstile, Supabase Free, Cloudflare Web Analytics -->
   </div>
 </body>
 </html>
