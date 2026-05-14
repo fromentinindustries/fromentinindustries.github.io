@@ -92,8 +92,8 @@ misuse of this website content is not permitted.
           </button>
         </div>
 
-        <div class="nav-item has-dropdown">
-          <button type="button" class="nav-trigger" data-dropdown="archive-dropdown">
+        <div class="nav-item">
+          <button type="button" class="nav-trigger login-required" data-protected-area="Founder’s Archive">
             Archive
           </button>
         </div>
@@ -116,7 +116,6 @@ misuse of this website content is not permitted.
       </nav>
 
       <div class="nav-control">
-        <button class="icon-button" type="button" onclick="toggleTheme()">Theme</button>
         <button class="mobile-menu-button" type="button" onclick="toggleMobileMenu()">Menu</button>
       </div>
     </div>
@@ -172,32 +171,6 @@ misuse of this website content is not permitted.
         </div>
       </div>
     </div>
-
-    <div class="dropdown-panel" id="archive-dropdown">
-      <div class="dropdown-inner">
-        <div>
-          <div class="dropdown-label">Archive</div>
-          <h3>Founder records and long-term development material.</h3>
-        </div>
-
-        <div class="dropdown-links">
-          <a href="/en/founders-archive.html">
-            <strong>Founder’s Archive</strong>
-            <span>Engineering notes, school work, leadership records, and early research material.</span>
-          </a>
-
-          <a href="/en/news.html">
-            <strong>Newsroom</strong>
-            <span>Company updates, public notices, announcements, and milestone records.</span>
-          </a>
-
-          <a href="/en/legal.html">
-            <strong>Legal Notice</strong>
-            <span>Ownership, site usage, brand protection, and public legal information.</span>
-          </a>
-        </div>
-      </div>
-    </div>
   </header>
 
   <section class="hero" aria-labelledby="main-title">
@@ -242,21 +215,101 @@ misuse of this website content is not permitted.
           <ul class="panel-list">
             <li>Infrastructure, industry, aerospace, digital systems, and national capability.</li>
             <li>Research-driven planning, documentation, concept development, and technical organization.</li>
-            <li>Founder’s Archive, projects, and public records structured for long-term institutional growth.</li>
+            <li>Projects, public records, and research systems structured for long-term institutional growth.</li>
           </ul>
         </div>
       </aside>
     </div>
   </section>
 
-  <div class="mission-strip">
-    <div class="mission-inner canada-strip">
-      <span><strong>C</strong>apability</span>
-      <span><strong>A</strong>dvancement</span>
-      <span><strong>N</strong>ational</span>
-      <span><strong>A</strong>rchitecture</span>
-      <span><strong>D</strong>iscipline</span>
-      <span><strong>A</strong>mbition</span>
+  <div class="mission-strip mission-vertical-strip" aria-label="C.A.N.A.D.A mission framework">
+    <div class="mission-vertical-inner">
+      <div class="mission-vertical-heading">
+        <span>Mission Framework</span>
+        <strong>C.A.N.A.D.A</strong>
+      </div>
+
+      <div class="canada-stack">
+        <button class="canada-item active" type="button" data-canada-panel="canada-capability">
+          <span class="canada-letter">C</span>
+          <span class="canada-word">Capability</span>
+        </button>
+
+        <button class="canada-item" type="button" data-canada-panel="canada-advancement">
+          <span class="canada-letter">A</span>
+          <span class="canada-word">Advancement</span>
+        </button>
+
+        <button class="canada-item" type="button" data-canada-panel="canada-national">
+          <span class="canada-letter">N</span>
+          <span class="canada-word">National</span>
+        </button>
+
+        <button class="canada-item" type="button" data-canada-panel="canada-architecture">
+          <span class="canada-letter">A</span>
+          <span class="canada-word">Architecture</span>
+        </button>
+
+        <button class="canada-item" type="button" data-canada-panel="canada-discipline">
+          <span class="canada-letter">D</span>
+          <span class="canada-word">Discipline</span>
+        </button>
+
+        <button class="canada-item" type="button" data-canada-panel="canada-ambition">
+          <span class="canada-letter">A</span>
+          <span class="canada-word">Ambition</span>
+        </button>
+      </div>
+
+      <div class="canada-panels">
+        <article class="canada-panel active" id="canada-capability">
+          <div class="panel-title">C / Capability</div>
+          <p>
+            Building practical strength through engineering, infrastructure, systems planning,
+            industrial awareness, and technical execution.
+          </p>
+        </article>
+
+        <article class="canada-panel" id="canada-advancement">
+          <div class="panel-title">A / Advancement</div>
+          <p>
+            Moving ideas forward through research, documentation, design development,
+            education, and long-term institutional growth.
+          </p>
+        </article>
+
+        <article class="canada-panel" id="canada-national">
+          <div class="panel-title">N / National</div>
+          <p>
+            Maintaining a Canadian focus across infrastructure, industry, aerospace,
+            security research, digital systems, and future capability.
+          </p>
+        </article>
+
+        <article class="canada-panel" id="canada-architecture">
+          <div class="panel-title">A / Architecture</div>
+          <p>
+            Organizing systems, projects, research, records, and operating structures
+            so the company can scale without losing direction.
+          </p>
+        </article>
+
+        <article class="canada-panel" id="canada-discipline">
+          <div class="panel-title">D / Discipline</div>
+          <p>
+            Prioritizing order, standards, documentation, technical clarity, and controlled
+            execution over noise, hype, or weak presentation.
+          </p>
+        </article>
+
+        <article class="canada-panel" id="canada-ambition">
+          <div class="panel-title">A / Ambition</div>
+          <p>
+            Pursuing long-term Canadian industrial strength through serious work,
+            technical development, and a mission-first company identity.
+          </p>
+        </article>
+      </div>
     </div>
   </div>
 
@@ -283,7 +336,7 @@ misuse of this website content is not permitted.
 
         <p class="section-copy">
           The company’s public platform organizes sectors, research, projects, historical records,
-          and founder-origin material into a single institutional front.
+          and company information into a single institutional front.
         </p>
       </section>
 
@@ -330,16 +383,17 @@ misuse of this website content is not permitted.
       <section class="f-section reveal" id="archive" aria-labelledby="archive-title">
         <div class="section-label">Founder’s Archive</div>
 
-        <h2 id="archive-title">A record of origin, learning, leadership, and technical development.</h2>
+        <h2 id="archive-title">Protected records, development material, and founder-origin documentation.</h2>
 
         <p class="section-copy">
-          The Founder’s Archive preserves selected school-based technical work, leadership records,
-          engineering notes, early research, design thinking, aerospace interests, and the formative
-          material behind Fromentin Industries.
+          The Founder’s Archive is a protected section reserved for authorized access. Public archive
+          material may be released through Research, Projects, News, or History.
         </p>
 
         <div class="inline-actions">
-          <a class="button primary-button" href="/en/founders-archive.html">Enter Archive</a>
+          <button class="button primary-button login-required" type="button" data-protected-area="Founder’s Archive">
+            Request Archive Access
+          </button>
         </div>
       </section>
 
@@ -410,7 +464,7 @@ misuse of this website content is not permitted.
           <a href="/en/sectors.html">Sectors</a>
           <a href="/en/research.html">Research</a>
           <a href="/en/projects.html">Projects</a>
-          <a href="/en/founders-archive.html">Founder’s Archive</a>
+          <a href="#" class="login-required" data-protected-area="Founder’s Archive">Founder’s Archive</a>
         </div>
       </div>
 
@@ -431,10 +485,31 @@ misuse of this website content is not permitted.
     </div>
   </footer>
 
+  <div class="cookie-popup" id="cookie-popup" role="dialog" aria-label="Cookie notice">
+    <div class="cookie-popup-text">
+      <strong>Privacy and Cookie Notice</strong>
+      <p>
+        We and, where applicable, approved service providers may place cookies, access,
+        and use non-sensitive information from your device to improve products, measure
+        performance, support site functionality, and personalize future content.
+      </p>
+    </div>
+
+    <div class="cookie-popup-actions">
+      <button type="button" class="small-button" onclick="rejectOptionalCookies()">Reject Optional</button>
+      <button type="button" class="small-button" onclick="openCookieModal(true)">Customize</button>
+      <button type="button" class="small-button accept" onclick="acceptAllCookies()">Accept All</button>
+    </div>
+  </div>
+
   <div class="modal cookie-modal" id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
-    <div class="modal-backdrop"></div>
+    <div class="modal-backdrop" onclick="closeCookieModal()"></div>
 
     <div class="modal-panel cookie-panel">
+      <button class="modal-close" type="button" onclick="closeCookieModal()" aria-label="Close cookie preferences">
+        ×
+      </button>
+
       <img
         class="modal-logo"
         src="../assets/img/FI-Logo-White_Full-Transparent-v1.png"
@@ -510,7 +585,7 @@ misuse of this website content is not permitted.
 
         <div class="cookie-row" data-cookie-key="contentProfiles">
           <div>
-            <strong>Create profiles to personalise content</strong>
+            <strong>Create profiles to personalize content</strong>
             <span>Future-ready personalization category.</span>
           </div>
           <div class="choice-buttons">
@@ -521,7 +596,7 @@ misuse of this website content is not permitted.
 
         <div class="cookie-row" data-cookie-key="personalizedContent">
           <div>
-            <strong>Use profiles to select personalised content</strong>
+            <strong>Use profiles to select personalized content</strong>
             <span>Future-ready personalized content selection.</span>
           </div>
           <div class="choice-buttons">
@@ -576,7 +651,7 @@ misuse of this website content is not permitted.
 
         <div class="cookie-row" data-cookie-key="advertisingProfiles">
           <div>
-            <strong>Create profiles for personalised advertising</strong>
+            <strong>Create profiles for personalized advertising</strong>
             <span>Future-ready advertising profile category.</span>
           </div>
           <div class="choice-buttons">
@@ -587,7 +662,7 @@ misuse of this website content is not permitted.
 
         <div class="cookie-row" data-cookie-key="personalizedAdvertising">
           <div>
-            <strong>Use profiles to select personalised advertising</strong>
+            <strong>Use profiles to select personalized advertising</strong>
             <span>Future-ready advertising selection category.</span>
           </div>
           <div class="choice-buttons">
@@ -652,6 +727,47 @@ misuse of this website content is not permitted.
         <a href="/en/terms.html">Terms of Use</a>
         <a href="/en/cookies.html">Cookie Policy</a>
       </div>
+    </div>
+  </div>
+
+  <div class="modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+    <div class="modal-backdrop" onclick="closeLoginModal()"></div>
+
+    <div class="modal-panel login-panel">
+      <button class="modal-close" type="button" onclick="closeLoginModal()" aria-label="Close login panel">
+        ×
+      </button>
+
+      <img
+        class="modal-logo"
+        src="../assets/img/FI-Logo-White_Full-Transparent-v1.png"
+        alt="Fromentin Industries"
+      />
+
+      <div class="section-label">Protected Area</div>
+
+      <h2 id="login-title">Founder’s Archive Access</h2>
+
+      <p>
+        The Founder’s Archive is a protected section reserved for authorized access.
+        Public archive material may be released through Research, Projects, News, or History.
+      </p>
+
+      <form class="contact-form login-form" id="login-form">
+        <div class="form-group">
+          <label for="archive-access-code">Access Code</label>
+          <input id="archive-access-code" name="archiveAccessCode" type="password" autocomplete="off" required />
+        </div>
+
+        <button class="button primary-button" type="submit">Enter Archive</button>
+
+        <div class="form-note" id="login-note">
+          Access system prepared. Backend authentication is not active on this static test page.
+        </div>
+      </form>
+
+      <!-- Future backend hook: replace static gate with authenticated account login -->
+      <!-- Future backend hook: route approved users to /portal/archive/ -->
     </div>
   </div>
 

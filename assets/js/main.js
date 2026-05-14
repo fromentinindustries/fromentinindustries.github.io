@@ -17,13 +17,27 @@ misuse of this website content is not permitted.
 =========================================================
 */
 
+/* =========================================================
+   Fromentin Industries Main JavaScript
+   Handles:
+   - Lightweight custom cursor
+   - Header dropdown panels
+   - Mobile menu
+   - Auto-hide header on scroll
+   - Bottom cookie popup
+   - Full cookie preference modal
+   - Protected archive login wall
+   - Contact modal
+   - C.A.N.A.D.A mission framework
+   - Scroll reveal animations
+========================================================= */
+
 const cursorRing = document.getElementById("cursor-ring");
 const cursorDot = document.getElementById("cursor-dot");
 
-let mouseX = 0;
-let mouseY = 0;
-let ringX = 0;
-let ringY = 0;
+let cursorFrame = null;
+let cursorX = 0;
+let cursorY = 0;
 
 const defaultCookiePreferences = {
   functional: true,
@@ -47,48 +61,68 @@ const defaultCookiePreferences = {
 
 let cookiePreferences = { ...defaultCookiePreferences };
 
-document.addEventListener("mousemove", (event) => {
-  mouseX = event.clientX;
-  mouseY = event.clientY;
-
-  if (cursorDot) {
-    cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-  }
-});
-
-function animateCursor() {
-  ringX += (mouseX - ringX) * 0.18;
-  ringY += (mouseY - ringY) * 0.18;
-
-  if (cursorRing) {
-    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-  }
-
-  requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
-
 window.addEventListener("load", () => {
-  applySavedTheme();
+  bindLightweightCursor();
   bindCursorHoverStates();
   bindDropdowns();
   bindCookieChoiceButtons();
+  bindCanadaMissionPanels();
+  bindProtectedLinks();
+  bindHeaderAutoHide();
+  bindContactForm();
+  bindLoginForm();
   loadCookiePreferences();
   revealOnScroll();
 
   setTimeout(() => {
     document.body.classList.add("loaded");
-    openCookieModalIfNeeded();
+    openCookiePopupIfNeeded();
   }, 800);
 });
 
-function bindCursorHoverStates() {
-  document.querySelectorAll("a, button, input, textarea, select").forEach((element) => {
-    element.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
-    element.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+/* =========================================================
+   Lightweight Custom Cursor
+========================================================= */
+
+function bindLightweightCursor() {
+  if (!cursorRing || !cursorDot) return;
+
+  document.addEventListener("mousemove", (event) => {
+    cursorX = event.clientX;
+    cursorY = event.clientY;
+
+    if (!document.body.classList.contains("cursor-ready")) {
+      document.body.classList.add("cursor-ready");
+    }
+
+    if (cursorFrame) return;
+
+    cursorFrame = requestAnimationFrame(() => {
+      const position = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+
+      cursorRing.style.transform = position;
+      cursorDot.style.transform = position;
+
+      cursorFrame = null;
+    });
   });
 }
+
+function bindCursorHoverStates() {
+  document.querySelectorAll("a, button, input, textarea, select").forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      document.body.classList.add("cursor-hover");
+    });
+
+    element.addEventListener("mouseleave", () => {
+      document.body.classList.remove("cursor-hover");
+    });
+  });
+}
+
+/* =========================================================
+   Mobile Menu
+========================================================= */
 
 function toggleMobileMenu() {
   const nav = document.getElementById("site-nav");
@@ -98,8 +132,12 @@ function toggleMobileMenu() {
   nav.classList.toggle("open");
 }
 
+/* =========================================================
+   Header Dropdown Mega Panels
+========================================================= */
+
 function bindDropdowns() {
-  const triggers = document.querySelectorAll(".nav-trigger");
+  const triggers = document.querySelectorAll(".nav-trigger[data-dropdown]");
   const panels = document.querySelectorAll(".dropdown-panel");
 
   triggers.forEach((trigger) => {
@@ -110,8 +148,7 @@ function bindDropdowns() {
       const targetPanel = document.getElementById(targetId);
       const isOpen = targetPanel && targetPanel.classList.contains("open");
 
-      triggers.forEach((item) => item.classList.remove("active"));
-      panels.forEach((panel) => panel.classList.remove("open"));
+      closeDropdowns();
 
       if (!isOpen && targetPanel) {
         trigger.classList.add("active");
@@ -134,6 +171,8 @@ function bindDropdowns() {
     if (event.key === "Escape") {
       closeDropdowns();
       closeContactModal();
+      closeLoginModal();
+      closeCookieModal();
     }
   });
 }
@@ -148,39 +187,91 @@ function closeDropdowns() {
   });
 }
 
-function toggleTheme() {
-  const isDark = document.body.classList.contains("dark-mode");
+/* =========================================================
+   Header Auto-Hide on Scroll
+========================================================= */
 
-  document.body.classList.remove("light-mode", "dark-mode");
+function bindHeaderAutoHide() {
+  const header = document.querySelector(".site-header");
 
-  if (isDark) {
-    document.body.classList.add("light-mode");
-    localStorage.setItem("fi_theme", "light");
-  } else {
-    document.body.classList.add("dark-mode");
-    localStorage.setItem("fi_theme", "dark");
-  }
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
+      const pastHeader = currentScrollY > 120;
+
+      if (scrollingDown && pastHeader) {
+        header.classList.add("header-hidden");
+        closeDropdowns();
+      } else {
+        header.classList.remove("header-hidden");
+      }
+
+      lastScrollY = Math.max(currentScrollY, 0);
+      ticking = false;
+    });
+  });
 }
 
-function applySavedTheme() {
-  const savedTheme = localStorage.getItem("fi_theme");
+/* =========================================================
+   C.A.N.A.D.A Mission Framework
+========================================================= */
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    document.body.classList.remove("light-mode");
-  }
+function bindCanadaMissionPanels() {
+  const items = document.querySelectorAll(".canada-item");
+  const panels = document.querySelectorAll(".canada-panel");
 
-  if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
-    document.body.classList.remove("dark-mode");
-  }
+  if (!items.length || !panels.length) return;
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      const targetId = item.dataset.canadaPanel;
+      const targetPanel = document.getElementById(targetId);
+
+      items.forEach((button) => {
+        button.classList.remove("active");
+      });
+
+      panels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+
+      item.classList.add("active");
+
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+      }
+    });
+  });
 }
 
-function openCookieModalIfNeeded() {
+/* =========================================================
+   Cookie Popup and Preference Modal
+========================================================= */
+
+function openCookiePopupIfNeeded() {
   const cookieSaved = localStorage.getItem("fi_cookie_preferences_saved");
+  const popup = document.getElementById("cookie-popup");
 
-  if (!cookieSaved) {
-    openCookieModal(false);
+  if (!cookieSaved && popup) {
+    popup.classList.add("visible");
+  }
+}
+
+function closeCookiePopup() {
+  const popup = document.getElementById("cookie-popup");
+
+  if (popup) {
+    popup.classList.remove("visible");
   }
 }
 
@@ -188,6 +279,8 @@ function openCookieModal(forceOpen = true) {
   const modal = document.getElementById("cookie-modal");
 
   if (!modal) return;
+
+  closeCookiePopup();
 
   if (forceOpen) {
     loadCookiePreferences();
@@ -205,8 +298,12 @@ function closeCookieModal() {
   modal.classList.remove("open");
 
   const contactModal = document.getElementById("contact-modal");
+  const loginModal = document.getElementById("login-modal");
 
-  if (!contactModal || !contactModal.classList.contains("open")) {
+  if (
+    (!contactModal || !contactModal.classList.contains("open")) &&
+    (!loginModal || !loginModal.classList.contains("open"))
+  ) {
     document.body.classList.remove("modal-open");
   }
 }
@@ -219,9 +316,13 @@ function bindCookieChoiceButtons() {
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         const choice = button.dataset.choice === "true";
+
         cookiePreferences[key] = choice;
 
-        buttons.forEach((item) => item.classList.remove("active"));
+        buttons.forEach((item) => {
+          item.classList.remove("active");
+        });
+
         button.classList.add("active");
       });
     });
@@ -242,6 +343,7 @@ function loadCookiePreferences() {
     }
   }
 
+  cookiePreferences.functional = true;
   updateCookieButtons();
 }
 
@@ -283,6 +385,7 @@ function saveCookiePreferences() {
   localStorage.setItem("fi_cookie_preferences", JSON.stringify(cookiePreferences));
   localStorage.setItem("fi_cookie_preferences_saved", "true");
 
+  closeCookiePopup();
   closeCookieModal();
 
   if (cookiePreferences.analytics) {
@@ -303,6 +406,87 @@ function activateAnalyticsPlaceholder() {
 
   console.info("Analytics placeholder ready. No production analytics loaded.");
 }
+
+/* =========================================================
+   Protected Archive Login Wall
+========================================================= */
+
+function bindProtectedLinks() {
+  document.querySelectorAll(".login-required").forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const area = element.dataset.protectedArea || "Protected Area";
+      openLoginModal(area);
+    });
+  });
+}
+
+function openLoginModal(areaName = "Protected Area") {
+  const modal = document.getElementById("login-modal");
+  const title = document.getElementById("login-title");
+
+  if (!modal) return;
+
+  closeDropdowns();
+
+  if (title) {
+    title.textContent = `${areaName} Access`;
+  }
+
+  modal.classList.add("open");
+  document.body.classList.add("modal-open");
+}
+
+function closeLoginModal() {
+  const modal = document.getElementById("login-modal");
+
+  if (!modal) return;
+
+  modal.classList.remove("open");
+
+  const cookieModal = document.getElementById("cookie-modal");
+  const contactModal = document.getElementById("contact-modal");
+
+  if (
+    (!cookieModal || !cookieModal.classList.contains("open")) &&
+    (!contactModal || !contactModal.classList.contains("open"))
+  ) {
+    document.body.classList.remove("modal-open");
+  }
+}
+
+function bindLoginForm() {
+  const loginForm = document.getElementById("login-form");
+
+  if (!loginForm) return;
+
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const note = document.getElementById("login-note");
+
+    if (note) {
+      note.classList.add("visible");
+    }
+
+    /*
+      Future backend authentication logic:
+
+      fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(Object.fromEntries(new FormData(loginForm)))
+      });
+    */
+  });
+}
+
+/* =========================================================
+   Contact Modal
+========================================================= */
 
 function openContactModal() {
   const modal = document.getElementById("contact-modal");
@@ -329,15 +513,21 @@ function closeContactModal() {
   modal.classList.remove("open");
 
   const cookieModal = document.getElementById("cookie-modal");
+  const loginModal = document.getElementById("login-modal");
 
-  if (!cookieModal || !cookieModal.classList.contains("open")) {
+  if (
+    (!cookieModal || !cookieModal.classList.contains("open")) &&
+    (!loginModal || !loginModal.classList.contains("open"))
+  ) {
     document.body.classList.remove("modal-open");
   }
 }
 
-const contactForm = document.getElementById("contact-form");
+function bindContactForm() {
+  const contactForm = document.getElementById("contact-form");
 
-if (contactForm) {
+  if (!contactForm) return;
+
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -361,6 +551,10 @@ if (contactForm) {
   });
 }
 
+/* =========================================================
+   Scroll Reveal Animations
+========================================================= */
+
 function revealOnScroll() {
   const revealElements = document.querySelectorAll(".reveal");
 
@@ -377,5 +571,7 @@ function revealOnScroll() {
     threshold: 0.16
   });
 
-  revealElements.forEach((element) => revealObserver.observe(element));
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
 }
