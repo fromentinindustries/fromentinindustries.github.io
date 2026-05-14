@@ -616,7 +616,7 @@ body.cursor-hover .custom-cursor {
   text-shadow: 0 0 28px rgba(200, 16, 46, 0.22), 0 0 70px rgba(0, 0, 0, 0.55);
   opacity: 0;
   transform: translateY(20px) scale(0.98);
-  animation: landingTitleIn 1.35s ease 2.15s forwards;
+  animation: landingTitleIn 1.35s ease 7.2s forwards;
 }
 
 @keyframes landingTitleIn {

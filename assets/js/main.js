@@ -65,7 +65,18 @@ const canadaContent = [
 let activeCanadaIndex = 0;
 
 window.addEventListener("load", () => {
-  bindIntroTransition();
+  function bindIntroTransition() {
+  const intro = document.getElementById("site-intro");
+  if (!intro) return;
+
+  window.setTimeout(() => {
+    document.body.classList.add("intro-complete");
+
+    window.setTimeout(() => {
+      intro.remove();
+    }, 1000);
+  }, 7000);
+};
   bindLightweightCursor();
   bindCursorHoverStates();
   bindDropdownsForMobile();
