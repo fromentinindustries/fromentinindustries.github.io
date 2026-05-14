@@ -3,17 +3,6 @@
 Fromentin Industries
 Private Development-Stage Website
 Systems for a Stronger Canada
-
-Copyright Notice / Code Watermark
-
-All site structure, written content, branding, layouts,
-visual identity, logos, wording, page organization,
-documentation concepts and related materials are part of
-the Fromentin Industries brand system unless otherwise stated.
-
-Unauthorized copying, mirroring, scraping, impersonation,
-commercial reuse, redistribution, misleading reference or
-misuse of this website content is not permitted.
 =========================================================
 */
 
@@ -23,6 +12,9 @@ const cursorDot = document.getElementById("cursor-dot");
 let cursorFrame = null;
 let cursorX = 0;
 let cursorY = 0;
+
+const TEMP_ARCHIVE_PASSWORD = "FI-ARCHIVE-2026";
+const ARCHIVE_UNLOCK_KEY = "fi_archive_unlocked";
 
 const defaultCookiePreferences = {
   functional: true,
@@ -64,19 +56,8 @@ const canadaContent = [
 
 let activeCanadaIndex = 0;
 
-window.addEventListener("load", () => {
-  function bindIntroTransition() {
-  const intro = document.getElementById("site-intro");
-  if (!intro) return;
-
-  window.setTimeout(() => {
-    document.body.classList.add("intro-complete");
-
-    window.setTimeout(() => {
-      intro.remove();
-    }, 1000);
-  }, 7000);
-};
+document.addEventListener("DOMContentLoaded", () => {
+  bindIntroTransition();
   bindLightweightCursor();
   bindCursorHoverStates();
   bindDropdownsForMobile();
@@ -104,7 +85,11 @@ function bindIntroTransition() {
 
   window.setTimeout(() => {
     document.body.classList.add("intro-complete");
-  }, 2400);
+
+    window.setTimeout(() => {
+      intro.remove();
+    }, 1000);
+  }, 7000);
 }
 
 /* Cursor */
@@ -138,7 +123,7 @@ function bindCursorHoverStates() {
   });
 }
 
-/* Mobile Menu */
+/* Mobile menu */
 
 function toggleMobileMenu() {
   const nav = document.getElementById("site-nav");
@@ -203,7 +188,6 @@ function bindHeaderScrollBehaviour() {
 
   window.addEventListener("scroll", () => {
     if (ticking) return;
-
     ticking = true;
 
     requestAnimationFrame(() => {
@@ -226,8 +210,6 @@ function bindHeaderScrollBehaviour() {
   });
 }
 
-/* Hero text fades into header */
-
 function bindHeroMissionMerge() {
   const header = document.getElementById("site-header");
   const hero = document.getElementById("landing-hero");
@@ -246,20 +228,21 @@ function bindHeroMissionMerge() {
   update();
 }
 
-/* Scroll-driven C.A.N.A.D.A */
+/* C.A.N.A.D.A */
 
 function bindScrollDrivenCanada() {
   const section = document.getElementById("canada-framework");
   const display = document.querySelector(".canada-display");
   const kicker = document.getElementById("canada-kicker");
   const text = document.getElementById("canada-text");
-  const icons = document.querySelectorAll(".canada-icon");
+  const units = document.querySelectorAll(".canada-unit");
 
-  if (!section || !display || !kicker || !text || !icons.length) return;
+  if (!section || !display || !kicker || !text || !units.length) return;
 
   const update = () => {
     if (window.innerWidth <= 1100) {
-      setCanadaIndex(0, display, kicker, text, icons);
+      const visibleIndex = getClosestCanadaMobileIndex(units);
+      setCanadaIndex(visibleIndex, display, kicker, text, units);
       return;
     }
 
@@ -269,7 +252,7 @@ function bindScrollDrivenCanada() {
     const progress = scrollable > 0 ? travelled / scrollable : 0;
     const index = Math.min(canadaContent.length - 1, Math.floor(progress * canadaContent.length));
 
-    setCanadaIndex(index, display, kicker, text, icons);
+    setCanadaIndex(index, display, kicker, text, units);
   };
 
   window.addEventListener("scroll", update, { passive: true });
@@ -277,13 +260,32 @@ function bindScrollDrivenCanada() {
   update();
 }
 
-function setCanadaIndex(index, display, kicker, text, icons) {
+function getClosestCanadaMobileIndex(units) {
+  const viewportCenter = window.innerHeight / 2;
+  let bestIndex = 0;
+  let bestDistance = Infinity;
+
+  units.forEach((unit, index) => {
+    const rect = unit.getBoundingClientRect();
+    const unitCenter = rect.top + rect.height / 2;
+    const distance = Math.abs(unitCenter - viewportCenter);
+
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestIndex = index;
+    }
+  });
+
+  return bestIndex;
+}
+
+function setCanadaIndex(index, display, kicker, text, units) {
   if (index === activeCanadaIndex && kicker.textContent === canadaContent[index].kicker) return;
 
   activeCanadaIndex = index;
 
-  icons.forEach((icon) => {
-    icon.classList.toggle("active", Number(icon.dataset.canadaIcon) === index);
+  units.forEach((unit) => {
+    unit.classList.toggle("active", Number(unit.dataset.canadaIcon) === index);
   });
 
   display.classList.add("switching");
@@ -295,11 +297,11 @@ function setCanadaIndex(index, display, kicker, text, icons) {
   }, 160);
 }
 
-/* 01-05 scroll rail */
+/* 01–05 rail */
 
 function bindSectionRail() {
   const sections = document.querySelectorAll(".f-section[data-section-id]");
-  const links = document.querySelectorAll(".f-rail-link");
+  const links = document.querySelectorAll(".f-rail-card");
 
   if (!sections.length || !links.length) return;
 
@@ -332,11 +334,10 @@ function bindSectionRail() {
   update();
 }
 
-/* Reversible reveal animations */
+/* Reversible reveals */
 
 function bindReversibleReveal() {
   const revealElements = document.querySelectorAll(".reveal");
-
   if (!revealElements.length) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -396,7 +397,6 @@ function bindCookieChoiceButtons() {
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         cookiePreferences[key] = button.dataset.choice === "true";
-
         buttons.forEach((item) => item.classList.remove("active"));
         button.classList.add("active");
       });
@@ -472,6 +472,12 @@ function bindProtectedLinks() {
   document.querySelectorAll(".login-required").forEach((element) => {
     element.addEventListener("click", (event) => {
       event.preventDefault();
+
+      if (localStorage.getItem(ARCHIVE_UNLOCK_KEY) === "true") {
+        window.location.href = "/en/founders-archive.html";
+        return;
+      }
+
       openLoginModal(element.dataset.protectedArea || "Protected Area");
     });
   });
@@ -503,16 +509,34 @@ function closeLoginModal() {
 
 function bindLoginForm() {
   const loginForm = document.getElementById("login-form");
+  const passwordInput = document.getElementById("archive-access-code");
+  const note = document.getElementById("login-note");
 
-  if (!loginForm) return;
+  if (!loginForm || !passwordInput) return;
 
   loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const note = document.getElementById("login-note");
+    const enteredPassword = passwordInput.value.trim();
+
+    if (enteredPassword === TEMP_ARCHIVE_PASSWORD) {
+      localStorage.setItem(ARCHIVE_UNLOCK_KEY, "true");
+
+      if (note) {
+        note.classList.add("visible");
+        note.textContent = "Access granted. Redirecting...";
+      }
+
+      window.setTimeout(() => {
+        window.location.href = "/en/founders-archive.html";
+      }, 650);
+
+      return;
+    }
 
     if (note) {
       note.classList.add("visible");
+      note.textContent = "Access denied. Check the archive access code.";
     }
   });
 }
@@ -521,7 +545,6 @@ function bindLoginForm() {
 
 function openContactModal() {
   const modal = document.getElementById("contact-modal");
-
   if (!modal) return;
 
   closeDropdowns();
@@ -530,15 +553,11 @@ function openContactModal() {
   document.body.classList.add("modal-open");
 
   const nav = document.getElementById("site-nav");
-
-  if (nav) {
-    nav.classList.remove("open");
-  }
+  if (nav) nav.classList.remove("open");
 }
 
 function closeContactModal() {
   const modal = document.getElementById("contact-modal");
-
   if (!modal) return;
 
   modal.classList.remove("open");
